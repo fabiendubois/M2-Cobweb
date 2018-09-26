@@ -1,0 +1,64 @@
+[2018-09-26T16:20:16.153] [ERROR] default - { message: 'password bad format', code: 409 }
+[2018-09-26T16:20:26.005] [ERROR] default - { message: 'password bad format', code: 409 }
+[2018-09-26T16:20:36.950] [ERROR] default - TypeError: this.findByEmail is not a function
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/users.service.js:40:39)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/users.path.js:44:41
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:174:3)
+[2018-09-26T16:46:21.184] [ERROR] default - { error: password authentication failed for user "user"
+    at Connection.parseE (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/pg/lib/connection.js:553:11)
+    at Connection.parseMessage (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/pg/lib/connection.js:378:19)
+    at Socket.<anonymous> (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/pg/lib/connection.js:119:22)
+    at Socket.emit (events.js:182:13)
+    at addChunk (_stream_readable.js:283:12)
+    at readableAddChunk (_stream_readable.js:264:11)
+    at Socket.Readable.push (_stream_readable.js:219:10)
+    at TCP.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)
+  name: 'error',
+  length: 100,
+  severity: 'FATAL',
+  code: '28P01',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'auth.c',
+  line: '328',
+  routine: 'auth_failed' }
+[2018-09-26T16:46:21.185] [ERROR] default - { message: 'Internal DataBase Error', code: 500 }
+[2018-09-26T16:46:51.592] [ERROR] default - { message: 'email exist', code: 409 }
+[2018-09-26T16:46:57.975] [ERROR] default - { message: 'email exist', code: 409 }
+[2018-09-26T16:49:09.692] [ERROR] default - TypeError: isEmailExist.first is not a function
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/users.service.js:56:26)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-09-26T16:49:48.547] [ERROR] default - { message: 'Internal Error', code: 500 }
+[2018-09-26T16:50:38.908] [ERROR] default - TypeError: isEmailExist.first is not a function
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/users.service.js:62:26)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-09-26T16:50:38.909] [ERROR] default - { message: 'Internal Error', code: 500 }
+[2018-09-26T16:52:59.415] [ERROR] default - { message: 'email exist', code: 409 }
+[2018-09-26T16:52:59.416] [ERROR] default - { message: 'Internal Error', code: 500 }
+[2018-09-26T16:54:39.253] [ERROR] default - { message: 'email exist', code: 409 }
+[2018-09-26T16:54:39.253] [ERROR] default - { message: 'email exist', code: 409 }
+[2018-09-26T16:54:41.397] [ERROR] default - { message: 'email exist', code: 409 }
+[2018-09-26T16:54:41.397] [ERROR] default - { message: 'email exist', code: 409 }
+[2018-09-26T16:54:41.927] [ERROR] default - { message: 'email exist', code: 409 }
+[2018-09-26T16:54:41.928] [ERROR] default - { message: 'email exist', code: 409 }
+[2018-09-26T16:54:50.869] [ERROR] default - { message: 'password bad format', code: 409 }
+[2018-09-26T16:54:50.869] [ERROR] default - { message: 'password bad format', code: 409 }
+[2018-09-26T17:04:25.051] [ERROR] default - { message: 'Missing param(s)', code: 409 }
+[2018-09-26T17:04:26.501] [ERROR] default - { message: 'Missing param(s)', code: 409 }
+[2018-09-26T17:04:27.838] [ERROR] default - { message: 'Missing param(s)', code: 409 }
