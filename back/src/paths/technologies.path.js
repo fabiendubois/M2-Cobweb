@@ -42,4 +42,27 @@ router.get('/technologies', async function (req, res) {
     }
 });
 
+router.post('/technologies', async function (req, res) {
+    try {
+        var return_code;
+        var return_data;
+
+        if (_.isUndefined(req.body.name)) {
+            throw new exception.httpException('Missing param(s)', 409);
+        }
+
+        let name = req.body.name;
+        let headerAuth = req.headers['authorization'];
+
+        return_data = await technologies_controller.add(headerAuth, name);
+        return_code = 201;
+    } catch (error) {
+        log.error(error);
+        return_code = error.code;
+        return_data = { error: error.message };
+    } finally {
+        return res.status(return_code).send(return_data);
+    }
+});
+
 module.exports = router;

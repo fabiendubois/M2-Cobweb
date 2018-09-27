@@ -273,3 +273,45 @@
 [2018-09-27T11:22:26.507] [ERROR] default - { message: 'Forbidden Access', code: 403 }
 [2018-09-27T11:22:32.493] [ERROR] default - { message: 'Forbidden Access', code: 403 }
 [2018-09-27T11:22:32.495] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T12:15:58.684] [TRACE] default - app listening at 8080
+[2018-09-27T12:17:00.588] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T12:17:00.589] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T12:17:15.537] [ERROR] default - { TokenExpiredError: jwt expired
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:141:21
+    at getSecret (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:76:14)
+    at Object.module.exports [as verify] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:80:10)
+    at Object.getUserId (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/tools/jwt.tool.js:44:36)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:38:28)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:57:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+  name: 'TokenExpiredError',
+  message: 'jwt expired',
+  expiredAt: 2018-09-27T10:15:21.000Z }
+[2018-09-27T12:17:15.538] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T12:17:15.540] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T12:17:27.276] [ERROR] default - ReferenceError: nom is not defined
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/repositories/technologies.repository.js:36:22)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/technologies.service.js:40:46)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:44:43)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:57:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12)
+[2018-09-27T12:17:27.277] [ERROR] default - { message: 'Internal DataBase Error', code: 500 }
+[2018-09-27T12:17:27.277] [ERROR] default - { message: 'Internal DataBase Error', code: 500 }
+[2018-09-27T12:17:27.277] [ERROR] default - { message: 'Internal DataBase Error', code: 500 }
+[2018-09-27T12:17:52.118] [TRACE] default - app listening at 8080
+[2018-09-27T12:18:56.934] [ERROR] default - { message: 'name empty or null', code: 409 }
+[2018-09-27T12:18:56.936] [ERROR] default - { message: 'name empty or null', code: 409 }
+[2018-09-27T12:18:56.936] [ERROR] default - { message: 'name empty or null', code: 409 }
+[2018-09-27T12:19:01.653] [ERROR] default - { message: 'name empty or null', code: 409 }
+[2018-09-27T12:19:01.653] [ERROR] default - { message: 'name empty or null', code: 409 }
+[2018-09-27T12:19:01.654] [ERROR] default - { message: 'name empty or null', code: 409 }
+[2018-09-27T12:19:05.460] [ERROR] default - { message: 'Missing param(s)', code: 409 }
+[2018-09-27T12:19:12.314] [TRACE] default - app listening at 8080

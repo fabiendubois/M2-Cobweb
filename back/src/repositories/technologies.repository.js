@@ -23,3 +23,22 @@ exports.findAll = async function () {
         throw new exception.httpException('Internal DataBase Error', 500);
     }
 }
+
+/**
+ * Ajouter une technologie en base de données
+ * @param {String} name 
+ */
+exports.add = async function (name) {
+    try {
+        let request = {
+            text: 'INSERT INTO technologies (name)'
+                + 'VALUES($1) RETURNING *',
+            values: [name]
+        };
+        let response = await pg_tool.handle_databsase(request);
+        return response.rows;
+    } catch (error) {
+        log.error(error);
+        throw new exception.httpException('Internal DataBase Error', 500);
+    }
+}

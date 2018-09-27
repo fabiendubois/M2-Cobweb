@@ -22,3 +22,24 @@ exports.findAll = async function () {
         throw error;
     }
 }
+
+/**
+ * Service d'ajout d'une technologie
+ * @param {String} nom 
+ */
+exports.add = async function (nom) {
+    try {
+        if (_.isEmpty(nom)) {
+            throw new exception.httpException('name empty or null', 409);
+        }
+
+        if (!_.isString(nom)) {
+            throw new exception.httpException('name is not string', 409);
+        }
+
+        return await technologies_repository.add(nom);
+    } catch (error) {
+        log.error(error);
+        throw error;
+    }
+}
