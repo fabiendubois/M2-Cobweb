@@ -11,6 +11,9 @@ const JWT_SIGN_SECRET = '<JWT_SIGN_TOKEN>';
 
 // Exported functions
 module.exports = {
+    /**
+     * Génération d'un token avec une durée de validité d'une heure
+     */
     generateTokenForUser: function (userData) {
         return jwt.sign({
             users_id: userData.id,
@@ -22,10 +25,17 @@ module.exports = {
             })
     },
 
+    /**
+     * Prends en argument le header d'authorization et return que le token, sans le 'Bearer' devant.
+     * 'Bearer token.azerty.123' -> token.azerty.123 
+     */
     parseAuthorization: function (authorization) {
         return (authorization != null) ? authorization.replace('Bearer ', '') : null;
     },
 
+    /**
+     * Récupérer l'id utilisateur à partir du header d'autorization
+     */
     getUserId: function (authorization) {
         var users_id = -1;
         var token = module.exports.parseAuthorization(authorization);
