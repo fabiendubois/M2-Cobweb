@@ -62,3 +62,51 @@
 [2018-09-26T17:04:25.051] [ERROR] default - { message: 'Missing param(s)', code: 409 }
 [2018-09-26T17:04:26.501] [ERROR] default - { message: 'Missing param(s)', code: 409 }
 [2018-09-26T17:04:27.838] [ERROR] default - { message: 'Missing param(s)', code: 409 }
+[2018-09-27T09:35:09.234] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:35:09.236] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:35:15.332] [ERROR] default - { message: 'admin is not boolean', code: 409 }
+[2018-09-27T09:35:15.332] [ERROR] default - { message: 'admin is not boolean', code: 409 }
+[2018-09-27T09:35:26.044] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:35:26.045] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:35:47.580] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:35:47.580] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:36:05.008] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:36:05.008] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:36:46.442] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:36:46.442] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:37:31.208] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:37:31.209] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:38:37.592] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:38:37.595] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:39:44.525] [ERROR] default - { message: 'admin is not boolean', code: 409 }
+[2018-09-27T09:39:44.526] [ERROR] default - { message: 'admin is not boolean', code: 409 }
+[2018-09-27T09:41:17.339] [ERROR] default - Error: data and hash arguments required
+    at Object.compareSync (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/bcrypt/bcrypt.js:167:15)
+    at Object.exports.login (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/users.service.js:31:35)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-09-27T09:42:53.714] [ERROR] default - Error: data and hash arguments required
+    at Object.compareSync (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/bcrypt/bcrypt.js:167:15)
+    at Object.exports.login (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/users.service.js:33:35)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-09-27T09:43:41.282] [ERROR] default - SyntaxError: Unexpected token u in JSON at position 7
+    at JSON.parse (<anonymous>)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/users.path.js:49:28
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-09-27T09:44:46.227] [ERROR] default - SyntaxError: Unexpected token u in JSON at position 7
+    at JSON.parse (<anonymous>)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/users.path.js:50:28
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-09-27T10:26:52.566] [ERROR] default - ReferenceError: users is not defined
+    at Object.exports.sign_in (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/users.controller.js:35:9)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-09-27T10:26:52.567] [ERROR] default - ReferenceError: users is not defined
+    at Object.exports.sign_in (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/users.controller.js:35:9)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-09-27T10:28:16.966] [ERROR] default - TypeError: Cannot read property 'password' of undefined
+    at Object.exports.sign_in (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/users.controller.js:29:65)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-09-27T10:28:16.968] [ERROR] default - TypeError: Cannot read property 'password' of undefined
+    at Object.exports.sign_in (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/users.controller.js:29:65)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-09-27T10:28:45.973] [ERROR] default - { message: 'Email Not Found', code: 409 }
+[2018-09-27T10:28:45.973] [ERROR] default - { message: 'Email Not Found', code: 409 }

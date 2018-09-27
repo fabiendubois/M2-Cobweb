@@ -9,6 +9,24 @@ var config_log4js = require('../../config/log4js');
 log4js.configure(config_log4js);
 
 /**
+ * Selectioner un user avec comme id celui passé en argument
+ * @param {Number} id Id utilisateur
+ */
+exports.findById = async function (id) {
+    try {
+        let request = {
+            text: 'SELECT * FROM users WHERE id = $1',
+            values: [id]
+        };
+        let response = await pg_tool.handle_databsase(request);
+        return response.rows;
+    } catch (error) {
+        log.error(error);
+        throw new exception.httpException('Internal DataBase Error', 500);
+    }
+}
+
+/**
  * Rechercher un utilisateur en fonction de l'email
  * @param {String} email email de l'utilisateur
  */

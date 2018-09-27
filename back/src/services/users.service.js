@@ -2,6 +2,7 @@
 
 const users_repository = require('../repositories/users.repository');
 const exception = require('../exceptions/http.exception');
+const jwt = require('../tools/jwt.tool');
 
 /* REGEX */
 const REGEX_EMAIL = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -16,6 +17,23 @@ var config_log4js = require('../../config/log4js');
 log4js.configure(config_log4js);
 
 /**
+ * Service de récupération d'un utilisateur par Id
+ * @param {Number} id 
+ */
+exports.findById = async function (id) {
+    try {
+        if (isNaN(id)) {
+            throw new exception.httpException('id is not a number', 409);
+        }
+
+        return await users_repository.findById(id);
+    } catch (error) {
+        log.error(error);
+        throw error;
+    }
+}
+
+/**
  * Service de recherche d'un utilisateur
  * @param {String} email email de l'utilisateur
  */
@@ -24,6 +42,7 @@ exports.findByEmail = async function (email) {
         if (_.isEmpty(email) || !_.isString(email)) {
             throw new exception.httpException('Email bad format', 409);
         }
+
         return await users_repository.findByEmail(email);
     } catch (error) {
         log.error(error);
@@ -44,9 +63,6 @@ exports.add = async function (email, password, admin) {
         }
         if (_.isEmpty(password)) {
             throw new exception.httpException('password empty or null', 409);
-        }
-        if (_.isEmpty(admin)) {
-            throw new exception.httpException('admin empty or null', 409);
         }
 
         if (!_.isString(email)) {

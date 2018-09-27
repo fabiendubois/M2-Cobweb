@@ -24,9 +24,9 @@ log4js.configure(config_log4js);
  *     {
  *       "ping":"pong",
  *     }
- *
+ * @apiSampleRequest http://127.0.0.1:8080/api/v1/ping
  */
-router.get('ping', async function (req, res) {
+router.get('/ping', async function (req, res) {
     try {
         var return_code;
         var return_data;

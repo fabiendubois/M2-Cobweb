@@ -75,3 +75,96 @@
 [2018-09-26T17:04:25.051] [ERROR] default - { message: 'Missing param(s)', code: 409 }
 [2018-09-26T17:04:26.501] [ERROR] default - { message: 'Missing param(s)', code: 409 }
 [2018-09-26T17:04:27.838] [ERROR] default - { message: 'Missing param(s)', code: 409 }
+[2018-09-26T20:55:05.879] [TRACE] default - app listening at 8080
+[2018-09-26T20:56:11.263] [TRACE] default - app listening at 8080
+[2018-09-26T20:58:49.734] [TRACE] default - app listening at 8080
+[2018-09-27T09:34:38.871] [TRACE] default - app listening at 8080
+[2018-09-27T09:35:09.234] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:35:09.236] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:35:15.332] [ERROR] default - { message: 'admin is not boolean', code: 409 }
+[2018-09-27T09:35:15.332] [ERROR] default - { message: 'admin is not boolean', code: 409 }
+[2018-09-27T09:35:26.044] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:35:26.045] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:35:47.580] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:35:47.580] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:36:05.008] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:36:05.008] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:36:46.442] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:36:46.442] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:37:27.861] [TRACE] default - app listening at 8080
+[2018-09-27T09:37:31.207] [DEBUG] default - true
+[2018-09-27T09:37:31.208] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:37:31.209] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:38:34.393] [TRACE] default - app listening at 8080
+[2018-09-27T09:38:37.591] [DEBUG] default - true
+[2018-09-27T09:38:37.592] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:38:37.595] [ERROR] default - { message: 'admin empty or null', code: 409 }
+[2018-09-27T09:39:40.797] [TRACE] default - app listening at 8080
+[2018-09-27T09:39:44.524] [DEBUG] default - true
+[2018-09-27T09:39:44.525] [ERROR] default - { message: 'admin is not boolean', code: 409 }
+[2018-09-27T09:39:44.526] [ERROR] default - { message: 'admin is not boolean', code: 409 }
+[2018-09-27T09:40:29.784] [TRACE] default - app listening at 8080
+[2018-09-27T09:40:35.783] [DEBUG] default - true
+[2018-09-27T09:41:17.339] [ERROR] default - Error: data and hash arguments required
+    at Object.compareSync (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/bcrypt/bcrypt.js:167:15)
+    at Object.exports.login (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/users.service.js:31:35)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-09-27T09:42:51.220] [TRACE] default - app listening at 8080
+[2018-09-27T09:42:53.713] [DEBUG] default - Azerty@1 undefined
+[2018-09-27T09:42:53.714] [ERROR] default - Error: data and hash arguments required
+    at Object.compareSync (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/bcrypt/bcrypt.js:167:15)
+    at Object.exports.login (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/users.service.js:33:35)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-09-27T09:43:37.899] [TRACE] default - app listening at 8080
+[2018-09-27T09:43:41.209] [DEBUG] default - Azerty@1 undefined
+[2018-09-27T09:43:41.282] [ERROR] default - SyntaxError: Unexpected token u in JSON at position 7
+    at JSON.parse (<anonymous>)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/users.path.js:49:28
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-09-27T09:44:39.722] [TRACE] default - app listening at 8080
+[2018-09-27T09:44:46.152] [DEBUG] default - Azerty@1 $2b$10$4Fpv84tIj3Ce4755kjsiBupsgMwne93tF3ySb0NM5aabd1Dn9gXm2
+[2018-09-27T09:44:46.226] [DEBUG] default - Return result [ { id: 3,
+    email: 'fabiendubois5@gmail.com',
+    password:
+     '$2b$10$4Fpv84tIj3Ce4755kjsiBupsgMwne93tF3ySb0NM5aabd1Dn9gXm2',
+    admin: true },
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MzgwMzQyODYsImV4cCI6MTUzODAzNzg4Nn0.yOl7xvoW_XDdum0vCJcyyvOInuYv4XgssxFDx-PZGyg' ]
+[2018-09-27T09:44:46.227] [ERROR] default - SyntaxError: Unexpected token u in JSON at position 7
+    at JSON.parse (<anonymous>)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/users.path.js:50:28
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-09-27T09:45:49.151] [TRACE] default - app listening at 8080
+[2018-09-27T09:45:52.659] [DEBUG] default - Azerty@1 $2b$10$4Fpv84tIj3Ce4755kjsiBupsgMwne93tF3ySb0NM5aabd1Dn9gXm2
+[2018-09-27T09:45:52.731] [DEBUG] default - Return result [ { id: 3,
+    email: 'fabiendubois5@gmail.com',
+    password:
+     '$2b$10$4Fpv84tIj3Ce4755kjsiBupsgMwne93tF3ySb0NM5aabd1Dn9gXm2',
+    admin: true },
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MzgwMzQzNTIsImV4cCI6MTUzODAzNzk1Mn0.lt5XiNmzmpbdXpqDH2izBxDCCn6QE8p21CigeJ3Z4ME' ]
+[2018-09-27T09:46:29.728] [TRACE] default - app listening at 8080
+[2018-09-27T09:46:39.726] [DEBUG] default - Azerty@1 $2b$10$4Fpv84tIj3Ce4755kjsiBupsgMwne93tF3ySb0NM5aabd1Dn9gXm2
+[2018-09-27T09:46:39.797] [DEBUG] default - Return result [ { id: 3,
+    email: 'fabiendubois5@gmail.com',
+    password:
+     '$2b$10$4Fpv84tIj3Ce4755kjsiBupsgMwne93tF3ySb0NM5aabd1Dn9gXm2',
+    admin: true,
+    token:
+     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MzgwMzQzOTksImV4cCI6MTUzODAzNzk5OX0.k8e5M5-XCQjFsgmk_LYbY9VzMgxeuosDaU5slST3IHo' } ]
+[2018-09-27T10:25:57.328] [TRACE] default - app listening at 8080
+[2018-09-27T10:26:52.566] [ERROR] default - ReferenceError: users is not defined
+    at Object.exports.sign_in (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/users.controller.js:35:9)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-09-27T10:26:52.567] [ERROR] default - ReferenceError: users is not defined
+    at Object.exports.sign_in (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/users.controller.js:35:9)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-09-27T10:27:17.721] [TRACE] default - app listening at 8080
+[2018-09-27T10:28:10.502] [DEBUG] default - true
+[2018-09-27T10:28:16.966] [ERROR] default - TypeError: Cannot read property 'password' of undefined
+    at Object.exports.sign_in (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/users.controller.js:29:65)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-09-27T10:28:16.968] [ERROR] default - TypeError: Cannot read property 'password' of undefined
+    at Object.exports.sign_in (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/users.controller.js:29:65)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-09-27T10:28:42.709] [TRACE] default - app listening at 8080
+[2018-09-27T10:28:45.973] [ERROR] default - { message: 'Email Not Found', code: 409 }
+[2018-09-27T10:28:45.973] [ERROR] default - { message: 'Email Not Found', code: 409 }
