@@ -2,7 +2,6 @@
 
 const users_repository = require('../repositories/users.repository');
 const exception = require('../exceptions/http.exception');
-const jwt = require('../tools/jwt.tool');
 
 /* REGEX */
 const REGEX_EMAIL = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

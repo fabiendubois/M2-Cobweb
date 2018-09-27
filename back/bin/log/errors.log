@@ -110,3 +110,89 @@
     at process._tickCallback (internal/process/next_tick.js:68:7)
 [2018-09-27T10:28:45.973] [ERROR] default - { message: 'Email Not Found', code: 409 }
 [2018-09-27T10:28:45.973] [ERROR] default - { message: 'Email Not Found', code: 409 }
+[2018-09-27T11:00:57.570] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:00:57.571] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:01:01.263] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:01:01.264] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:01:20.258] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:01:20.259] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:01:23.579] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:01:23.579] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:09:52.845] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:09:52.847] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:12:05.604] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:12:05.606] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:12:40.447] [ERROR] default - { message: 'Internal Error', code: 500 }
+[2018-09-27T11:12:40.448] [ERROR] default - { message: 'Internal Error', code: 500 }
+[2018-09-27T11:12:59.795] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:12:59.796] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:13:59.075] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:13:59.077] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:14:45.314] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:14:45.316] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:15:18.790] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:15:18.792] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:15:53.716] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:15:53.716] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:20:12.033] [ERROR] default - { message: 'Internal Error', code: 500 }
+[2018-09-27T11:20:12.034] [ERROR] default - { message: 'Internal Error', code: 500 }
+[2018-09-27T11:20:15.564] [ERROR] default - { message: 'Internal Error', code: 500 }
+[2018-09-27T11:20:15.564] [ERROR] default - { message: 'Internal Error', code: 500 }
+[2018-09-27T11:22:03.838] [ERROR] default - { JsonWebTokenError: invalid token
+    at Object.module.exports [as verify] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:61:17)
+    at Object.getUserId (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/tools/jwt.tool.js:34:36)
+    at Object.exports.findAll (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:21:28)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:21:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12) name: 'JsonWebTokenError', message: 'invalid token' }
+[2018-09-27T11:22:03.839] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:22:03.841] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:22:04.927] [ERROR] default - { JsonWebTokenError: invalid token
+    at Object.module.exports [as verify] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:61:17)
+    at Object.getUserId (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/tools/jwt.tool.js:34:36)
+    at Object.exports.findAll (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:21:28)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:21:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12) name: 'JsonWebTokenError', message: 'invalid token' }
+[2018-09-27T11:22:04.928] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:22:04.928] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:22:21.979] [ERROR] default - { JsonWebTokenError: invalid token
+    at Object.module.exports [as verify] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:61:17)
+    at Object.getUserId (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/tools/jwt.tool.js:34:36)
+    at Object.exports.findAll (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:21:28)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:21:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12) name: 'JsonWebTokenError', message: 'invalid token' }
+[2018-09-27T11:22:21.979] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:22:21.980] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:22:23.790] [ERROR] default - { JsonWebTokenError: jwt malformed
+    at Object.module.exports [as verify] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:49:17)
+    at Object.getUserId (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/tools/jwt.tool.js:34:36)
+    at Object.exports.findAll (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:21:28)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:21:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12) name: 'JsonWebTokenError', message: 'jwt malformed' }
+[2018-09-27T11:22:23.791] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:22:23.791] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:22:25.876] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:22:25.876] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:22:26.507] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:22:26.507] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:22:32.493] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-09-27T11:22:32.495] [ERROR] default - { message: 'Forbidden Access', code: 403 }

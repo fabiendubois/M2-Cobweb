@@ -28,7 +28,7 @@ exports.sign_in = async function (email, password) {
 
         const bool = await bcrypt.compareSync(password, user[0].password);
         if (bool) {
-            user[0].token = jwt.generateTokenForUser(user);
+            user[0].token = jwt.generateTokenForUser(user[0]);
         } else {
             throw new exception.httpException('Bad Password', 409);
         }

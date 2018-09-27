@@ -22,6 +22,8 @@ app.use('/api/v1/', ping);
 var users = require('../src/paths/users.path.js');
 app.use('/api/v1/', users);
 
+var technologies = require('../src/paths/technologies.path.js');
+app.use('/api/v1/', technologies);
 
 var port = process.env.PORT || 8080;
 

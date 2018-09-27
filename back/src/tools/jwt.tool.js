@@ -1,5 +1,11 @@
-var jwt = require('jsonwebtoken');
 const exception = require('../exceptions/http.exception');
+
+var jwt = require('jsonwebtoken');
+
+var log4js = require('log4js');
+var log = log4js.getLogger("default");
+var config_log4js = require('../../config/log4js');
+log4js.configure(config_log4js);
 
 const JWT_SIGN_SECRET = '<JWT_SIGN_TOKEN>';
 
@@ -29,8 +35,8 @@ module.exports = {
                 if (jwtToken != null)
                     users_id = jwtToken.users_id;
             } catch (error) {
-                console.error(error);
-                throw new exception.httpException('Internal Error', 500);
+                log.error(error);
+                throw new exception.httpException('Forbidden Access', 403);
             }
         }
         return users_id;
