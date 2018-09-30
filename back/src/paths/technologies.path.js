@@ -13,9 +13,9 @@ var config_log4js = require('../../config/log4js');
 log4js.configure(config_log4js);
 
 /**
- * @api {get} /technologies Technologies
+ * @api {get} /technologies Technologies FindAll
  * @apiVersion 0.0.1
- * @apiName Technologies
+ * @apiName FindAll
  * @apiGroup Technologies
  * @apiPermission Bearer Token
  * 
@@ -42,13 +42,34 @@ router.get('/technologies', async function (req, res) {
     }
 });
 
+/**
+ * @api {post} /technologies Technologies Add
+ * @apiVersion 0.0.1
+ * @apiName Add
+ * @apiGroup Technologies
+ * @apiPermission Bearer Token
+ *
+ * @apiDescription Ajouter une technologie
+ * 
+ * @apiParam (Params) {String} name Nom Technologie
+ * 
+ * @apiSuccess (Succes 201) {Integer} id Id Technologie
+ * @apiSuccess (Succes 201) {String} name Nom Technologie
+ * 
+ * @apiError (Error 400) {String} 0 General Missing param(s)
+ * @apiError (Error 400) {String} 1 Name empty or null
+ * @apiError (Error 400) {String} 2 Name is not string
+ * 
+ * @apiError (Error 403) {String} Auth Forbidden Access
+ * 
+ */
 router.post('/technologies', async function (req, res) {
     try {
         var return_code;
         var return_data;
 
         if (_.isUndefined(req.body.name)) {
-            throw new exception.httpException('Missing param(s)', 409);
+            throw new exception.httpException('Missing param(s)', 400);
         }
 
         let name = req.body.name;

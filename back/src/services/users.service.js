@@ -22,7 +22,7 @@ log4js.configure(config_log4js);
 exports.findById = async function (id) {
     try {
         if (isNaN(id)) {
-            throw new exception.httpException('id is not a number', 409);
+            throw new exception.httpException('id is not a number', 400);
         }
 
         return await users_repository.findById(id);
@@ -39,7 +39,7 @@ exports.findById = async function (id) {
 exports.findByEmail = async function (email) {
     try {
         if (_.isEmpty(email) || !_.isString(email)) {
-            throw new exception.httpException('Email bad format', 409);
+            throw new exception.httpException('Email bad format', 400);
         }
 
         return await users_repository.findByEmail(email);
@@ -58,32 +58,32 @@ exports.findByEmail = async function (email) {
 exports.add = async function (email, password, admin) {
     try {
         if (_.isEmpty(email)) {
-            throw new exception.httpException('email empty or null', 409);
+            throw new exception.httpException('email empty or null', 400);
         }
         if (_.isEmpty(password)) {
-            throw new exception.httpException('password empty or null', 409);
+            throw new exception.httpException('password empty or null', 400);
         }
 
         if (!_.isString(email)) {
-            throw new exception.httpException('email is not string', 409);
+            throw new exception.httpException('email is not string', 400);
         }
         if (!_.isString(password)) {
-            throw new exception.httpException('password is not string', 409);
+            throw new exception.httpException('password is not string', 400);
         }
         if (!_.isBoolean(admin)) {
-            throw new exception.httpException('admin is not boolean', 409);
+            throw new exception.httpException('admin is not boolean', 400);
         }
 
         if (!REGEX_EMAIL.test(email)) {
-            throw new exception.httpException('email bad format', 409);
+            throw new exception.httpException('email bad format', 400);
         }
         if (!REGEX_PASSWORD.test(password)) {
-            throw new exception.httpException('password bad format', 409);
+            throw new exception.httpException('password bad format', 400);
         }
 
         let isEmailExist = await this.findByEmail(email);
         if (isEmailExist[0] != null) {
-            throw new exception.httpException('email exist', 409);
+            throw new exception.httpException('email exist', 400);
         }
 
         const salt = await bcrypt.genSalt(10);

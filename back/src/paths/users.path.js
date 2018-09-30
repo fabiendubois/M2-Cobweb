@@ -27,9 +27,9 @@ log4js.configure(config_log4js);
  * @apiSuccess (Succes 201) {Integer} id Id Utilisateur
  * @apiSuccess (Succes 201) {String} token Token Utilisateur
  * 
- * @apiError (Error 409) {String} 0 General Missing param(s)
- * @apiError (Error 409) {String} 1 Email Not Found
- * @apiError (Error 409) {String} 2 Bad Password
+ * @apiError (Error 400) {String} 0 General Missing param(s)
+ * @apiError (Error 400) {String} 1 Email Not Found
+ * @apiError (Error 400) {String} 2 Bad Password
  * 
  */
 router.post('/users/sign_in', async function (req, res) {
@@ -38,7 +38,7 @@ router.post('/users/sign_in', async function (req, res) {
         var return_data;
 
         if (_.isUndefined(req.body.email) || _.isUndefined(req.body.password)) {
-            throw new exception.httpException('Missing param(s)', 409);
+            throw new exception.httpException('Missing param(s)', 400);
         }
 
         let email = req.body.email;
@@ -75,13 +75,13 @@ router.post('/users/sign_in', async function (req, res) {
  * @apiSuccess (Succes 201) {String} email Email Utilisateur
  * @apiSuccess (Succes 201) {Boolean} admin Admin Statut Utilisateur
  * 
- * @apiError (Error 409) {String} 0 General Missing param(s)
- * @apiError (Error 409) {String} 1 Email empty or null
- * @apiError (Error 409) {String} 2 Password empty or null
- * @apiError (Error 409) {String} 3 Admin empty or null
- * @apiError (Error 409) {String} 4 Email is not string
- * @apiError (Error 409) {String} 5 Password is not string
- * @apiError (Error 409) {String} 6 Admin is not boolean
+ * @apiError (Error 400) {String} 0 General Missing param(s)
+ * @apiError (Error 400) {String} 1 Email empty or null
+ * @apiError (Error 400) {String} 2 Password empty or null
+ * @apiError (Error 400) {String} 3 Admin empty or null
+ * @apiError (Error 400) {String} 4 Email is not string
+ * @apiError (Error 400) {String} 5 Password is not string
+ * @apiError (Error 400) {String} 6 Admin is not boolean
  * 
  */
 router.post('/users/sign_up', async function (req, res) {
@@ -91,7 +91,7 @@ router.post('/users/sign_up', async function (req, res) {
 
         /* Vérification de la présence des arguments dans le payload */
         if (_.isUndefined(req.body.email) || _.isUndefined(req.body.password) || _.isUndefined(req.body.admin)) {
-            throw new exception.httpException('Missing param(s)', 409);
+            throw new exception.httpException('Missing param(s)', 400);
         }
 
         log.debug(req.body.admin);
