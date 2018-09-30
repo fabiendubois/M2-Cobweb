@@ -13,7 +13,8 @@ var config_log4js = require('../../config/log4js');
 log4js.configure(config_log4js);
 
 /**
- * Controller de connexion utilisateur
+ * Controller 
+ * de connexion utilisateur
  * @param {String} email Email Utilisateur
  * @param {String} password Password Utilisateur
  */
@@ -40,7 +41,8 @@ exports.sign_in = async function (email, password) {
 }
 
 /**
- * Controller d'inscription d'un utilisateur
+ * Controller 
+ * User registration
  * @param {String} email email de l'utilisateur
  * @param {String} password mot de passe de l'utilisateur
  * @param {Boolean} admin statut admin de l'utilisateur

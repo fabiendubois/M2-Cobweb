@@ -9,8 +9,9 @@ var config_log4js = require('../../config/log4js');
 log4js.configure(config_log4js);
 
 /**
- * Selectioner un user avec comme id celui passé en argument
- * @param {Number} id Id utilisateur
+ * Repository
+ * Find a user by id.
+ * @param {Number} id User Id
  */
 exports.findById = async function (id) {
     try {
@@ -21,14 +22,15 @@ exports.findById = async function (id) {
         let response = await pg_tool.handle_databsase(request);
         return response.rows;
     } catch (error) {
-        log.error(error);
+        log.error('Repository', 'Users', 'findById', error);
         throw new exception.httpException('Internal DataBase Error', 500);
     }
 }
 
 /**
- * Rechercher un utilisateur en fonction de l'email
- * @param {String} email email de l'utilisateur
+ * Repository
+ * Find a user by email adress.
+ * @param {String} email User email address
  */
 exports.findByEmail = async function (email) {
     try {
@@ -39,16 +41,17 @@ exports.findByEmail = async function (email) {
         let response = await pg_tool.handle_databsase(request);
         return response.rows;
     } catch (error) {
-        log.error(error);
+        log.error('Repository', 'Users', 'findByEmail', error);
         throw new exception.httpException('Internal DataBase Error', 500);
     }
 }
 
 /**
- * Ajouter un user en passant en arugment l'ensemble de ses paramètres
- * @param {String} email email de l'utilisateur
- * @param {String} password mot de passe de l'utilisateur
- * @param {Boolean} admin statut admin de l'utilisateur
+ * Repository
+ * Add a user.
+ * @param {String} email User email address
+ * @param {String} password User password
+ * @param {Boolean} admin User status
  */
 exports.add = async function (email, password, admin) {
     try {
@@ -60,7 +63,7 @@ exports.add = async function (email, password, admin) {
         let response = await pg_tool.handle_databsase(request);
         return response.rows;
     } catch (error) {
-        log.error(error);
+        log.error('Repository', 'Users', 'add', error);
         throw new exception.httpException('Internal DataBase Error', 500);
     }
 }

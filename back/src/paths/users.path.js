@@ -19,17 +19,17 @@ log4js.configure(config_log4js);
  * @apiGroup Users
  * @apiPermission none
  *
- * @apiDescription Connexion d'un utilisateur.
+ * @apiDescription User login.
  * 
- * @apiParam (Params) {String} email Email Utilisateur
- * @apiParam (Params) {String} password Password Utilisateur
+ * @apiParam (Params) {String} email User email adress.
+ * @apiParam (Params) {String} password User password.
  * 
- * @apiSuccess (Succes 201) {Integer} id Id Utilisateur
- * @apiSuccess (Succes 201) {String} token Token Utilisateur
+ * @apiSuccess (Succes 201) {Integer} id User id.
+ * @apiSuccess (Succes 201) {String} token User token.
  * 
- * @apiError (Error 400) {String} 0 General Missing param(s)
- * @apiError (Error 400) {String} 1 Email Not Found
- * @apiError (Error 400) {String} 2 Bad Password
+ * @apiError (Error 400) {String} 0 Missing param(s).
+ * @apiError (Error 400) {String} 1 Email Not Found.
+ * @apiError (Error 400) {String} 2 Bad Password.
  * 
  */
 router.post('/users/sign_in', async function (req, res) {
@@ -64,24 +64,23 @@ router.post('/users/sign_in', async function (req, res) {
  * @apiGroup Users
  * @apiPermission none
  *
- * @apiDescription Inscription d'un utilisateur.
- * Password 8 char min, (Chiffre, Minuscule, Majuscule, Caractère spécial)
+ * @apiDescription User registration.
  * 
- * @apiParam (Params) {String} email Email Utilisateur
- * @apiParam (Params) {String} password Password Utilisateur
- * @apiParam (Params) {Boolean} admin Admin Statut Utilisateur
+ * @apiParam (Params) {String} email User email adress.
+ * @apiParam (Params) {String} password User password.
+ * @apiParam (Params) {Boolean} admin User status.
  * 
- * @apiSuccess (Succes 201) {Integer} id Id Utilisateur
- * @apiSuccess (Succes 201) {String} email Email Utilisateur
- * @apiSuccess (Succes 201) {Boolean} admin Admin Statut Utilisateur
+ * @apiSuccess (Succes 201) {Integer} id User id.
+ * @apiSuccess (Succes 201) {String} email User email adress.
+ * @apiSuccess (Succes 201) {Boolean} admin User status.
  * 
- * @apiError (Error 400) {String} 0 General Missing param(s)
- * @apiError (Error 400) {String} 1 Email empty or null
- * @apiError (Error 400) {String} 2 Password empty or null
- * @apiError (Error 400) {String} 3 Admin empty or null
- * @apiError (Error 400) {String} 4 Email is not string
- * @apiError (Error 400) {String} 5 Password is not string
- * @apiError (Error 400) {String} 6 Admin is not boolean
+ * @apiError (Error 400) {String} 0 General Missing param(s).
+ * @apiError (Error 400) {String} 1 Email empty or null.
+ * @apiError (Error 400) {String} 2 Password empty or null.
+ * @apiError (Error 400) {String} 3 Admin empty or null.
+ * @apiError (Error 400) {String} 4 Email is not string.
+ * @apiError (Error 400) {String} 5 Password is not string.
+ * @apiError (Error 400) {String} 6 Admin is not boolean.
  * 
  */
 router.post('/users/sign_up', async function (req, res) {

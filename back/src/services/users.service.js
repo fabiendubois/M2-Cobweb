@@ -16,7 +16,8 @@ var config_log4js = require('../../config/log4js');
 log4js.configure(config_log4js);
 
 /**
- * Service de récupération d'un utilisateur par Id
+ * Service
+ * Find a user by id.
  * @param {Number} id 
  */
 exports.findById = async function (id) {
@@ -24,17 +25,17 @@ exports.findById = async function (id) {
         if (isNaN(id)) {
             throw new exception.httpException('id is not a number', 400);
         }
-
         return await users_repository.findById(id);
     } catch (error) {
-        log.error(error);
+        log.error('Service', 'Users', 'findById', error);
         throw error;
     }
 }
 
 /**
- * Service de recherche d'un utilisateur
- * @param {String} email email de l'utilisateur
+ * Service
+ * Find a user by email adress.
+ * @param {String} email User email address
  */
 exports.findByEmail = async function (email) {
     try {
@@ -44,16 +45,17 @@ exports.findByEmail = async function (email) {
 
         return await users_repository.findByEmail(email);
     } catch (error) {
-        log.error(error);
+        log.error('Service', 'Users', 'findByEmail', error);
         throw error;
     }
 }
 
 /**
- * Service d'ajout d'un utilisateur
- * @param {String} email email de l'utilisateur
- * @param {String} password mot de passe de l'utilisateur
- * @param {Boolean} admin statut admin de l'utilisateur
+ * Service
+ * Add a user. 
+ * @param {String} email User email address
+ * @param {String} password User password
+ * @param {Boolean} admin User status
  */
 exports.add = async function (email, password, admin) {
     try {
@@ -91,7 +93,7 @@ exports.add = async function (email, password, admin) {
 
         return await users_repository.add(email, hashedPassword, admin);
     } catch (error) {
-        log.error(error);
+        log.error('Service', 'Users', 'add', error);
         throw error;
     }
 }

@@ -19,11 +19,11 @@ log4js.configure(config_log4js);
  * @apiGroup Technologies
  * @apiPermission Bearer Token
  * 
- * @apiDescription Récupérer la liste des technologies.
+ * @apiDescription Find all technologies.
  * 
- * @apiSuccess (Succes 200) {json} technologies Liste des technologies
+ * @apiSuccess (Succes 200) {json} technologies Technologies.
  * 
- * @apiError (Error 403) {String} Auth Forbidden Access
+ * @apiError (Error 403) {String} Auth Forbidden Access.
  */
 router.get('/technologies', async function (req, res) {
     try {
@@ -49,18 +49,19 @@ router.get('/technologies', async function (req, res) {
  * @apiGroup Technologies
  * @apiPermission Bearer Token
  *
- * @apiDescription Ajouter une technologie
+ * @apiDescription Add a technology.
  * 
- * @apiParam (Params) {String} name Nom Technologie
+ * @apiParam (Params) {String} name Technology Name.
  * 
- * @apiSuccess (Succes 201) {Integer} id Id Technologie
- * @apiSuccess (Succes 201) {String} name Nom Technologie
+ * @apiSuccess (Succes 201) {Integer} id Technology Id.
+ * @apiSuccess (Succes 201) {String} name Technology Name.
  * 
- * @apiError (Error 400) {String} 0 General Missing param(s)
- * @apiError (Error 400) {String} 1 Name empty or null
- * @apiError (Error 400) {String} 2 Name is not string
- * 
- * @apiError (Error 403) {String} Auth Forbidden Access
+ * @apiError (Error 400) {String} 0 Missing param(s).
+ * @apiError (Error 400) {String} 1 Name empty or null.
+ * @apiError (Error 400) {String} 2 Name is not string.
+ * @apiError (Error 400) {String} 3 This technology with this name already exists.
+
+ * @apiError (Error 403) {String} Auth Forbidden Access.
  * 
  */
 router.post('/technologies', async function (req, res) {
@@ -85,5 +86,6 @@ router.post('/technologies', async function (req, res) {
         return res.status(return_code).send(return_data);
     }
 });
+
 
 module.exports = router;

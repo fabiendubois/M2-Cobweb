@@ -12,7 +12,8 @@ var config_log4js = require('../../config/log4js');
 log4js.configure(config_log4js);
 
 /**
- * Service de récupération des technologies
+ * Service 
+ * Find all technologies.
  */
 exports.findAll = async function () {
     try {
@@ -24,20 +25,13 @@ exports.findAll = async function () {
 }
 
 /**
- * Service d'ajout d'une technologie
- * @param {String} nom Nom Technologie
+ * Service 
+ * Find technology by id.
+ * @param {Number} id Id Technologie
  */
-exports.add = async function (nom) {
+exports.findById = async function (id) {
     try {
-        if (_.isEmpty(nom)) {
-            throw new exception.httpException('name empty or null', 400);
-        }
-
-        if (!_.isString(nom)) {
-            throw new exception.httpException('name is not string', 400);
-        }
-
-        return await technologies_repository.add(nom);
+        return await technologies_repository.findById(id);
     } catch (error) {
         log.error(error);
         throw error;
@@ -45,8 +39,37 @@ exports.add = async function (nom) {
 }
 
 /**
- * Service de suppression d'une technologie en passant l'id en argument
- * @param {Number} id Id Technologie
+ * Service 
+ * Add a technology.
+ * @param {String} name Technologie Name
+ */
+exports.add = async function (name) {
+    try {
+        if (_.isEmpty(name)) {
+            throw new exception.httpException('name empty or null', 400);
+        }
+
+        if (!_.isString(name)) {
+            throw new exception.httpException('name is not string', 400);
+        }
+
+        /* Est-ce qu'une technologie existe déjà avec ce nom ? */
+        let technologie = this.findById(name)
+        if (technologie[0] != null) {
+            throw new exception.httpException('This technology with this name already exists.', 400);
+        }
+
+        return await technologies_repository.add(name);
+    } catch (error) {
+        log.error(error);
+        throw error;
+    }
+}
+
+/**
+ * Service 
+ * Delete a technology by id.
+ * @param {Number} id Id Technology
  */
 exports.deleteById = async function (id) {
     try {
