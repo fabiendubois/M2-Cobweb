@@ -17,7 +17,8 @@ L'application devra comprendre une API.
 - [x] Connexion utilisateur
 
 **Admin**
-- [x] Ajouter un technolgie
+- [x] Ajouter une technolgie
+- [x] Supprimer une technolgie
 
 **Other**
 

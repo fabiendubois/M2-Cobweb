@@ -49,7 +49,7 @@ router.post('/users/sign_in', async function (req, res) {
         return_data = JSON.parse(`{ "id":${users[0].id},"token":"${users[0].token}"}`);
         return_code = 200;
     } catch (error) {
-        log.error(error);
+        log.error('Path', 'Users', '/users/sign_in', error);
         return_code = error.code;
         return_data = { error: error.message };
     } finally {
@@ -104,32 +104,12 @@ router.post('/users/sign_up', async function (req, res) {
         return_code = 201;
         return_data = users;
     } catch (error) {
-        log.error(error);
+        log.error('Path', 'Users', '/users/sign_up', error);
         return_code = error.code;
         return_data = { error: error.message };
     } finally {
         return res.status(return_code).json(return_data)
     }
 });
-
-
-/*
-router.get('/users/me', async function (req, res) {
-    try {
-        var return_code;
-        var return_data;
-
-        let headerAuth = req.headers['authorization'];
-        return_data = await users_service.me(headerAuth)
-        return_code = 200;
-    } catch (error) {
-        log.error(error);
-        return_code = error.code;
-        return_data = { error: error.message };
-    } finally {
-        return res.status(return_code).json(return_data);
-    }
-});
-*/
 
 module.exports = router;

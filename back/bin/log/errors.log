@@ -235,3 +235,196 @@
 [2018-09-27T12:19:01.653] [ERROR] default - { message: 'name empty or null', code: 409 }
 [2018-09-27T12:19:01.654] [ERROR] default - { message: 'name empty or null', code: 409 }
 [2018-09-27T12:19:05.460] [ERROR] default - { message: 'Missing param(s)', code: 409 }
+[2018-10-01T19:57:39.713] [ERROR] default - Controller Users sign_in { message: 'Email Not Found', code: 409 }
+[2018-10-01T19:57:39.715] [ERROR] default - { message: 'Email Not Found', code: 409 }
+[2018-10-01T19:57:57.208] [ERROR] default - Controller Users sign_in { message: 'Email Not Found', code: 409 }
+[2018-10-01T19:57:57.209] [ERROR] default - { message: 'Email Not Found', code: 409 }
+[2018-10-01T20:13:45.536] [ERROR] default - Controller Users signIn { message: 'Email Not Found', code: 409 }
+[2018-10-01T20:13:45.537] [ERROR] default - { message: 'Email Not Found', code: 409 }
+[2018-10-01T20:14:47.741] [ERROR] default - ReferenceError: id is not defined
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:54:53)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:79:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:174:3)
+[2018-10-01T20:14:47.742] [ERROR] default - ReferenceError: id is not defined
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:54:53)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:79:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:174:3)
+[2018-10-01T20:15:28.763] [ERROR] default - Controller Users idAdmin TypeError: Cannot read property 'admin' of undefined
+    at Object.exports.isAdmin (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/users.controller.js:72:24)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:54:45)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:79:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:275:10)
+[2018-10-01T20:15:28.765] [ERROR] default - TypeError: Cannot read property 'admin' of undefined
+    at Object.exports.isAdmin (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/users.controller.js:72:24)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:54:45)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:79:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:275:10)
+[2018-10-01T20:15:28.767] [ERROR] default - TypeError: Cannot read property 'admin' of undefined
+    at Object.exports.isAdmin (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/users.controller.js:72:24)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:54:45)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:79:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:275:10)
+[2018-10-01T20:16:06.022] [ERROR] default - Controller Users idAdmin TypeError: Cannot read property 'admin' of undefined
+    at Object.exports.isAdmin (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/users.controller.js:73:24)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:54:45)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:79:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:275:10)
+[2018-10-01T20:16:06.023] [ERROR] default - TypeError: Cannot read property 'admin' of undefined
+    at Object.exports.isAdmin (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/users.controller.js:73:24)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:54:45)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:79:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:275:10)
+[2018-10-01T20:16:06.025] [ERROR] default - TypeError: Cannot read property 'admin' of undefined
+    at Object.exports.isAdmin (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/users.controller.js:73:24)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:54:45)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:79:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:275:10)
+[2018-10-01T20:16:31.876] [ERROR] default - Repository Technologies findById { error: invalid input syntax for integer: "NodeJS"
+    at Connection.parseE (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/pg/lib/connection.js:553:11)
+    at Connection.parseMessage (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/pg/lib/connection.js:378:19)
+    at Socket.<anonymous> (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/pg/lib/connection.js:119:22)
+    at Socket.emit (events.js:182:13)
+    at addChunk (_stream_readable.js:283:12)
+    at readableAddChunk (_stream_readable.js:264:11)
+    at Socket.Readable.push (_stream_readable.js:219:10)
+    at TCP.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)
+  name: 'error',
+  length: 95,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '62',
+  routine: 'pg_atoi' }
+[2018-10-01T20:16:31.879] [ERROR] default - Service Technologies findById { message: 'Internal DataBase Error', code: 500 }
+[2018-10-01T20:16:34.352] [ERROR] default - Repository Technologies findById { error: invalid input syntax for integer: "NodeJS"
+    at Connection.parseE (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/pg/lib/connection.js:553:11)
+    at Connection.parseMessage (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/pg/lib/connection.js:378:19)
+    at Socket.<anonymous> (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/pg/lib/connection.js:119:22)
+    at Socket.emit (events.js:182:13)
+    at addChunk (_stream_readable.js:283:12)
+    at readableAddChunk (_stream_readable.js:264:11)
+    at Socket.Readable.push (_stream_readable.js:219:10)
+    at TCP.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)
+  name: 'error',
+  length: 95,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '62',
+  routine: 'pg_atoi' }
+[2018-10-01T20:16:34.353] [ERROR] default - Service Technologies findById { message: 'Internal DataBase Error', code: 500 }
+[2018-10-01T20:17:03.457] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-10-01T20:17:03.457] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-10-01T20:19:08.000] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-10-01T20:19:08.003] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-10-01T20:23:14.751] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-10-01T20:23:14.752] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-10-01T20:23:15.911] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-10-01T20:23:15.912] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-10-01T20:29:43.565] [ERROR] default - { message: 'Missing param(s)', code: 400 }
+[2018-10-01T20:29:53.663] [ERROR] default - { message: 'Missing param(s)', code: 400 }
+[2018-10-01T20:29:55.469] [ERROR] default - { message: 'Missing param(s)', code: 400 }
+[2018-10-01T20:30:07.087] [ERROR] default - { message: 'Missing param(s)', code: 400 }
+[2018-10-01T20:32:39.996] [ERROR] default - ReferenceError: headerAuth is not defined
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:118:64
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at param (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:354:14)
+    at param (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:410:3)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:275:10)
+[2018-10-01T20:33:08.043] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-10-01T20:33:08.044] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-10-01T20:33:13.739] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-10-01T20:33:13.739] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-10-01T20:33:18.385] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-10-01T20:33:18.385] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-10-01T20:33:23.343] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-10-01T20:33:23.343] [ERROR] default - { message: 'Forbidden Access', code: 403 }
+[2018-10-01T20:33:36.370] [ERROR] default - Service Technologies deleteById { message: 'id empty or null', code: 400 }
+[2018-10-01T20:33:36.370] [ERROR] default - { message: 'id empty or null', code: 400 }
+[2018-10-01T20:33:36.370] [ERROR] default - { message: 'id empty or null', code: 400 }
+[2018-10-01T20:34:30.347] [ERROR] default - Service Technologies deleteById { message: 'id empty or null', code: 400 }
+[2018-10-01T20:34:30.348] [ERROR] default - { message: 'id empty or null', code: 400 }
+[2018-10-01T20:34:30.348] [ERROR] default - { message: 'id empty or null', code: 400 }
+[2018-10-01T20:34:43.021] [ERROR] default - Service Technologies deleteById { message: 'id is not nubmer', code: 400 }
+[2018-10-01T20:34:43.022] [ERROR] default - { message: 'id is not nubmer', code: 400 }
+[2018-10-01T20:34:43.023] [ERROR] default - { message: 'id is not nubmer', code: 400 }
+[2018-10-01T20:34:58.553] [ERROR] default - Service Technologies deleteById { message: 'id is not nubmer', code: 400 }
+[2018-10-01T20:34:58.554] [ERROR] default - { message: 'id is not nubmer', code: 400 }
+[2018-10-01T20:34:58.554] [ERROR] default - { message: 'id is not nubmer', code: 400 }

@@ -51,10 +51,10 @@ exports.add = async function (headerAuth, name) {
         }
 
         /* Est-ce que l'utilisateur est un admin */
-        let isAdmin = await user_controller.isAdmin(id);
+        let isAdmin = await user_controller.isAdmin(users_id);
         if (!isAdmin || isAdmin === null) {
             throw new exception.httpException('Forbidden Access', 403);
-        } 
+        }
 
         return await technologies_service.add(name);
     } catch (error) {
@@ -68,7 +68,7 @@ exports.add = async function (headerAuth, name) {
  * Delete a technology by id.
  * @param {String} headerAuth header authentification
  * @param {Number} id Technology id
-
+ */
 exports.deleteById = async function (headerAuth, id) {
     try {
         var users_id = jwt.getUserId(headerAuth);
@@ -77,9 +77,15 @@ exports.deleteById = async function (headerAuth, id) {
             throw new exception.httpException('Forbidden Access', 403);
         }
 
+        /* Est-ce que l'utilisateur est un admin */
+        let isAdmin = await user_controller.isAdmin(users_id);
+        if (!isAdmin || isAdmin === null) {
+            throw new exception.httpException('Forbidden Access', 403);
+        }
+
         return await technologies_service.deleteById(id);
     } catch (error) {
         log.error(error);
         throw error;
     }
-} */
+}

@@ -77,8 +77,8 @@ exports.deleteById = async function (id) {
             throw new exception.httpException('id empty or null', 400);
         }
 
-        if (!_.isNaN(id)) {
-            throw new exception.httpException('id is not nubmer', 400);
+        if (_.isNaN(id)) {
+            throw new exception.httpException('id is not number', 400);
         }
 
         return await technologies_repository.deleteById(id);

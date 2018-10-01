@@ -34,7 +34,7 @@ router.get('/technologies', async function (req, res) {
         return_data = await technologies_controller.findAll(headerAuth);
         return_code = 200;
     } catch (error) {
-        log.error(error);
+        log.error('Path', 'Technologies', 'GET', '/technologies', error);
         return_code = error.code;
         return_data = { error: error.message };
     } finally {
@@ -47,7 +47,7 @@ router.get('/technologies', async function (req, res) {
  * @apiVersion 0.0.1
  * @apiName Add
  * @apiGroup Technologies
- * @apiPermission Bearer Token
+ * @apiPermission Bearer Token. Need to be admin.
  *
  * @apiDescription Add a technology.
  * 
@@ -79,7 +79,7 @@ router.post('/technologies', async function (req, res) {
         return_data = await technologies_controller.add(headerAuth, name);
         return_code = 201;
     } catch (error) {
-        log.error(error);
+        log.error('Path', 'Technologies', 'POST', '/technologies', error);
         return_code = error.code;
         return_data = { error: error.message };
     } finally {
@@ -87,20 +87,42 @@ router.post('/technologies', async function (req, res) {
     }
 });
 
+/**
+ * @api {delete} /technologies/:id Technologies Delete
+ * @apiVersion 0.0.1
+ * @apiName Delete
+ * @apiGroup Technologies
+ * @apiPermission Bearer Token. Need to be admin.
+ *
+ * @apiDescription Delete a technology by id.
+ * 
+ * @apiParam (Params) {String} id Id technology.
+ * 
+ * @apiSuccess (Succes 204) {String} Accepted
+ * 
+ * @apiError (Error 400) {String} 0 Missing param(s).
+ * @apiError (Error 400) {String} 1 Id is not a number.
+ * 
+ * @apiError (Error 403) {String} Auth Forbidden Access.
+ * 
+ */
 router.delete('/technologies/:id', async function (req, res) {
     try {
         var return_code;
         var return_data;
 
-        if (_.isUndefined(req.param.id)) {
+        if (_.isUndefined(req.params.id)) {
             throw new exception.httpException('Missing param(s)', 400);
         }
 
-        let id = req.param.id;
+        let id = req.params.id;
+        let headerAuth = req.headers['authorization'];
+
+        log.debug('params : ', id);
         return_data = await technologies_controller.deleteById(headerAuth, id);
         return_code = 204;
     } catch (error) {
-        log.error(error);
+        log.error('Path', 'Technologies', 'DELETE', '/technologies/:id', error);
         return_code = error.code;
         return_data = { error: error.message };
     } finally {
