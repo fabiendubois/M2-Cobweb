@@ -87,5 +87,26 @@ router.post('/technologies', async function (req, res) {
     }
 });
 
+router.delete('/technologies/:id', async function (req, res) {
+    try {
+        var return_code;
+        var return_data;
+
+        if (_.isUndefined(req.param.id)) {
+            throw new exception.httpException('Missing param(s)', 400);
+        }
+
+        let id = req.param.id;
+        return_data = await technologies_controller.deleteById(headerAuth, id);
+        return_code = 204;
+    } catch (error) {
+        log.error(error);
+        return_code = error.code;
+        return_data = { error: error.message };
+    } finally {
+        return res.status(return_code).send(return_data);
+    }
+});
+
 
 module.exports = router;

@@ -1,6 +1,6 @@
-# M2_III_Web
+# Cobweb
 Master 2 Informatique Ingénierie Innovation.  
-Projet Web Avancé.  
+Projet de web avancé.  
 
 ## Définition du projet :
 Créer une application de gestion des flux entres applications.
@@ -12,12 +12,13 @@ L'application devra comprendre une API.
 
 ### Fonctionnalités :
 
-**Back :** 
+**Public**
 - [x] Inscription utilisateur
 - [x] Connexion utilisateur
 
+**Admin**
 - [x] Ajouter un technolgie
-- [x] Supprimer une technologie
+
+**Other**
 
 
-**Front :** 

@@ -1,6 +1,7 @@
 'use strict'
 
 const technologies_service = require('../services/technologies.service');
+const user_controller = require('./users.controller');
 const users_service = require('../services/users.service');
 
 const exception = require('../exceptions/http.exception');
@@ -15,7 +16,8 @@ var config_log4js = require('../../config/log4js');
 log4js.configure(config_log4js);
 
 /**
- * Controller de récupération des technologies
+ * Controller 
+ * Find all technologies.
  * @param {String} headerAuth header authentification
  */
 exports.findAll = async function (headerAuth) {
@@ -34,17 +36,25 @@ exports.findAll = async function (headerAuth) {
 }
 
 /**
- * Controller d'ajout d'une technologie
+ * Controller 
+ * Add a technology.
  * @param {String} headerAuth header authentification
- * @param {String} name Nom Technologie
+ * @param {String} name Technology name
  */
 exports.add = async function (headerAuth, name) {
     try {
         var users_id = jwt.getUserId(headerAuth);
 
+        /* Si l'utilisateur n'existe pas */
         if (_.isUndefined(users_id) || users_id < 0) {
             throw new exception.httpException('Forbidden Access', 403);
         }
+
+        /* Est-ce que l'utilisateur est un admin */
+        let isAdmin = await user_controller.isAdmin(id);
+        if (!isAdmin || isAdmin === null) {
+            throw new exception.httpException('Forbidden Access', 403);
+        } 
 
         return await technologies_service.add(name);
     } catch (error) {
@@ -54,10 +64,11 @@ exports.add = async function (headerAuth, name) {
 }
 
 /**
- * Controller de suppression d'une technologie
+ * Controller
+ * Delete a technology by id.
  * @param {String} headerAuth header authentification
- * @param {Number} id Id Technologie
- */
+ * @param {Number} id Technology id
+
 exports.deleteById = async function (headerAuth, id) {
     try {
         var users_id = jwt.getUserId(headerAuth);
@@ -71,4 +82,4 @@ exports.deleteById = async function (headerAuth, id) {
         log.error(error);
         throw error;
     }
-}
+} */

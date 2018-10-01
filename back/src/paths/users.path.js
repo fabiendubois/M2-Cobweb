@@ -37,13 +37,14 @@ router.post('/users/sign_in', async function (req, res) {
         var return_code;
         var return_data;
 
+        /* Vérification de la présence des arguments dans le body */
         if (_.isUndefined(req.body.email) || _.isUndefined(req.body.password)) {
             throw new exception.httpException('Missing param(s)', 400);
         }
 
         let email = req.body.email;
         let password = req.body.password;
-        let users = await users_controller.sign_in(email, password);
+        let users = await users_controller.signIn(email, password);
 
         return_data = JSON.parse(`{ "id":${users[0].id},"token":"${users[0].token}"}`);
         return_code = 200;
@@ -88,7 +89,7 @@ router.post('/users/sign_up', async function (req, res) {
         var return_code;
         var return_data;
 
-        /* Vérification de la présence des arguments dans le payload */
+        /* Vérification de la présence des arguments dans le body */
         if (_.isUndefined(req.body.email) || _.isUndefined(req.body.password) || _.isUndefined(req.body.admin)) {
             throw new exception.httpException('Missing param(s)', 400);
         }
@@ -98,7 +99,7 @@ router.post('/users/sign_up', async function (req, res) {
         let password = req.body.password;
         let admin = req.body.admin;
 
-        let users = await users_controller.sign_up(email, password, admin);
+        let users = await users_controller.signUp(email, password, admin);
 
         return_code = 201;
         return_data = users;

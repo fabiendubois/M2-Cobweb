@@ -315,3 +315,4 @@
 [2018-09-27T12:19:01.654] [ERROR] default - { message: 'name empty or null', code: 409 }
 [2018-09-27T12:19:05.460] [ERROR] default - { message: 'Missing param(s)', code: 409 }
 [2018-09-27T12:19:12.314] [TRACE] default - app listening at 8080
+[2018-10-01T19:47:00.754] [TRACE] default - app listening at 8080

@@ -18,7 +18,7 @@ log4js.configure(config_log4js);
  * @param {String} email Email Utilisateur
  * @param {String} password Password Utilisateur
  */
-exports.sign_in = async function (email, password) {
+exports.signUp = async function (email, password) {
     try {
         let user = await users_service.findByEmail(email);
 
@@ -35,7 +35,7 @@ exports.sign_in = async function (email, password) {
         }
         return user;
     } catch (error) {
-        log.error(error);
+        log.error('Controller', 'Users', 'sign_in', error);
         throw error;
     }
 }
@@ -47,28 +47,32 @@ exports.sign_in = async function (email, password) {
  * @param {String} password mot de passe de l'utilisateur
  * @param {Boolean} admin statut admin de l'utilisateur
  */
-exports.sign_up = async function (email, password, admin) {
+exports.signIn = async function (email, password, admin) {
     try {
         return await users_service.add(email, password, admin);
     } catch (error) {
-        log.error(error);
+        log.error('Controller', 'Users', 'sign_up', error);
         throw error;
     }
 }
 
-/*
-exports.me = async function (headerAuth) {
+/**
+ * Controller
+ * Is an admin user.
+ * @param {Number} id User id.
+ */
+exports.isAdmin = async function (id) {
     try {
-        var users_id = jwt.getUserId(headerAuth);
-        if (_.isUndefined(users_id) || users_id < 0) {
-            throw new exception.httpException('Forbidden Access', 403);
+        let user = users_service.findById(id);
+        
+        if(user[0] === null)
+        {
+            throw new exception.httpException('Id not valid', 400);
         }
-        user = await this.findById(id);
 
-        // return user with out password
+        return user[0].admin;
     } catch (error) {
-        log.error(error);
+        log.error('Controller', 'Users', 'idAdmin', error);
         throw error;
     }
 }
-*/

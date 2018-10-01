@@ -19,7 +19,7 @@ exports.findAll = async function () {
     try {
         return await technologies_repository.findAll();
     } catch (error) {
-        log.error(error);
+        log.error('Service', 'Technologies', 'findAll', error);
         throw error;
     }
 }
@@ -27,13 +27,13 @@ exports.findAll = async function () {
 /**
  * Service 
  * Find technology by id.
- * @param {Number} id Id Technologie
+ * @param {Number} id Technology id
  */
 exports.findById = async function (id) {
     try {
         return await technologies_repository.findById(id);
     } catch (error) {
-        log.error(error);
+        log.error('Service', 'Technologies', 'findById', error);
         throw error;
     }
 }
@@ -41,7 +41,7 @@ exports.findById = async function (id) {
 /**
  * Service 
  * Add a technology.
- * @param {String} name Technologie Name
+ * @param {String} name Technology Name
  */
 exports.add = async function (name) {
     try {
@@ -61,7 +61,7 @@ exports.add = async function (name) {
 
         return await technologies_repository.add(name);
     } catch (error) {
-        log.error(error);
+        log.error('Service', 'Technologies', 'add', error);
         throw error;
     }
 }
@@ -83,7 +83,7 @@ exports.deleteById = async function (id) {
 
         return await technologies_repository.deleteById(id);
     } catch (error) {
-        log.error(error);
+        log.error('Service', 'Technologies', 'deleteById', error);
         throw error;
     }
 }
