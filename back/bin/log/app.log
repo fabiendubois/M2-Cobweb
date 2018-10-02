@@ -568,3 +568,4 @@
 [2018-10-02T19:20:30.996] [ERROR] default - Path Applications GET /technologies { message: 'Forbidden Access', code: 403 }
 [2018-10-02T19:20:31.187] [ERROR] default - Controller Applications findAll { message: 'Forbidden Access', code: 403 }
 [2018-10-02T19:20:31.188] [ERROR] default - Path Applications GET /technologies { message: 'Forbidden Access', code: 403 }
+[2018-10-02T19:28:20.088] [TRACE] default - app listening at 8080

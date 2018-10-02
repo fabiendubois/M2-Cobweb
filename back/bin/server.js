@@ -1,11 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const helmet = require('helmet');
 
 var log4js = require('log4js');
 var log = log4js.getLogger("default");
 log4js.configure('../config/log4js.json');
 
 var app = express();
+
+app.use(helmet());
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
