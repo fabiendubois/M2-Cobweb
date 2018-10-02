@@ -16,14 +16,23 @@ app.use(function (req, res, next) {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+/* Paths */
+
+/* Ping */
 var ping = require('../src/paths/ping.path.js')
 app.use('/api/v1/', ping);
 
+/* Users */
 var users = require('../src/paths/users.path.js');
 app.use('/api/v1/', users);
 
+/* Technologies */
 var technologies = require('../src/paths/technologies.path.js');
 app.use('/api/v1/', technologies);
+
+/* Applications */
+var applications = require('../src/paths/applications.path.js');
+app.use('/api/v1/', applications);
 
 var port = process.env.PORT || 8080;
 

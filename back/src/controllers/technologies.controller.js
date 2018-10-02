@@ -30,7 +30,7 @@ exports.findAll = async function (headerAuth) {
 
         return await technologies_service.findAll();
     } catch (error) {
-        log.error(error);
+        log.error('Controller', 'Technologies', 'findAll', error);
         throw error;
     }
 }
@@ -58,7 +58,7 @@ exports.add = async function (headerAuth, name) {
 
         return await technologies_service.add(name);
     } catch (error) {
-        log.error(error);
+        log.error('Controller', 'Technologies', 'add', error);
         throw error;
     }
 }
@@ -85,7 +85,7 @@ exports.deleteById = async function (headerAuth, id) {
 
         return await technologies_service.deleteById(id);
     } catch (error) {
-        log.error(error);
+        log.error('Controller', 'Technologies', 'deleteById', error);
         throw error;
     }
 }

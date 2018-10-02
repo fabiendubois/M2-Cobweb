@@ -21,5 +21,5 @@ L'application devra comprendre une API.
 - [x] Supprimer une technolgie
 
 **Other**
-
+- [x] Find all technologies
 

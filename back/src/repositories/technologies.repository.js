@@ -15,7 +15,7 @@ log4js.configure(config_log4js);
 exports.findAll = async function () {
     try {
         let request = {
-            text: 'SELECT * FROM technologies'
+            text: `SELECT * FROM technologies`
         };
         let response = await pg_tool.handle_databsase(request);
         return response.rows;

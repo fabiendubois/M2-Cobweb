@@ -16,7 +16,7 @@ log4js.configure(config_log4js);
 exports.findById = async function (id) {
     try {
         let request = {
-            text: 'SELECT * FROM users WHERE id = $1',
+            text: `SELECT * FROM users WHERE id = $1`,
             values: [id]
         };
         let response = await pg_tool.handle_databsase(request);
@@ -35,7 +35,7 @@ exports.findById = async function (id) {
 exports.findByEmail = async function (email) {
     try {
         let request = {
-            text: 'SELECT * FROM users WHERE email = $1',
+            text: `SELECT * FROM users WHERE email = $1`,
             values: [email]
         };
         let response = await pg_tool.handle_databsase(request);
@@ -56,8 +56,7 @@ exports.findByEmail = async function (email) {
 exports.add = async function (email, password, admin) {
     try {
         let request = {
-            text: 'INSERT INTO users (email, password, admin)'
-                + 'VALUES($1, $2, $3) RETURNING *',
+            text: `INSERT INTO users (email, password, admin) VALUES($1, $2, $3) RETURNING *`,
             values: [email, password, admin]
         };
         let response = await pg_tool.handle_databsase(request);

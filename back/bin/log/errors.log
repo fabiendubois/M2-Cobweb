@@ -428,3 +428,21 @@
 [2018-10-01T20:34:58.553] [ERROR] default - Service Technologies deleteById { message: 'id is not nubmer', code: 400 }
 [2018-10-01T20:34:58.554] [ERROR] default - { message: 'id is not nubmer', code: 400 }
 [2018-10-01T20:34:58.554] [ERROR] default - { message: 'id is not nubmer', code: 400 }
+[2018-10-02T19:20:23.005] [ERROR] default - Controller Applications findAll { message: 'Forbidden Access', code: 403 }
+[2018-10-02T19:20:23.006] [ERROR] default - Path Applications GET /technologies { message: 'Forbidden Access', code: 403 }
+[2018-10-02T19:20:29.879] [ERROR] default - Controller Applications findAll { message: 'Forbidden Access', code: 403 }
+[2018-10-02T19:20:29.880] [ERROR] default - Path Applications GET /technologies { message: 'Forbidden Access', code: 403 }
+[2018-10-02T19:20:30.120] [ERROR] default - Controller Applications findAll { message: 'Forbidden Access', code: 403 }
+[2018-10-02T19:20:30.121] [ERROR] default - Path Applications GET /technologies { message: 'Forbidden Access', code: 403 }
+[2018-10-02T19:20:30.314] [ERROR] default - Controller Applications findAll { message: 'Forbidden Access', code: 403 }
+[2018-10-02T19:20:30.314] [ERROR] default - Path Applications GET /technologies { message: 'Forbidden Access', code: 403 }
+[2018-10-02T19:20:30.482] [ERROR] default - Controller Applications findAll { message: 'Forbidden Access', code: 403 }
+[2018-10-02T19:20:30.483] [ERROR] default - Path Applications GET /technologies { message: 'Forbidden Access', code: 403 }
+[2018-10-02T19:20:30.663] [ERROR] default - Controller Applications findAll { message: 'Forbidden Access', code: 403 }
+[2018-10-02T19:20:30.663] [ERROR] default - Path Applications GET /technologies { message: 'Forbidden Access', code: 403 }
+[2018-10-02T19:20:30.824] [ERROR] default - Controller Applications findAll { message: 'Forbidden Access', code: 403 }
+[2018-10-02T19:20:30.824] [ERROR] default - Path Applications GET /technologies { message: 'Forbidden Access', code: 403 }
+[2018-10-02T19:20:30.995] [ERROR] default - Controller Applications findAll { message: 'Forbidden Access', code: 403 }
+[2018-10-02T19:20:30.996] [ERROR] default - Path Applications GET /technologies { message: 'Forbidden Access', code: 403 }
+[2018-10-02T19:20:31.187] [ERROR] default - Controller Applications findAll { message: 'Forbidden Access', code: 403 }
+[2018-10-02T19:20:31.188] [ERROR] default - Path Applications GET /technologies { message: 'Forbidden Access', code: 403 }
