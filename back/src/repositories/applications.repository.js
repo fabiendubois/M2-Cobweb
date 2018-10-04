@@ -63,3 +63,22 @@ exports.add = async function (name, id_technologies) {
         throw new exception.httpException('Internal DataBase Error', 500);
     }
 }
+
+/**
+ * Repository
+ * Delete an application by id.
+ * @param {Number} id Application id
+ */
+exports.deleteById = async function (id) {
+    try {
+        let request = {
+            text: `DELETE FROM applications WHERE id = $1`,
+            values: [id]
+        };
+        let response = await pg_tool.handle_databsase(request);
+        return response.rows;
+    } catch (error) {
+        log.error('Repository', 'Applications', 'deleteById', error);
+        throw new exception.httpException('Internal DataBase Error', 500);
+    }
+}

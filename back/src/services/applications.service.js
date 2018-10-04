@@ -46,7 +46,7 @@ exports.findById = async function (id) {
 /**
  * Service 
  * Add an application.
- * @param {String} name Application Name
+ * @param {String} name Application name
  * @param {Number} id_technologies Technology Id
  */
 exports.add = async function (name, id_technologies) {
@@ -72,6 +72,28 @@ exports.add = async function (name, id_technologies) {
         return await applications_repository.add(name, id_technologies);
     } catch (error) {
         log.error('Service', 'Technologies', 'add', error);
+        throw error;
+    }
+}
+
+/**
+ * Service 
+ * Delete an application by id.
+ * @param {Number} id Application id
+ */
+exports.deleteById = async function (id) {
+    try {
+        if (_.isEmpty(id)) {
+            throw new exception.httpException('id empty or null', 400);
+        }
+
+        if (_.isNaN(id)) {
+            throw new exception.httpException('id is not number', 400);
+        }
+
+        return await applications_repository.deleteById(id);
+    } catch (error) {
+        log.error('Service', 'Applications', 'deleteById', error);
         throw error;
     }
 }

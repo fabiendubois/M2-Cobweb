@@ -34,7 +34,7 @@ router.get('/applications', async function (req, res) {
         return_data = await applications_controller.findAll(headerAuth);
         return_code = 200;
     } catch (error) {
-        log.error('Path', 'Applications', 'GET', '/technologies', error);
+        log.error('Path', 'Applications', 'GET', '/applications', error);
         return_code = error.code;
         return_data = { error: error.message };
     } finally {
@@ -73,7 +73,7 @@ router.post('/applications', async function (req, res) {
         var return_code;
         var return_data;
 
-        if (_.isUndefined(req.body.name) ||  _.isUndefined(req.body.id_technologies)) {
+        if (_.isUndefined(req.body.name) || _.isUndefined(req.body.id_technologies)) {
             throw new exception.httpException('Missing param(s)', 400);
         }
 
@@ -85,7 +85,50 @@ router.post('/applications', async function (req, res) {
         return_data = await applications_controller.add(headerAuth, name, id_technologies);
         return_code = 201;
     } catch (error) {
-        log.error('Path', 'Technologies', 'POST', '/technologies', error);
+        log.error('Path', 'Applications', 'POST', '/applications', error);
+        return_code = error.code;
+        return_data = { error: error.message };
+    } finally {
+        return res.status(return_code).send(return_data);
+    }
+});
+
+/**
+ * @api {delete} /applications/:id Applications Delete
+ * @apiVersion 0.0.1
+ * @apiName Delete
+ * @apiGroup Applications
+ * @apiPermission Bearer Token. Need to be admin.
+ *
+ * @apiDescription Delete a technology by id.
+ * 
+ * @apiParam (Params) {String} id Id application.
+ * 
+ * @apiSuccess (Succes 204) {String} Accepted
+ * 
+ * @apiError (Error 400) {String} 0 Missing param(s).
+ * @apiError (Error 400) {String} 1 Id is not a number.
+ * 
+ * @apiError (Error 403) {String} Auth Forbidden Access.
+ * 
+ */
+router.delete('/applications/:id', async function (req, res) {
+    try {
+        var return_code;
+        var return_data;
+
+        if (_.isUndefined(req.params.id)) {
+            throw new exception.httpException('Missing param(s)', 400);
+        }
+
+        let id = req.params.id;
+        let headerAuth = req.headers['authorization'];
+
+        log.debug('params : ', id);
+        return_data = await applications_controller.deleteById(headerAuth, id);
+        return_code = 204;
+    } catch (error) {
+        log.error('Path', 'Applications', 'DELETE', '/applications/:id', error);
         return_code = error.code;
         return_data = { error: error.message };
     } finally {
