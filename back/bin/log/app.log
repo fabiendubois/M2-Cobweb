@@ -622,3 +622,4 @@
 [2018-10-04T10:27:57.115] [WARN] default - Ma requete undefined
 [2018-10-04T10:28:00.658] [WARN] default - Ma requete undefined
 [2018-10-04T10:28:01.236] [WARN] default - Ma requete undefined
+[2018-10-04T10:34:23.337] [TRACE] default - app listening at 8080

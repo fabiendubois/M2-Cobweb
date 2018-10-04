@@ -13,13 +13,17 @@ L'application devra comprendre une API.
 ### Fonctionnalités :
 
 **Public**
+- [x] Ping
 - [x] Inscription utilisateur
 - [x] Connexion utilisateur
 
 **Admin**
 - [x] Ajouter une technolgie
 - [x] Supprimer une technolgie
+- [x] Ajouter une application
+- [x] Supprimer une application
+
 
 **Other**
 - [x] Find all technologies
-
+- [x] Find all applications
