@@ -43,6 +43,44 @@ router.get('/technologies', async function (req, res) {
 });
 
 /**
+ * @api {get} /technologies/:id Applications FindById
+ * @apiVersion 0.0.1
+ * @apiName FindById
+ * @apiGroup Applications
+ * @apiPermission Bearer Token
+ * 
+ * @apiDescription Find an technologies by id.
+ * 
+ * @apiParam (Params) {Number} id Application id.
+ * 
+ * @apiSuccess (Succes 200) {json} technologies Applications.
+ * 
+ * @apiError (Error 403) {String} Auth Forbidden Access.
+ */
+router.get('/technologies/:id', async function (req, res) {
+    try {
+        var return_code;
+        var return_data;
+
+        if (_.isUndefined(req.params.id)) {
+            throw new exception.httpException('Missing param(s)', 400);
+        }
+
+        let id = req.params.id;
+        let headerAuth = req.headers['authorization'];
+
+        return_data = await technologies_controller.findById(headerAuth, id);
+        return_code = 200;
+    } catch (error) {
+        log.error('Path', 'Technologies', 'GET', '/technologies/:id', error);
+        return_code = error.code;
+        return_data = { error: error.message };
+    } finally {
+        return res.status(return_code).send(return_data);
+    }
+});
+
+/**
  * @api {post} /technologies Technologies Add
  * @apiVersion 0.0.1
  * @apiName Add

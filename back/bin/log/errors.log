@@ -480,3 +480,50 @@
     at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:66:27)
     at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:59:43)
     at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-04T10:52:56.236] [ERROR] default - Service Users add { message: 'email exist', code: 400 }
+[2018-10-04T10:52:56.236] [ERROR] default - Controller Users signUp { message: 'email exist', code: 400 }
+[2018-10-04T10:52:56.237] [ERROR] default - Path Users /users/sign_up { message: 'email exist', code: 400 }
+[2018-10-04T10:53:02.984] [ERROR] default - Service Users add { message: 'email exist', code: 400 }
+[2018-10-04T10:53:02.984] [ERROR] default - Controller Users signUp { message: 'email exist', code: 400 }
+[2018-10-04T10:53:02.985] [ERROR] default - Path Users /users/sign_up { message: 'email exist', code: 400 }
+[2018-10-04T10:53:20.301] [ERROR] default - Service Users add { message: 'email exist', code: 400 }
+[2018-10-04T10:53:20.301] [ERROR] default - Controller Users signUp { message: 'email exist', code: 400 }
+[2018-10-04T10:53:20.301] [ERROR] default - Path Users /users/sign_up { message: 'email exist', code: 400 }
+[2018-10-04T10:53:27.331] [ERROR] default - Service Users add { message: 'password bad format', code: 400 }
+[2018-10-04T10:53:27.331] [ERROR] default - Controller Users signUp { message: 'password bad format', code: 400 }
+[2018-10-04T10:53:27.332] [ERROR] default - Path Users /users/sign_up { message: 'password bad format', code: 400 }
+[2018-10-04T10:53:34.904] [ERROR] default - Service Users add { message: 'email bad format', code: 400 }
+[2018-10-04T10:53:34.904] [ERROR] default - Controller Users signUp { message: 'email bad format', code: 400 }
+[2018-10-04T10:53:34.904] [ERROR] default - Path Users /users/sign_up { message: 'email bad format', code: 400 }
+[2018-10-04T14:15:12.104] [ERROR] default - { TokenExpiredError: jwt expired
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:141:21
+    at getSecret (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:76:14)
+    at Object.module.exports [as verify] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:80:10)
+    at Object.getUserId (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/tools/jwt.tool.js:44:36)
+    at Object.exports.deleteById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:95:28)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/applications.path.js:166:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+  name: 'TokenExpiredError',
+  message: 'jwt expired',
+  expiredAt: 2018-10-04T08:19:34.000Z }
+[2018-10-04T14:15:12.105] [ERROR] default - Controller Applications deleteById { message: 'Forbidden Access', code: 403 }
+[2018-10-04T14:15:12.106] [ERROR] default - Path Applications DELETE /applications/:id { message: 'Forbidden Access', code: 403 }
+[2018-10-04T14:15:20.743] [ERROR] default - { TokenExpiredError: jwt expired
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:141:21
+    at getSecret (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:76:14)
+    at Object.module.exports [as verify] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:80:10)
+    at Object.getUserId (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/tools/jwt.tool.js:44:36)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:67:28)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/applications.path.js:123:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+  name: 'TokenExpiredError',
+  message: 'jwt expired',
+  expiredAt: 2018-10-04T08:19:34.000Z }
+[2018-10-04T14:15:20.743] [ERROR] default - Controller Applications add { message: 'Forbidden Access', code: 403 }
+[2018-10-04T14:15:20.744] [ERROR] default - Path Applications POST /applications { message: 'Forbidden Access', code: 403 }

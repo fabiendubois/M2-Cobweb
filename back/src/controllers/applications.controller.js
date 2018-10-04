@@ -36,6 +36,27 @@ exports.findAll = async function (headerAuth) {
 
 /**
  * Controller 
+ * Find an applications by id
+ * @param {String} headerAuth header authentification
+ * @param {Number} id Application id
+ */
+exports.findById = async function (headerAuth, id) {
+    try {
+        var users_id = jwt.getUserId(headerAuth);
+
+        if (_.isUndefined(users_id) || users_id < 0) {
+            throw new exception.httpException('Forbidden Access', 403);
+        }
+
+        return await applications_service.findById(id);
+    } catch (error) {
+        log.error('Controller', 'Applications', 'findById', error);
+        throw error;
+    }
+}
+
+/**
+ * Controller 
  * Add an application.
  * @param {String} headerAuth header authentification
  * @param {String} name Application name

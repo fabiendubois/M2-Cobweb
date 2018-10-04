@@ -71,7 +71,7 @@ exports.add = async function (name, id_technologies) {
 
         return await applications_repository.add(name, id_technologies);
     } catch (error) {
-        log.error('Service', 'Technologies', 'add', error);
+        log.error('Service', 'Applications', 'add', error);
         throw error;
     }
 }

@@ -43,6 +43,44 @@ router.get('/applications', async function (req, res) {
 });
 
 /**
+ * @api {get} /applications/:id Applications FindById
+ * @apiVersion 0.0.1
+ * @apiName FindById
+ * @apiGroup Applications
+ * @apiPermission Bearer Token
+ * 
+ * @apiDescription Find an applications by id.
+ * 
+ * @apiParam (Params) {Number} id Application id.
+ * 
+ * @apiSuccess (Succes 200) {json} applications Applications.
+ * 
+ * @apiError (Error 403) {String} Auth Forbidden Access.
+ */
+router.get('/applications/:id', async function (req, res) {
+    try {
+        var return_code;
+        var return_data;
+
+        if (_.isUndefined(req.params.id)) {
+            throw new exception.httpException('Missing param(s)', 400);
+        }
+
+        let id = req.params.id;
+        let headerAuth = req.headers['authorization'];
+
+        return_data = await applications_controller.findById(headerAuth, id);
+        return_code = 200;
+    } catch (error) {
+        log.error('Path', 'Applications', 'GET', '/applications/:id', error);
+        return_code = error.code;
+        return_data = { error: error.message };
+    } finally {
+        return res.status(return_code).send(return_data);
+    }
+});
+
+/**
  * @api {post} /applications Applications Add
  * @apiVersion 0.0.1
  * @apiName Add

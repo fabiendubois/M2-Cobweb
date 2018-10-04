@@ -10,6 +10,13 @@ L'application devra comprendre une API.
 - Mode avec authentification. Compte administrateur et compteur en mode lecture.
 - Mode sans authentification
 
+## Objectifs 
+- [x] Créer une API
+- [x] Documenter l'API
+- [x] Documenter le code de l'API
+- [ ] Tester le code de l'API
+- [ ] Tester l'API
+
 ### Fonctionnalités :
 
 **Public**
@@ -22,7 +29,6 @@ L'application devra comprendre une API.
 - [x] Supprimer une technolgie
 - [x] Ajouter une application
 - [x] Supprimer une application
-
 
 **Other**
 - [x] Find all technologies
