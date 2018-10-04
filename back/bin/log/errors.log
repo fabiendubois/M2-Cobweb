@@ -446,3 +446,37 @@
 [2018-10-02T19:20:30.996] [ERROR] default - Path Applications GET /technologies { message: 'Forbidden Access', code: 403 }
 [2018-10-02T19:20:31.187] [ERROR] default - Controller Applications findAll { message: 'Forbidden Access', code: 403 }
 [2018-10-02T19:20:31.188] [ERROR] default - Path Applications GET /technologies { message: 'Forbidden Access', code: 403 }
+[2018-10-04T09:20:49.033] [ERROR] default - Controller Applications add ReferenceError: user_controller is not defined
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:53:23)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/applications.path.js:85:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:174:3)
+[2018-10-04T09:20:49.034] [ERROR] default - Path Technologies POST /technologies ReferenceError: user_controller is not defined
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:53:23)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/applications.path.js:85:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:174:3)
+[2018-10-04T09:21:24.652] [ERROR] default - Service Technologies add ReferenceError: technologies_service is not defined
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:66:27)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:59:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-04T09:21:24.653] [ERROR] default - Controller Applications add ReferenceError: technologies_service is not defined
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:66:27)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:59:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-04T09:21:24.653] [ERROR] default - Path Technologies POST /technologies ReferenceError: technologies_service is not defined
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:66:27)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:59:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)

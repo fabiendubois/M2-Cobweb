@@ -26,11 +26,14 @@ exports.findAll = async function () {
 
 /**
  * Service 
- * Find technology by id.
+ * Find a technology by id.
  * @param {Number} id Technology id
  */
 exports.findById = async function (id) {
     try {
+        if (isNaN(id)) {
+            throw new exception.httpException('id is not number', 400);
+        }
         return await technologies_repository.findById(id);
     } catch (error) {
         log.error('Service', 'Technologies', 'findById', error);
@@ -40,8 +43,29 @@ exports.findById = async function (id) {
 
 /**
  * Service 
+ * Find a technology by name.
+ * @param {String} name Technology name
+ */
+exports.findByName = async function (name) {
+    try {
+        if (_.isEmpty(name)) {
+            throw new exception.httpException('name empty or null', 400);
+        }
+
+        if (!_.isString(name)) {
+            throw new exception.httpException('name is not string', 400);
+        }
+        return await technologies_repository.findByName(name);
+    } catch (error) {
+        log.error('Service', 'Technologies', 'findByName', error);
+        throw error;
+    }
+}
+
+/**
+ * Service 
  * Add a technology.
- * @param {String} name Technology Name
+ * @param {String} name Technology name
  */
 exports.add = async function (name) {
     try {
@@ -54,7 +78,7 @@ exports.add = async function (name) {
         }
 
         /* Est-ce qu'une technologie existe déjà avec ce nom ? */
-        let technologie = this.findById(name)
+        let technologie = this.findByName(name)
         if (technologie[0] != null) {
             throw new exception.httpException('This technology with this name already exists.', 400);
         }

@@ -1,6 +1,7 @@
 'use strict'
 
 const applications_service = require('../services/applications.service');
+const user_controller = require('../controllers/users.controller');
 
 const exception = require('../exceptions/http.exception');
 const jwt = require('../tools/jwt.tool');
@@ -29,6 +30,35 @@ exports.findAll = async function (headerAuth) {
         return await applications_service.findAll();
     } catch (error) {
         log.error('Controller', 'Applications', 'findAll', error);
+        throw error;
+    }
+}
+
+/**
+ * Controller 
+ * Add an application.
+ * @param {String} headerAuth header authentification
+ * @param {String} name Application name
+ * @param {Number} id_technologies Technology id
+ */
+exports.add = async function (headerAuth, name, id_technologies) {
+    try {
+        var users_id = jwt.getUserId(headerAuth);
+
+        /* Si l'utilisateur n'existe pas */
+        if (_.isUndefined(users_id) || users_id < 0) {
+            throw new exception.httpException('Forbidden Access', 403);
+        }
+
+        /* Est-ce que l'utilisateur est un admin */
+        let isAdmin = await user_controller.isAdmin(users_id);
+        if (!isAdmin || isAdmin === null) {
+            throw new exception.httpException('Forbidden Access', 403);
+        }
+
+        return await applications_service.add(name, id_technologies);
+    } catch (error) {
+        log.error('Controller', 'Applications', 'add', error);
         throw error;
     }
 }
