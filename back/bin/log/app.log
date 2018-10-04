@@ -609,3 +609,16 @@
 [2018-10-04T09:22:04.291] [TRACE] default - app listening at 8080
 [2018-10-04T10:17:28.192] [TRACE] default - app listening at 8080
 [2018-10-04T10:17:47.782] [DEBUG] default - params :  1
+[2018-10-04T10:24:41.586] [TRACE] default - app listening at 8080
+[2018-10-04T10:24:46.584] [WARN] default - Ma requete
+[2018-10-04T10:24:50.393] [WARN] default - Ma requete
+[2018-10-04T10:24:53.635] [WARN] default - Ma requete
+[2018-10-04T10:26:16.411] [TRACE] default - app listening at 8080
+[2018-10-04T10:26:18.792] [WARN] default - Ma requete
+[2018-10-04T10:26:24.012] [WARN] default - Ma requete
+[2018-10-04T10:26:27.996] [WARN] default - Ma requete
+[2018-10-04T10:26:28.508] [WARN] default - Ma requete
+[2018-10-04T10:27:45.535] [TRACE] default - app listening at 8080
+[2018-10-04T10:27:57.115] [WARN] default - Ma requete undefined
+[2018-10-04T10:28:00.658] [WARN] default - Ma requete undefined
+[2018-10-04T10:28:01.236] [WARN] default - Ma requete undefined

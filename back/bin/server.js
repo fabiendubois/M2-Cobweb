@@ -19,6 +19,15 @@ app.use(function (req, res, next) {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+/*
+Middleware exemple : http://expressjs.com/fr/guide/writing-middleware.html
+var requestTime = function (req, res, next) {
+    log.warn('Ma requete', req.urlencoded);
+    next();
+  };
+app.use('/api/v1/ping/', requestTime);
+*/
+
 /* Paths */
 
 /* Ping */
