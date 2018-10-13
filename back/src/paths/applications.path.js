@@ -55,6 +55,9 @@ router.get('/applications', async function (req, res) {
  * 
  * @apiSuccess (Succes 200) {json} applications Applications.
  * 
+ * @apiError (Error 400) {String} 0 Missing param(s).
+ * @apiError (Error 400) {String} 1 Id is not a number.
+ * 
  * @apiError (Error 403) {String} Auth Forbidden Access.
  */
 router.get('/applications/:id', async function (req, res) {
@@ -95,7 +98,6 @@ router.get('/applications/:id', async function (req, res) {
  * @apiSuccess (Succes 201) {Integer} id Application Id.
  * @apiSuccess (Succes 201) {String} name Application Name.
  * @apiSuccess (Succes 201) {String} id_technologies Technology Id.
-
  * 
  * @apiError (Error 400) {String} 0 Missing param(s).
  * @apiError (Error 400) {String} 1 Name empty or null.

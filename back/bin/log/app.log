@@ -677,3 +677,7 @@
   expiredAt: 2018-10-04T08:19:34.000Z }
 [2018-10-04T14:15:20.743] [ERROR] default - Controller Applications add { message: 'Forbidden Access', code: 403 }
 [2018-10-04T14:15:20.744] [ERROR] default - Path Applications POST /applications { message: 'Forbidden Access', code: 403 }
+[2018-10-04T15:01:55.848] [TRACE] default - app listening at 8080
+[2018-10-12T16:47:44.467] [DEBUG] default - params :  1
+[2018-10-12T16:47:44.506] [ERROR] default - Controller Applications deleteById { message: 'Forbidden Access', code: 403 }
+[2018-10-12T16:47:44.520] [ERROR] default - Path Applications DELETE /applications/:id { message: 'Forbidden Access', code: 403 }

@@ -43,17 +43,20 @@ router.get('/technologies', async function (req, res) {
 });
 
 /**
- * @api {get} /technologies/:id Applications FindById
+ * @api {get} /technologies/:id Technologies FindById
  * @apiVersion 0.0.1
  * @apiName FindById
- * @apiGroup Applications
+ * @apiGroup Technologies
  * @apiPermission Bearer Token
  * 
  * @apiDescription Find an technologies by id.
+ *  
+ * @apiParam (Params) {Number} id Technology id.
  * 
- * @apiParam (Params) {Number} id Application id.
+ * @apiSuccess (Succes 200) {json} technologies Technologies.
  * 
- * @apiSuccess (Succes 200) {json} technologies Applications.
+ * @apiError (Error 400) {String} 0 Missing param(s).
+ * @apiError (Error 400) {String} 1 Id is not a number.
  * 
  * @apiError (Error 403) {String} Auth Forbidden Access.
  */
