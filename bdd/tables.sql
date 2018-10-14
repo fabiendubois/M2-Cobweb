@@ -21,9 +21,9 @@ CREATE TABLE applications (
     -- PRIMARY KEY --
     id SERIAL PRIMARY KEY,
     -- OTHER --
-    name TEXT NOT NULL UNIQUE,
-     -- FOREIGN KEY --
-    id_technologies INTEGER NOT NULL REFERENCES technologies (id)
+    name TEXT NOT NULL,
+    description TEXT,
+    team TEXT,
 );
 
 DROP TABLE IF EXISTS flows;
@@ -46,5 +46,14 @@ CREATE TABLE flows_technologies (
     ordering INTEGER NOT NULL,
     -- FOREIGN KEY --
     id_flows INTEGER NOT NULL REFERENCES flows (id),
+    id_technologies INTEGER NOT NULL REFERENCES technologies (id)
+);
+
+DROP TABLE IF EXISTS applications_technologies;
+CREATE TABLE applications_technologies (
+    -- PRIMARY KEY --
+    id SERIAL PRIMARY KEY,
+    -- FOREIGN KEY --
+    id_applications INTEGER NOT NULL REFERENCES applications (id),
     id_technologies INTEGER NOT NULL REFERENCES technologies (id)
 );
