@@ -50,6 +50,10 @@ app.use('/api/v1/', applications);
 var flows = require('../src/paths/flows.path');
 app.use('/api/v1/', flows);
 
+/* Flows_technologies */
+var floflows_technologies = require('../src/paths/flows_technologies.path');
+app.use('/api/v1/', floflows_technologies);
+
 var port = process.env.PORT || 8080;
 
 app.listen(port, function () {

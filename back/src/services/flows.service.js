@@ -101,7 +101,7 @@ exports.add = async function (name, description, id_applications_source, id_appl
 
         return await flows_repository.add(name, description, id_applications_source, id_applications_target, id_users);
     } catch (error) {
-        log.error('Service', 'Technologies', 'add', error);
+        log.error('Service', 'Flows', 'add', error);
         throw error;
     }
 }

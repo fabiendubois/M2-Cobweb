@@ -1,16 +1,38 @@
 # Cobweb
-Master 2 Informatique Ingénierie Innovation.  
+Master 2 Informatique Ingénierie Innovation 2018 - 2019.  
 Projet de web avancé.  
+Application de gestion de flux entre applications.  
 
-## Définition du projet :
-Créer une application de gestion des flux entres applications.
-L'application devra comprendre une API.
-
+## Fonctionnel :
 2 modes d'utilisation possible (choix possible au lancement de l'application coté serveur) :
-- Mode avec authentification. Compte administrateur et compteur en mode lecture.
-- Mode sans authentification
+- [x] Mode avec authentification. Compte administrateur (lecture & écriture) et compte en mode lecture.
+- [ ] Mode sans authentification
 
-## Objectifs 
+- **Utilisateur**
+    - S'inscrire, en administrateur ou non.
+    - Se connecter.
+
+- **Applications**
+    - Ajouter une application (admin).
+    - Supprimer une application (admin), impossible de supprimer une application liée à une autre ressource.
+    - Modifier une application (admin).
+
+- **Technologies**
+    - Lister les technologies
+    - Ajouter une technologie (admin).
+    - Supprimer une technologie (admin), impossible de supprimer une technologie liée à une autre ressource.
+    - Modifier une technologie (admin).
+
+- **Flux**
+    - Ajouter un flux reliant deux applications (admin).
+    - Un flux est composé d'au moins un flux-technologie. Il peut y avoir plusieurs flux-technologies reliant deux applications.
+    - Ajouter un flux-technologie au flux(admin). Exemple de flux-technologies entre deux applications A et B : [A] -> PHP -> JAVA -> [B] 
+    - Supprimer un flux-technologie au flux (admin).
+    - Modifier un flux-technologie au flux (admin).
+    - Supprimer un flux (admin) n'entraine pas la suppression des applications. Pas de suppression en cascade.
+    - Modifier un flux (admin).
+
+## Objectifs techniques du projet : 
 - [x] Créer une API
 - [x] Documenter l'API
 - [x] Documenter le code de l'API
@@ -25,6 +47,7 @@ L'application devra comprendre une API.
 - [x] Connexion utilisateur
 
 **Admin**
+
 - [x] Ajouter une technolgie
 - [x] Supprimer une technolgie
 - [x] Ajouter une application
@@ -33,3 +56,5 @@ L'application devra comprendre une API.
 **Other**
 - [x] Find all technologies
 - [x] Find all applications
+- [x] Find all flows
+
