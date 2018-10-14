@@ -41,3 +41,5 @@ router.get('/flows', async function (req, res) {
         return res.status(return_code).send(return_data);
     }
 });
+
+module.exports = router;
