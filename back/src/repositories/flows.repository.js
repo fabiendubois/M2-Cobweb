@@ -43,3 +43,45 @@ exports.findById = async function (id) {
         throw new exception.httpException('Internal DataBase Error', 500);
     }
 }
+
+/**
+ * Repository
+ * Add a flow
+ * @param {String} name Flow name
+ * @param {String} name Flow description
+ * @param {Number} id_applications_source Flows id_applications_source
+ * @param {Number} id_applications_target Flows id_applications_target
+ * @param {Number} id_users Flows id_users 
+ */
+exports.add = async function (name, description, id_applications_source, id_applications_target, id_users) {
+    try {
+        let request = {
+            text: `INSERT INTO flows (name, description, id_applications_source, id_applications_target, id_users) VALUES($1, $2, $3, $4, $5) RETURNING *`,
+            values: [name, description, id_applications_source, id_applications_target, id_users]
+        };
+        let response = await pg_tool.handle_databsase(request);
+        return response.rows;
+    } catch (error) {
+        log.error('Repository', 'Flows', 'add', error);
+        throw new exception.httpException('Internal DataBase Error', 500);
+    }
+}
+
+/**
+ * Repository
+ * Delete a flow by id.
+ * @param {Number} id Flows id
+ */
+exports.deleteById = async function (id) {
+    try {
+        let request = {
+            text: `DELETE FROM flows WHERE id = $1`,
+            values: [id]
+        };
+        let response = await pg_tool.handle_databsase(request);
+        return response.rows;
+    } catch (error) {
+        log.error('Repository', 'Flows', 'deleteById', error);
+        throw new exception.httpException('Internal DataBase Error', 500);
+    }
+}
