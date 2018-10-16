@@ -51,12 +51,11 @@ exports.findById = async function (id) {
  * @param {String} name Flow description
  * @param {Number} id_applications_source Flows id_applications_source
  * @param {Number} id_applications_target Flows id_applications_target
- * @param {Number} id_users Flows id_users 
  */
-exports.add = async function (name, description, id_applications_source, id_applications_target, id_users) {
+exports.add = async function (name, description, id_applications_source, id_applications_target, ) {
     try {
         let request = {
-            text: `INSERT INTO flows (name, description, id_applications_source, id_applications_target, id_users) VALUES($1, $2, $3, $4, $5) RETURNING *`,
+            text: `INSERT INTO flows (name, description, id_applications_source, id_applications_target) VALUES($1, $2, $3, $4) RETURNING *`,
             values: [name, description, id_applications_source, id_applications_target, id_users]
         };
         let response = await pg_tool.handle_databsase(request);

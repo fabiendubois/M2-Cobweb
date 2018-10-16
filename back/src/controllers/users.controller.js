@@ -15,8 +15,8 @@ log4js.configure(config_log4js);
 /**
  * Controller 
  * User authentication
- * @param {String} email Email Utilisateur
- * @param {String} password Password Utilisateur
+ * @param {String} email User email address
+ * @param {String} password User password
  */
 exports.signIn = async function (email, password) {
     try {
@@ -43,35 +43,15 @@ exports.signIn = async function (email, password) {
 /**
  * Controller 
  * User registration
- * @param {String} email email de l'utilisateur
- * @param {String} password mot de passe de l'utilisateur
- * @param {Boolean} admin statut admin de l'utilisateur
+ * @param {String} email User email address
+ * @param {String} password User password
+ * @param {Boolean} admin User status
  */
 exports.signUp = async function (email, password, admin) {
     try {
         return await users_service.add(email, password, admin);
     } catch (error) {
         log.error('Controller', 'Users', 'signUp', error);
-        throw error;
-    }
-}
-
-/**
- * Controller
- * Is an admin user.
- * @param {Number} id User id.
- */
-exports.isAdmin = async function (id) {
-    try {
-        let user = await users_service.findById(id);
-
-        if (user[0] === null) {
-            throw new exception.httpException('Id not valid', 400);
-        }
-
-        return user[0].admin;
-    } catch (error) {
-        log.error('Controller', 'Users', 'idAdmin', error);
         throw error;
     }
 }

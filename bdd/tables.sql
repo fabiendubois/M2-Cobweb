@@ -23,7 +23,7 @@ CREATE TABLE applications (
     -- OTHER --
     name TEXT NOT NULL,
     description TEXT,
-    team TEXT,
+    team TEXT
 );
 
 DROP TABLE IF EXISTS flows;

@@ -63,9 +63,8 @@ exports.findById = async function (headerAuth, id) {
  * @param {String} description Flow description
  * @param {Number} id_applications_source Flows id_applications_source
  * @param {Number} id_applications_target Flows id_applications_target
- * @param {Number} id_users Flows id_users
  */
-exports.add = async function (headerAuth, name, description, id_applications_source, id_applications_target, id_users) {
+exports.add = async function (headerAuth, name, description, id_applications_source, id_applications_target) {
     try {
         var users_id = jwt.getUserId(headerAuth);
 
@@ -80,7 +79,7 @@ exports.add = async function (headerAuth, name, description, id_applications_sou
             throw new exception.httpException('Forbidden Access', 403);
         }
 
-        return await flows_service.add(name, description, id_applications_source, id_applications_target, id_users);
+        return await flows_service.add(name, description, id_applications_source, id_applications_target);
     } catch (error) {
         log.error('Controller', 'Flows', 'add', error);
         throw error;

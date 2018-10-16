@@ -53,7 +53,7 @@ exports.findById = async function (id) {
  * @param {Number} id_applications_target Flows id_applications_target
  * @param {Number} id_users Flows id_users  
  */
-exports.add = async function (name, description, id_applications_source, id_applications_target, id_users) {
+exports.add = async function (name, description, id_applications_source, id_applications_target) {
     try {
         if (_.isEmpty(name)) {
             throw new exception.httpException('name empty or null', 400);
@@ -79,9 +79,7 @@ exports.add = async function (name, description, id_applications_source, id_appl
             throw new exception.httpException('id_applications_target is not number', 400);
         }
 
-        if (isNaN(id_users)) {
-            throw new exception.httpException('id_users is not number', 400);
-        }
+
 
 
         let applications_source = applications_recpository.findById(id_applications_source);
@@ -94,12 +92,7 @@ exports.add = async function (name, description, id_applications_source, id_appl
             throw new exception.httpException('id_applications_target not exists', 400);
         }
 
-        let users = users_repository.findById(id_users);
-        if (users[0] === null) {
-            throw new exception.httpException('id_users not exists', 400);
-        }
-
-        return await flows_repository.add(name, description, id_applications_source, id_applications_target, id_users);
+        return await flows_repository.add(name, description, id_applications_source, id_applications_target);
     } catch (error) {
         log.error('Service', 'Flows', 'add', error);
         throw error;

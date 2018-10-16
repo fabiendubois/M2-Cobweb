@@ -10,113 +10,95 @@ log4js.configure(config_log4js);
 
 /**
  * Repository
- * Find all technologies.
+ * Find all applications_technologies.
  */
 exports.findAll = async function () {
     try {
         let request = {
-            text: `SELECT * FROM technologies`
+            text: `SELECT * FROM applications_technologies`
         };
         let response = await pg_tool.handle_databsase(request);
         return response.rows;
     } catch (error) {
-        log.error('Repository', 'Technologies', 'findAll', error);
+        log.error('Repository', 'Applications_technologies', 'findAll', error);
         throw new exception.httpException('Internal DataBase Error', 500);
     }
 }
 
 /**
  * Repository
- * Find a technologie by id.
- * @param {Number} id Technology id
+ * Find an applications_technologies by id.
+ * @param {Number} id applications_technologies id
  */
 exports.findById = async function (id) {
     try {
         let request = {
-            text: `SELECT * FROM technologies WHERE id = $1`,
+            text: `SELECT * FROM applications_technologies WHERE id = $1`,
             values: [id]
         };
         let response = await pg_tool.handle_databsase(request);
         return response.rows;
     } catch (error) {
-        log.error('Repository', 'Technologies', 'findById', error);
+        log.error('Repository', 'Applications_technologies', 'findById', error);
         throw new exception.httpException('Internal DataBase Error', 500);
     }
 }
 
 /**
- * Repository
- * Find a technology by name.
- * @param {String} name Technology Name 
+ * Repository 
+ * Find an applications_technologies by id_technologies.
+ * @param {Number} id_technologies applications_technologies id_technologies
  */
-exports.findByName = async function (name) {
+exports.findByIdTechnologies = async function (id_technologies) {
     try {
         let request = {
-            text: `SELECT * FROM technologies WHERE name = $1`,
-            values: [name]
+            text: `SELECT * FROM applications_technologies WHERE id_technologies = $1`,
+            values: [id_technologies]
         };
         let response = await pg_tool.handle_databsase(request);
         return response.rows;
     } catch (error) {
-        log.error('Repository', 'Technologies', 'findByName', error);
+        log.error('Repository', 'Applications_technologies', 'findByIdTechnologies', error);
         throw new exception.httpException('Internal DataBase Error', 500);
     }
 }
 
 /**
  * Repository
- * Add a technology.
- * @param {String} name Technology Name
+ * Add a applications_technologies
+ * @param {Number} ordering applications_technologies ordering
+ * @param {Number} id_flows applications_technologies id_flows
+ * @param {Number} id_technologies applications_technologies id_technologies
  */
-exports.add = async function (name) {
+exports.add = async function (id_flows, id_technologies) {
     try {
         let request = {
-            text: `INSERT INTO technologies (name) VALUES($1) RETURNING *`,
-            values: [name]
+            text: `INSERT INTO applications_technologies (id_flows, id_technologies) VALUES($1, $2) RETURNING *`,
+            values: [id_flows, id_technologies]
         };
         let response = await pg_tool.handle_databsase(request);
         return response.rows;
     } catch (error) {
-        log.error('Repository', 'Technologies', 'add', error);
+        log.error('Repository', 'Applications_technologies', 'add', error);
         throw new exception.httpException('Internal DataBase Error', 500);
     }
 }
 
 /**
  * Repository
- * Delete a Technology by Id
- * @param {Number} id Technology Id
+ * Delete a applications_technologies by id.
+ * @param {Number} id applications_technologies id
  */
 exports.deleteById = async function (id) {
     try {
         let request = {
-            text: `DELETE FROM technologies WHERE id = $1`,
+            text: `DELETE FROM applications_technologies WHERE id = $1`,
             values: [id]
         };
         let response = await pg_tool.handle_databsase(request);
         return response.rows;
     } catch (error) {
-        log.error('Repository', 'Technologies', 'deleteById', error);
-        throw new exception.httpException('Internal DataBase Error', 500);
-    }
-}
-
-/**
- * Repository
- * Update a Technology by Id
- * @param {String} Technology name
- * @param {Number} Technology id
- */
-exports.updateById = async function (name, id) {
-    try {
-        let request = {
-            text: `UPDATE technologies SET $1 WHERE id = $2`,
-            values: [name, id]
-        };
-        let response = await pg_tool.handle_databsase(request);
-        return response.rows;
-    } catch (error) {
-        log.error('Repository', 'Technologies', 'updateById', error);
+        log.error('Repository', 'Applications_technologies', 'deleteById', error);
         throw new exception.httpException('Internal DataBase Error', 500);
     }
 }

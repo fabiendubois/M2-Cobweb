@@ -46,6 +46,23 @@ exports.findById = async function (id) {
 
 /**
  * Service 
+ * Find a flows_technologies  by id_technologies.
+ * @param {Number} id_technologies Flows_technologies id_technologies
+ */
+exports.findByIdTechnologies =  async function (id_technologies) {
+    try {
+        if (isNaN(id_technologies)) {
+            throw new exception.httpException('id_technologies is not number', 400);
+        }
+        return await flows_technologies_repository.findByIdTechnologies(id_technologies);
+    } catch (error) {
+        log.error('Service', 'Flows_technologies', 'findByIdTechnologies', error);
+        throw error;
+    }
+}
+
+/**
+ * Service 
  * Add a flows_technologies
  * @param {Number} ordering Flows_technologies ordering
  * @param {Number} id_flows Flows_technologies id_flows

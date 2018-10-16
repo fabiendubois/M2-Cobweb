@@ -39,22 +39,20 @@ Application de gestion de flux entre applications.
 - [ ] Tester le code de l'API
 - [ ] Tester l'API
 
-### Fonctionnalités :
 
-**Public**
-- [x] Ping
-- [x] Inscription utilisateur
-- [x] Connexion utilisateur
+## Back
+ **Repository**
+ Un fichier par table, permet l'accès en base, description des requêtes, pas de code métier.
 
-**Admin**
+ **Service**
+ Un fichier par table, permet de controller les données.
 
-- [x] Ajouter une technolgie
-- [x] Supprimer une technolgie
-- [x] Ajouter une application
-- [x] Supprimer une application
 
-**Other**
-- [x] Find all technologies
-- [x] Find all applications
-- [x] Find all flows
-
+## Technologies
+**Node Js**
+**Npm**
+**ApidocJs**
+**Docker**
+**Docker Compose**
+**Git**
+**PostgreSQL**

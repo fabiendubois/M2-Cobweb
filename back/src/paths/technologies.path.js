@@ -17,13 +17,27 @@ log4js.configure(config_log4js);
  * @apiVersion 0.0.1
  * @apiName FindAll
  * @apiGroup Technologies
- * @apiPermission Bearer Token
+ * @apiPermission Bearer Token.
  * 
  * @apiDescription Find all technologies.
+ * @apiExample {curl} Example usage:
+ *     curl --request GET --url http://127.0.0.1:8080/api/v1/technologies --header 'Authorization: Bearer <YOUR TOKEN>'
+ *
+ * @apiSuccess (Succes 200) {JSON} technologies Technologies.
  * 
- * @apiSuccess (Succes 200) {json} technologies Technologies.
+ * @apiSuccessExample {JSON} Success-Response-Example:
+ * HTTP/1.1 200 OK
+ *  [{
+ *      "id": 1,
+ *      "name": "Java"
+ *  },
+ *  {
+ *      "id": 2,
+ *      "name": "Php"
+ *  }]
  * 
  * @apiError (Error 403) {String} Auth Forbidden Access.
+ * @apiError (Error 500) {String} Internal Database Error. 
  */
 router.get('/technologies', async function (req, res) {
     try {
@@ -47,18 +61,27 @@ router.get('/technologies', async function (req, res) {
  * @apiVersion 0.0.1
  * @apiName FindById
  * @apiGroup Technologies
- * @apiPermission Bearer Token
+ * @apiPermission Bearer Token. 
  * 
- * @apiDescription Find an technologies by id.
- *  
+ * @apiDescription Find a technology by id.
+ * @apiExample {curl} Example usage:
+ *     curl --request GET --url http://127.0.0.1:8080/api/v1/technologies/1 --header 'Authorization: Bearer <YOUR TOKEN>'
+ *
  * @apiParam (Params) {Number} id Technology id.
  * 
- * @apiSuccess (Succes 200) {json} technologies Technologies.
+ * @apiSuccess (Succes 200) {JSON} technologies Technologies.
+ *
+ * @apiSuccessExample {JSON} Success-Response-Example:
+ * HTTP/1.1 200 OK
+ *  [{
+ *      "id": 1,
+ *      "name": "Java"
+ *  }]
  * 
  * @apiError (Error 400) {String} 0 Missing param(s).
  * @apiError (Error 400) {String} 1 Id is not a number.
- * 
  * @apiError (Error 403) {String} Auth Forbidden Access.
+ * @apiError (Error 500) {String} Internal Database Error.
  */
 router.get('/technologies/:id', async function (req, res) {
     try {
@@ -88,22 +111,20 @@ router.get('/technologies/:id', async function (req, res) {
  * @apiVersion 0.0.1
  * @apiName Add
  * @apiGroup Technologies
- * @apiPermission Bearer Token. Need to be admin.
+ * @apiPermission Bearer Token. Need to be an admin.
  *
  * @apiDescription Add a technology.
  * 
- * @apiParam (Params) {String} name Technology Name.
+ * @apiParam (Body) {String} name Technology Name.
  * 
- * @apiSuccess (Succes 201) {Integer} id Technology Id.
- * @apiSuccess (Succes 201) {String} name Technology Name.
+ * @apiSuccess (Succes 201) {JSON} Technology Technology Id.
  * 
  * @apiError (Error 400) {String} 0 Missing param(s).
  * @apiError (Error 400) {String} 1 Name empty or null.
  * @apiError (Error 400) {String} 2 Name is not string.
  * @apiError (Error 400) {String} 3 This technology with this name already exists.
-
  * @apiError (Error 403) {String} Auth Forbidden Access.
- * 
+ * @apiError (Error 500) {String} Internal Database Error.
  */
 router.post('/technologies', async function (req, res) {
     try {
@@ -133,8 +154,11 @@ router.post('/technologies', async function (req, res) {
  * @apiVersion 0.0.1
  * @apiName Delete
  * @apiGroup Technologies
- * @apiPermission Bearer Token. Need to be admin.
+ * @apiPermission Bearer Token. Need to be an admin.
  *
+ * @apiExample {curl} Example usage:
+ *     curl --request DELETE --url http://127.0.0.1:8080/api/v1/technologies --header 'Authorization: Bearer <YOUR TOKEN>'
+ * 
  * @apiDescription Delete a technology by id.
  * 
  * @apiParam (Params) {String} id Id technology.
@@ -143,9 +167,9 @@ router.post('/technologies', async function (req, res) {
  * 
  * @apiError (Error 400) {String} 0 Missing param(s).
  * @apiError (Error 400) {String} 1 Id is not a number.
- * 
+ * @apiError (Error 400) {String} 2 This resource cannot be deleted. It is already in use.
  * @apiError (Error 403) {String} Auth Forbidden Access.
- * 
+ * @apiError (Error 500) {String} Internal Database Error.
  */
 router.delete('/technologies/:id', async function (req, res) {
     try {
@@ -164,6 +188,52 @@ router.delete('/technologies/:id', async function (req, res) {
         return_code = 204;
     } catch (error) {
         log.error('Path', 'Technologies', 'DELETE', '/technologies/:id', error);
+        return_code = error.code;
+        return_data = { error: error.message };
+    } finally {
+        return res.status(return_code).send(return_data);
+    }
+});
+
+/**
+ * @api {put} /technologies/:id Technologies Update
+ * @apiVersion 0.0.1
+ * @apiName Update
+ * @apiGroup Technologies
+ * @apiPermission Bearer Token. Need to be an admin.
+ *
+ * @apiDescription Update a technology by id.
+ * 
+ * @apiParam (Params) {String} id Id technology.
+ * @apiParam (Body) {String} name Name technology.
+ * 
+ * @apiSuccess (Succes 204) {String} Accepted
+ * 
+ * @apiError (Error 400) {String} 0 Missing param(s).
+ * @apiError (Error 400) {String} 1 Id is not a number.
+ * @apiError (Error 400) {String} 1 Name empty or null.
+ * @apiError (Error 400) {String} 2 Name is not string.
+ * @apiError (Error 400) {String} 3 This technology with this name already exists.
+ * @apiError (Error 403) {String} Auth Forbidden Access.
+ * @apiError (Error 500) {String} Internal Database Error.
+ */
+router.put('/technologies/:id', async function (req, res) {
+    try {
+        var return_code;
+        var return_data;
+
+        if (_.isUndefined(req.params.id) || _.isUndefined(req.body.name)) {
+            throw new exception.httpException('Missing param(s)', 400);
+        }
+
+        let name = req.body.name;
+        let id = req.params.id;
+        let headerAuth = req.headers['authorization'];
+
+        return_data = await technologies_controller.updateById(headerAuth, name, id);
+        return_code = 204;
+    } catch (error) {
+        log.error('Path', 'Technologies', 'PUT', '/technologies/:id', error);
         return_code = error.code;
         return_data = { error: error.message };
     } finally {

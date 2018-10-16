@@ -1,6 +1,9 @@
 'use strict'
 
 const technologies_repository = require('../repositories/technologies.repository');
+const flows_technologies_service = require('./flows_technologies.service');
+const applications_technologies_service = require('./applications_technologies.repository');
+
 const exception = require('../exceptions/http.exception');
 
 const _ = require('lodash');
@@ -78,7 +81,7 @@ exports.add = async function (name) {
         }
 
         /* Est-ce qu'une technologie existe déjà avec ce nom ? */
-        let technologie = this.findByName(name)
+        let technologie = this.findByName(name);
         if (technologie[0] != null) {
             throw new exception.httpException('This technology with this name already exists.', 400);
         }
@@ -105,9 +108,59 @@ exports.deleteById = async function (id) {
             throw new exception.httpException('id is not number', 400);
         }
 
+        /* Est-ce que cette technologie est utilisée ? */
+        let flows_technologies = await flows_technologies_service.findByIdTechnologies(id);
+        let applications_technologies = await applications_technologies_service.findByIdTechnologies(id);
+        if(flows_technologies[0] !== null || applications_technologies[0] !== null) {
+            throw new exception.httpException('This resource cannot be deleted. It is already in use.', 400);
+        }
+
         return await technologies_repository.deleteById(id);
     } catch (error) {
         log.error('Service', 'Technologies', 'deleteById', error);
+        throw error;
+    }
+}
+
+/**
+ * Service 
+ * Update a technology by id.
+ * @param {String} name Technology name.
+ * @param {Number} id Technology id.
+ */
+exports.updateById = async function (name, id) {
+    try {
+        if (_.isEmpty(id)) {
+            throw new exception.httpException('id empty or null', 400);
+        }
+
+        if (_.isNaN(id)) {
+            throw new exception.httpException('id is not number', 400);
+        }
+
+        if (_.isEmpty(name)) {
+            throw new exception.httpException('name empty or null', 400);
+        }
+
+        if (!_.isString(name)) {
+            throw new exception.httpException('name is not string', 400);
+        }
+
+        /* Est-ce que cette technologie existe bien avec cet id ? */
+        let technologie = this.findById(id);
+        if (technologie[0] === null) {
+            throw new exception.httpException('This technology with this id not exists.', 400);
+        }
+
+        /* Est-ce qu'une technologie existe déjà avec ce nom ? */
+        let technologie = this.findByName(name);
+        if (technologie[0] !== null) {
+            throw new exception.httpException('This technology with this name already exists.', 400);
+        }
+
+        return await technologies_repository.updateById(name, id);
+    } catch (error) {
+        log.error('Service', 'Technologies', 'updateById', error);
         throw error;
     }
 }

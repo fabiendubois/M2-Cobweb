@@ -1,7 +1,6 @@
 'use strict'
 
 const applications_repository = require('../repositories/applications.repository');
-const technologies_service = require('../services/technologies.service');
 const exception = require('../exceptions/http.exception');
 
 const _ = require('lodash');
@@ -42,34 +41,46 @@ exports.findById = async function (id) {
     }
 }
 
-
 /**
  * Service 
  * Add an application.
  * @param {String} name Application name
- * @param {Number} id_technologies Technology Id
+ * @param {String} description Application description
+ * @param {String} team Application team
  */
-exports.add = async function (name, id_technologies) {
+exports.add = async function (name, description, team) {
     try {
         if (_.isEmpty(name)) {
             throw new exception.httpException('name empty or null', 400);
-        }
-
-        if (isNaN(id_technologies)) {
-            throw new exception.httpException('id is not number', 400);
         }
 
         if (!_.isString(name)) {
             throw new exception.httpException('name is not string', 400);
         }
 
-        /* Est-ce qu'une technologie existe avec cet id_technologies ? */
-        let technologie = technologies_service.findById(id_technologies)
-        if (technologie[0] === null) {
-            throw new exception.httpException('This technology with this id not exists.', 400);
+        if (description !== null) {
+            if (_.isEmpty(description)) {
+                throw new exception.httpException('description empty', 400);
+            }
+            if (!_.isString(description)) {
+                throw new exception.httpException('description is not string', 400);
+            }
+        } else {
+            description = null;
         }
 
-        return await applications_repository.add(name, id_technologies);
+        if (team !== null) {
+            if (_.isEmpty(team)) {
+                throw new exception.httpException('team empty', 400);
+            }
+            if (!_.isString(team)) {
+                throw new exception.httpException('team is not string', 400);
+            }
+        } else {
+            team = null;
+        }
+
+        return await applications_repository.add(name, description, team);
     } catch (error) {
         log.error('Service', 'Applications', 'add', error);
         throw error;

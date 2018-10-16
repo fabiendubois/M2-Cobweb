@@ -30,7 +30,7 @@ log4js.configure(config_log4js);
  * @apiError (Error 400) {String} 0 Missing param(s).
  * @apiError (Error 400) {String} 1 Email Not Found.
  * @apiError (Error 400) {String} 2 Bad Password.
- * 
+ * @apiError (Error 500) {String} Internal Database Error. 
  */
 router.post('/users/sign_in', async function (req, res) {
     try {
@@ -82,7 +82,8 @@ router.post('/users/sign_in', async function (req, res) {
  * @apiError (Error 400) {String} 4 Email is not string.
  * @apiError (Error 400) {String} 5 Password is not string.
  * @apiError (Error 400) {String} 6 Admin is not boolean.
- * 
+ * @apiError (Error 400) {String} 7 This email is already exists.
+ * @apiError (Error 500) {String} Internal Database Error. 
  */
 router.post('/users/sign_up', async function (req, res) {
     try {

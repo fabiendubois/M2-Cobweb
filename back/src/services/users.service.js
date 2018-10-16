@@ -18,7 +18,7 @@ log4js.configure(config_log4js);
 /**
  * Service
  * Find a user by id.
- * @param {Number} id 
+ * @param {Number} id User id
  */
 exports.findById = async function (id) {
     try {
@@ -85,7 +85,7 @@ exports.add = async function (email, password, admin) {
 
         let isEmailExist = await this.findByEmail(email);
         if (isEmailExist[0] != null) {
-            throw new exception.httpException('email exist', 400);
+            throw new exception.httpException('This email is already exists', 400);
         }
 
         const salt = await bcrypt.genSalt(10);
@@ -94,6 +94,22 @@ exports.add = async function (email, password, admin) {
         return await users_repository.add(email, hashedPassword, admin);
     } catch (error) {
         log.error('Service', 'Users', 'add', error);
+        throw error;
+    }
+}
+
+
+/**
+ * Service
+ * Is an admin user.
+ * @param {Number} id User id.
+ */
+exports.isAdmin = async function (id) {
+    try {
+        let user = await this.findById(id);
+        return user[0].admin;
+    } catch (error) {
+        log.error('Service', 'Users', 'idAdmin', error);
         throw error;
     }
 }

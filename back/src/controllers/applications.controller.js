@@ -60,9 +60,10 @@ exports.findById = async function (headerAuth, id) {
  * Add an application.
  * @param {String} headerAuth header authentification
  * @param {String} name Application name
- * @param {Number} id_technologies Technology id
+ * @param {String} description Application description
+ * @param {String} team Application team
  */
-exports.add = async function (headerAuth, name, id_technologies) {
+exports.add = async function (headerAuth, name, description, team) {
     try {
         var users_id = jwt.getUserId(headerAuth);
 
@@ -77,7 +78,7 @@ exports.add = async function (headerAuth, name, id_technologies) {
             throw new exception.httpException('Forbidden Access', 403);
         }
 
-        return await applications_service.add(name, id_technologies);
+        return await applications_service.add(name, description, team);
     } catch (error) {
         log.error('Controller', 'Applications', 'add', error);
         throw error;

@@ -44,6 +44,24 @@ exports.findById = async function (id) {
     }
 }
 
+/**
+ * Repository 
+ * Find a flows_technologies  by id_technologies.
+ * @param {Number} id_technologies Flows_technologies id_technologies
+ */
+exports.findByIdTechnologies = async function (id_technologies) {
+    try {
+        let request = {
+            text: `SELECT * FROM flows_technologies WHERE id_technologies = $1`,
+            values: [id_technologies]
+        };
+        let response = await pg_tool.handle_databsase(request);
+        return response.rows;
+    } catch (error) {
+        log.error('Repository', 'Flows_technologies', 'findByIdTechnologies', error);
+        throw new exception.httpException('Internal DataBase Error', 500);
+    }
+}
 
 /**
  * Repository

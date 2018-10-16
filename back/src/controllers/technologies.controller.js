@@ -72,7 +72,7 @@ exports.add = async function (headerAuth, name) {
         }
 
         /* Est-ce que l'utilisateur est un admin */
-        let isAdmin = await user_controller.isAdmin(users_id);
+        let isAdmin = await users_service.isAdmin(users_id);
         if (!isAdmin || isAdmin === null) {
             throw new exception.httpException('Forbidden Access', 403);
         }
@@ -99,7 +99,7 @@ exports.deleteById = async function (headerAuth, id) {
         }
 
         /* Est-ce que l'utilisateur est un admin */
-        let isAdmin = await user_controller.isAdmin(users_id);
+        let isAdmin = await users_service.isAdmin(users_id);
         if (!isAdmin || isAdmin === null) {
             throw new exception.httpException('Forbidden Access', 403);
         }
@@ -107,6 +107,35 @@ exports.deleteById = async function (headerAuth, id) {
         return await technologies_service.deleteById(id);
     } catch (error) {
         log.error('Controller', 'Technologies', 'deleteById', error);
+        throw error;
+    }
+}
+
+/**
+ * Controller 
+ * Update a technology by id.
+ * @param {String} headerAuth header authentification
+ * @param {String} name Technology name
+ * @param {String} name Technology id
+ */
+exports.updateById = async function (headerAuth, name, id) {
+    try {
+        var users_id = jwt.getUserId(headerAuth);
+
+        /* Si l'utilisateur n'existe pas */
+        if (_.isUndefined(users_id) || users_id < 0) {
+            throw new exception.httpException('Forbidden Access', 403);
+        }
+
+        /* Est-ce que l'utilisateur est un admin */
+        let isAdmin = await users_service.isAdmin(users_id);
+        if (!isAdmin || isAdmin === null) {
+            throw new exception.httpException('Forbidden Access', 403);
+        }
+
+        return await technologies_service.updateById(name, id);
+    } catch (error) {
+        log.error('Controller', 'Technologies', 'updateById', error);
         throw error;
     }
 }
