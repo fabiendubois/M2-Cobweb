@@ -78,6 +78,7 @@ exports.add = async function (headerAuth, name, description, team) {
             throw new exception.httpException('Forbidden Access', 403);
         }
 
+
         return await applications_service.add(name, description, team);
     } catch (error) {
         log.error('Controller', 'Applications', 'add', error);
@@ -109,6 +110,37 @@ exports.deleteById = async function (headerAuth, id) {
         return await applications_service.deleteById(id);
     } catch (error) {
         log.error('Controller', 'Applications', 'deleteById', error);
+        throw error;
+    }
+}
+
+/**
+ * Controller
+ * Update an application by id.
+ * @param {String} headerAuth header authentification
+ * @param {String} name Application name
+ * @param {String} description Application description
+ * @param {String} team Application team
+ * @param {Number} id Application id
+ */
+exports.updateById = async function(headerAuth, name, description, team, id) {
+    try {
+        var users_id = jwt.getUserId(headerAuth);
+
+        /* Si l'utilisateur n'existe pas */
+        if (_.isUndefined(users_id) || users_id < 0) {
+            throw new exception.httpException('Forbidden Access', 403);
+        }
+
+        /* Est-ce que l'utilisateur est un admin */
+        let isAdmin = await user_controller.isAdmin(users_id);
+        if (!isAdmin || isAdmin === null) {
+            throw new exception.httpException('Forbidden Access', 403);
+        }
+
+        return await applications_service.updateById(name, description, team, id);
+    } catch (error) {
+        log.error('Controller', 'Applications', 'updateById', error);
         throw error;
     }
 }

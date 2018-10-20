@@ -83,3 +83,25 @@ exports.deleteById = async function (id) {
         throw new exception.httpException('Internal DataBase Error', 500);
     }
 }
+
+/**
+ * Repository
+ * Update an application by id.
+ * @param {String} name Application name
+ * @param {String} description Application description
+ * @param {String} team Application team
+ * @param {Number} id Application id
+ */
+exports.updateById = async function (name, description, team, id) {
+    try {
+        let request = {
+            text: `UPDATE applications SET name = $1, description = $2, team = $3 WHERE id = $4`,
+            values: [name, description, team, id]
+        };
+        let response = await pg_tool.handle_databsase(request);
+        return response.rows;
+    } catch (error) {
+        log.error('Repository', 'Applications', 'updateById', error);
+        throw new exception.httpException('Internal DataBase Error', 500);
+    }
+}

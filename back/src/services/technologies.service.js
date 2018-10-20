@@ -2,7 +2,7 @@
 
 const technologies_repository = require('../repositories/technologies.repository');
 const flows_technologies_service = require('./flows_technologies.service');
-const applications_technologies_service = require('./applications_technologies.repository');
+const applications_technologies_service = require('./applications_technologies.service');
 
 const exception = require('../exceptions/http.exception');
 

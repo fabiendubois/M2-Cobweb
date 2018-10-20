@@ -13,7 +13,7 @@ CREATE TABLE technologies (
     -- PRIMARY KEY --
     id SERIAL PRIMARY KEY,
     -- OTHER --
-    name TEXT NOT NULL
+    name TEXT NOT NULL UNIQUE
 );
 
 DROP TABLE IF EXISTS applications;
@@ -21,7 +21,7 @@ CREATE TABLE applications (
     -- PRIMARY KEY --
     id SERIAL PRIMARY KEY,
     -- OTHER --
-    name TEXT NOT NULL,
+    name TEXT NOT NULL UNIQUE,
     description TEXT,
     team TEXT
 );

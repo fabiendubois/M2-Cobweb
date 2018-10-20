@@ -117,7 +117,7 @@ router.get('/technologies/:id', async function (req, res) {
  * 
  * @apiParam (Body) {String} name Technology Name.
  * 
- * @apiSuccess (Succes 201) {JSON} Technology Technology Id.
+ * @apiSuccess (Succes 201) {JSON} Technology Technology.
  * 
  * @apiError (Error 400) {String} 0 Missing param(s).
  * @apiError (Error 400) {String} 1 Name empty or null.
@@ -150,18 +150,18 @@ router.post('/technologies', async function (req, res) {
 });
 
 /**
- * @api {delete} /technologies/:id Technologies Delete
+ * @api {delete} /technologies/:id Technologies DeleteById
  * @apiVersion 0.0.1
  * @apiName Delete
  * @apiGroup Technologies
  * @apiPermission Bearer Token. Need to be an admin.
  *
  * @apiExample {curl} Example usage:
- *     curl --request DELETE --url http://127.0.0.1:8080/api/v1/technologies --header 'Authorization: Bearer <YOUR TOKEN>'
+ *     curl --request DELETE --url http://127.0.0.1:8080/api/v1/technologies/1 --header 'Authorization: Bearer <YOUR TOKEN>'
  * 
  * @apiDescription Delete a technology by id.
  * 
- * @apiParam (Params) {String} id Id technology.
+ * @apiParam (Params) {String} id Technology id.
  * 
  * @apiSuccess (Succes 204) {String} Accepted
  * 
@@ -196,7 +196,7 @@ router.delete('/technologies/:id', async function (req, res) {
 });
 
 /**
- * @api {put} /technologies/:id Technologies Update
+ * @api {put} /technologies/:id Technologies UpdateById
  * @apiVersion 0.0.1
  * @apiName Update
  * @apiGroup Technologies
@@ -204,8 +204,8 @@ router.delete('/technologies/:id', async function (req, res) {
  *
  * @apiDescription Update a technology by id.
  * 
- * @apiParam (Params) {String} id Id technology.
- * @apiParam (Body) {String} name Name technology.
+ * @apiParam (Params) {String} id Technology id.
+ * @apiParam (Body) {String} name Technology name.
  * 
  * @apiSuccess (Succes 204) {String} Accepted
  * 

@@ -23,7 +23,7 @@ log4js.configure(config_log4js);
  * @apiExample {curl} Example usage:
  *     curl --request GET --url http://127.0.0.1:8080/api/v1/applications --header 'Authorization: Bearer <YOUR TOKEN>'
  *
- * @apiSuccess (Succes 200) {JSON} technologies Technologies.
+ * @apiSuccess (Succes 200) {JSON} applications Applications.
  * 
  * @apiSuccessExample {JSON} Success-Response-Example:
  * HTTP/1.1 200 OK
@@ -59,5 +59,205 @@ router.get('/applications', async function (req, res) {
         return res.status(return_code).send(return_data);
     }
 });
+
+/**
+ * @api {get} /applications/:id Applications FindById
+ * @apiVersion 0.0.1
+ * @apiName FindById
+ * @apiGroup Applications
+ * @apiPermission Bearer Token. 
+ * 
+ * @apiDescription Find an applications by id.
+ * @apiExample {curl} Example usage:
+ *     curl --request GET --url http://127.0.0.1:8080/api/v1/applications/1 --header 'Authorization: Bearer <YOUR TOKEN>'
+ *
+ * @apiParam (Params) {Number} id Application id.
+ * 
+ * @apiSuccess (Succes 200) {JSON} applications Applications.
+ *
+ * @apiSuccessExample {JSON} Success-Response-Example:
+ * HTTP/1.1 200 OK
+ *  [{
+ *      "id": 1,
+ *      "name": "Application Cobweb",
+ *      "description": "Applications flows graph",
+ *      "team": "iii"
+ *  }]
+ * 
+ * @apiError (Error 400) {String} 0 Missing param(s).
+ * @apiError (Error 400) {String} 1 Id is not a number.
+ * @apiError (Error 403) {String} Auth Forbidden Access.
+ * @apiError (Error 500) {String} Internal Database Error.
+ */
+router.get('/applications/:id', async function (req, res) {
+    try {
+        var return_code;
+        var return_data;
+
+        if (_.isUndefined(req.params.id)) {
+            throw new exception.httpException('Missing param(s)', 400);
+        }
+
+        let id = req.params.id;
+        let headerAuth = req.headers['authorization'];
+
+        return_data = await applications_controller.findById(headerAuth, id);
+        return_code = 200;
+    } catch (error) {
+        log.error('Path', 'Applications', 'GET', '/applications/:id', error);
+        return_code = error.code;
+        return_data = { error: error.message };
+    } finally {
+        return res.status(return_code).send(return_data);
+    }
+});
+
+/**
+ * @api {post} /applications Applications Add
+ * @apiVersion 0.0.1
+ * @apiName Add
+ * @apiGroup Applications
+ * @apiPermission Bearer Token. Need to be an admin.
+ *
+ * @apiDescription Add an application.
+ * 
+ * @apiParam (Body) {String} name Application name.
+ * @apiParam (Body) {String} description Application description.
+ * @apiParam (Body) {String} team Application team.
+ * 
+ * @apiSuccess (Succes 201) {JSON}  Technology Id.
+ * 
+ * @apiError (Error 400) {String} 0 Missing param(s).
+ * @apiError (Error 400) {String} 1 Name empty or null.
+ * @apiError (Error 400) {String} 2 Name is not string.
+ * @apiError (Error 400) {String} 3 Description empty.
+ * @apiError (Error 400) {String} 4 Team empty.
+ * @apiError (Error 400) {String} 5 This application with this name already exists.
+ * @apiError (Error 403) {String} Auth Forbidden Access.
+ * @apiError (Error 500) {String} Internal Database Error.
+ */
+router.post('/applications', async function (req, res) {
+    try {
+        var return_code;
+        var return_data;
+
+        if (_.isUndefined(req.body.name) || _.isUndefined(req.body.description) || _.isUndefined(req.body.team)) {
+            throw new exception.httpException('Missing param(s)', 400);
+        }
+
+        let name = req.body.name;
+        let description = req.body.description;
+        let team = req.body.team;
+        let headerAuth = req.headers['authorization'];
+
+        return_data = await applications_controller.add(headerAuth, name, description, team);
+        return_code = 201;
+    } catch (error) {
+        log.error('Path', 'Applications', 'POST', '/applications', error);
+        return_code = error.code;
+        return_data = { error: error.message };
+    } finally {
+        return res.status(return_code).send(return_data);
+    }
+});
+
+/**
+ * @api {delete} /applications/:id Applications DeleteById
+ * @apiVersion 0.0.1
+ * @apiName Delete
+ * @apiGroup Applications
+ * @apiPermission Bearer Token. Need to be an admin.
+ *
+ * @apiExample {curl} Example usage:
+ *     curl --request DELETE --url http://127.0.0.1:8080/api/v1/applications/1 --header 'Authorization: Bearer <YOUR TOKEN>'
+ * 
+ * @apiDescription Delete an application by id.
+ * 
+ * @apiParam (Params) {String} id Application id.
+ * 
+ * @apiSuccess (Succes 204) {String} Accepted
+ * 
+ * @apiError (Error 400) {String} 0 Missing param(s).
+ * @apiError (Error 400) {String} 1 Id is not a number.
+ * @apiError (Error 400) {String} 2 This resource cannot be deleted. It is already in use.
+ * @apiError (Error 403) {String} Auth Forbidden Access.
+ * @apiError (Error 500) {String} Internal Database Error.
+ */
+router.delete('/applications/:id', async function (req, res) {
+    try {
+        var return_code;
+        var return_data;
+
+        if (_.isUndefined(req.params.id)) {
+            throw new exception.httpException('Missing param(s)', 400);
+        }
+
+        let id = req.params.id;
+        let headerAuth = req.headers['authorization'];
+
+        log.debug('params : ', id);
+        return_data = await applications_controller.deleteById(headerAuth, id);
+        return_code = 204;
+    } catch (error) {
+        log.error('Path', 'Applications', 'DELETE', '/applications/:id', error);
+        return_code = error.code;
+        return_data = { error: error.message };
+    } finally {
+        return res.status(return_code).send(return_data);
+    }
+});
+
+
+/**
+ * @api {put} /applications/:id Applications UpdateById
+ * @apiVersion 0.0.1
+ * @apiName Update
+ * @apiGroup Applications
+ * @apiPermission Bearer Token. Need to be an admin.
+ *
+ * @apiDescription Update an application by id.
+ * 
+ * @apiParam (Params) {String} id Application id.
+ * @apiParam (Body) {String} name Application name.
+ * @apiParam (Body) {String} deascription Application deascription.
+ * @apiParam (Body) {String} team Application team.
+ * 
+ * @apiSuccess (Succes 204) {String} Accepted
+ * 
+ * @apiError (Error 400) {String} 0 Missing param(s).
+ * @apiError (Error 400) {String} 1 Id is not a number.
+ * @apiError (Error 400) {String} 1 Name empty or null.
+ * @apiError (Error 400) {String} 2 Name is not string.
+ * @apiError (Error 400) {String} 3 This technology with this name already exists.
+ * @apiError (Error 403) {String} Auth Forbidden Access.
+ * @apiError (Error 500) {String} Internal Database Error.
+ */
+router.put('/applications/:id', async function (req, res) {
+    try {
+        var return_code;
+        var return_data;
+
+        if (_.isUndefined(req.params.id) || _.isUndefined(req.body.name) 
+            || _.isUndefined(req.body.description) || _.isUndefined(req.body.team)) {
+            throw new exception.httpException('Missing param(s)', 400);
+        }
+
+        let id = req.params.id;
+        let name = req.body.name;
+        let description = req.body.description;
+        let team = req.body.team;
+        let headerAuth = req.headers['authorization'];
+
+        return_data = await applications_controller.updateById(headerAuth, name, description, team, id);
+        return_code = 204;
+    } catch (error) {
+        log.error('Path', 'Applications', 'PUT', '/applications/:id', error);
+        return_code = error.code;
+        return_data = { error: error.message };
+    } finally {
+        return res.status(return_code).send(return_data);
+    }
+});
+
 
 module.exports = router;

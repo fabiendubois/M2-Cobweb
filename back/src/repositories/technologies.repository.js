@@ -110,7 +110,7 @@ exports.deleteById = async function (id) {
 exports.updateById = async function (name, id) {
     try {
         let request = {
-            text: `UPDATE technologies SET $1 WHERE id = $2`,
+            text: `UPDATE technologies SET name = $1 WHERE id = $2`,
             values: [name, id]
         };
         let response = await pg_tool.handle_databsase(request);
