@@ -1,6 +1,7 @@
 'use strict'
 
 const applications_repository = require('../repositories/applications.repository');
+const applications_technologies_repository = require('../repositories/applications_technologies.repository');
 const exception = require('../exceptions/http.exception');
 
 const _ = require('lodash');
@@ -42,6 +43,29 @@ exports.findById = async function (id) {
 }
 
 /**
+ * Service
+ * Find an application by name
+ * @param {String} name Application name
+ */
+exports.findByName = async function (name) {
+    try {
+        if (_.isEmpty(name)) {
+            throw new exception.httpException('name empty or null', 400);
+        }
+
+        if (!_.isString(name)) {
+            throw new exception.httpException('name is not string', 400);
+        }
+
+        return await applications_repository.findByName(name);
+    } catch (error) {
+        log.error('Service', 'Applications', 'findByName', error);
+        throw error;
+    }
+}
+
+
+/**
  * Service 
  * Add an application.
  * Impossible d'ajouter une application qui a le même nom qu'une autre.
@@ -60,7 +84,7 @@ exports.add = async function (name, description, team) {
         }
 
         let application = await this.findByName(name);
-        if(application[0] !== null) {
+        if(!_.isEmpty(application[0])) {
             throw new exception.httpException('This application with this name already exists.', 400);
         }
 

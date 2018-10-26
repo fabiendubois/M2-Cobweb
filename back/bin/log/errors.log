@@ -4,3 +4,314 @@
 [2018-10-16T21:03:39.776] [ERROR] default - Path Technologies GET /technologies { message: 'Forbidden Access', code: 403 }
 [2018-10-16T21:04:00.345] [ERROR] default - Controller Technologies findAll { message: 'Forbidden Access', code: 403 }
 [2018-10-16T21:04:00.346] [ERROR] default - Path Technologies GET /technologies { message: 'Forbidden Access', code: 403 }
+[2018-10-21T21:26:27.931] [ERROR] default - Controller Users signIn { message: 'Email Not Found', code: 409 }
+[2018-10-21T21:26:27.932] [ERROR] default - Path Users /users/sign_in { message: 'Email Not Found', code: 409 }
+[2018-10-21T21:29:18.124] [ERROR] default - { TokenExpiredError: jwt expired
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:141:21
+    at getSecret (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:76:14)
+    at Object.module.exports [as verify] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:80:10)
+    at Object.getUserId (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/tools/jwt.tool.js:44:36)
+    at Object.exports.updateById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:123:28)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:233:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+  name: 'TokenExpiredError',
+  message: 'jwt expired',
+  expiredAt: 2018-10-01T19:16:50.000Z }
+[2018-10-21T21:29:18.125] [ERROR] default - Controller Technologies updateById { message: 'Forbidden Access', code: 403 }
+[2018-10-21T21:29:18.125] [ERROR] default - Path Technologies PUT /technologies/:id { message: 'Forbidden Access', code: 403 }
+[2018-10-21T21:29:24.259] [ERROR] default - Controller Technologies updateById SyntaxError: Identifier 'technologie' has already been declared
+    at Object.exports.updateById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:136:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-21T21:29:24.260] [ERROR] default - Path Technologies PUT /technologies/:id SyntaxError: Identifier 'technologie' has already been declared
+    at Object.exports.updateById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:136:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-26T10:19:27.512] [ERROR] default - { TokenExpiredError: jwt expired
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:141:21
+    at getSecret (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:76:14)
+    at Object.module.exports [as verify] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:80:10)
+    at Object.getUserId (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/tools/jwt.tool.js:44:36)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:67:28)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:141:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+  name: 'TokenExpiredError',
+  message: 'jwt expired',
+  expiredAt: 2018-10-01T19:16:50.000Z }
+[2018-10-26T10:19:27.513] [ERROR] default - Controller Technologies add { message: 'Forbidden Access', code: 403 }
+[2018-10-26T10:19:27.514] [ERROR] default - Path Technologies POST /technologies { message: 'Forbidden Access', code: 403 }
+[2018-10-26T10:19:37.853] [ERROR] default - Service Technologies add { message: 'name empty or null', code: 400 }
+[2018-10-26T10:19:37.854] [ERROR] default - Controller Technologies add { message: 'name empty or null', code: 400 }
+[2018-10-26T10:19:37.854] [ERROR] default - Path Technologies POST /technologies { message: 'name empty or null', code: 400 }
+[2018-10-26T10:19:45.996] [ERROR] default - Path Technologies POST /technologies { message: 'Missing param(s)', code: 400 }
+[2018-10-26T10:20:02.765] [ERROR] default - { TokenExpiredError: jwt expired
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:141:21
+    at getSecret (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:76:14)
+    at Object.module.exports [as verify] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:80:10)
+    at Object.getUserId (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/tools/jwt.tool.js:44:36)
+    at Object.exports.findById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:46:28)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:98:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+  name: 'TokenExpiredError',
+  message: 'jwt expired',
+  expiredAt: 2018-10-21T20:26:39.000Z }
+[2018-10-26T10:20:02.766] [ERROR] default - Controller Technologies findById { message: 'Forbidden Access', code: 403 }
+[2018-10-26T10:20:02.766] [ERROR] default - Path Technologies GET /technologies/:id { message: 'Forbidden Access', code: 403 }
+[2018-10-26T10:20:15.182] [ERROR] default - Service Technologies findById { message: 'id is not number', code: 400 }
+[2018-10-26T10:20:15.182] [ERROR] default - Controller Technologies findById { message: 'id is not number', code: 400 }
+[2018-10-26T10:20:15.182] [ERROR] default - Path Technologies GET /technologies/:id { message: 'id is not number', code: 400 }
+[2018-10-26T10:21:10.833] [ERROR] default - { TokenExpiredError: jwt expired
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:141:21
+    at getSecret (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:76:14)
+    at Object.module.exports [as verify] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:80:10)
+    at Object.getUserId (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/tools/jwt.tool.js:44:36)
+    at Object.exports.updateById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:123:28)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:233:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+  name: 'TokenExpiredError',
+  message: 'jwt expired',
+  expiredAt: 2018-10-01T19:16:50.000Z }
+[2018-10-26T10:21:10.833] [ERROR] default - Controller Technologies updateById { message: 'Forbidden Access', code: 403 }
+[2018-10-26T10:21:10.833] [ERROR] default - Path Technologies PUT /technologies/:id { message: 'Forbidden Access', code: 403 }
+[2018-10-26T10:21:16.844] [ERROR] default - Controller Technologies updateById SyntaxError: Identifier 'technologie' has already been declared
+    at Object.exports.updateById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:136:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-26T10:21:16.844] [ERROR] default - Path Technologies PUT /technologies/:id SyntaxError: Identifier 'technologie' has already been declared
+    at Object.exports.updateById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:136:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-26T10:22:42.851] [ERROR] default - Service Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:22:42.852] [ERROR] default - Controller Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:22:42.852] [ERROR] default - Path Technologies PUT /technologies/:id { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:22:49.401] [ERROR] default - { TokenExpiredError: jwt expired
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:141:21
+    at getSecret (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:76:14)
+    at Object.module.exports [as verify] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:80:10)
+    at Object.getUserId (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/tools/jwt.tool.js:44:36)
+    at Object.exports.findAll (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:25:28)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:48:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+  name: 'TokenExpiredError',
+  message: 'jwt expired',
+  expiredAt: 2018-09-27T10:00:45.000Z }
+[2018-10-26T10:22:49.402] [ERROR] default - Controller Technologies findAll { message: 'Forbidden Access', code: 403 }
+[2018-10-26T10:22:49.402] [ERROR] default - Path Technologies GET /technologies { message: 'Forbidden Access', code: 403 }
+[2018-10-26T10:23:11.814] [ERROR] default - Service Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:23:11.815] [ERROR] default - Controller Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:23:11.815] [ERROR] default - Path Technologies PUT /technologies/:id { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:23:16.198] [ERROR] default - Service Technologies updateById { message: 'name empty or null', code: 400 }
+[2018-10-26T10:23:16.198] [ERROR] default - Controller Technologies updateById { message: 'name empty or null', code: 400 }
+[2018-10-26T10:23:16.198] [ERROR] default - Path Technologies PUT /technologies/:id { message: 'name empty or null', code: 400 }
+[2018-10-26T10:23:46.284] [ERROR] default - Service Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:23:46.284] [ERROR] default - Controller Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:23:46.284] [ERROR] default - Path Technologies PUT /technologies/:id { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:50:18.718] [ERROR] default - Service Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:50:18.719] [ERROR] default - Controller Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:50:18.719] [ERROR] default - Path Technologies PUT /technologies/:id { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:50:28.695] [ERROR] default - Service Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:50:28.696] [ERROR] default - Controller Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:50:28.696] [ERROR] default - Path Technologies PUT /technologies/:id { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:50:32.170] [ERROR] default - Service Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:50:32.171] [ERROR] default - Controller Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:50:32.171] [ERROR] default - Path Technologies PUT /technologies/:id { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:50:36.609] [ERROR] default - Service Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:50:36.609] [ERROR] default - Controller Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:50:36.610] [ERROR] default - Path Technologies PUT /technologies/:id { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:51:35.722] [ERROR] default - Service Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:51:35.723] [ERROR] default - Controller Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:51:35.723] [ERROR] default - Path Technologies PUT /technologies/:id { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:51:46.054] [ERROR] default - Service Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:51:46.054] [ERROR] default - Controller Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:51:46.055] [ERROR] default - Path Technologies PUT /technologies/:id { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:51:48.431] [ERROR] default - Service Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:51:48.431] [ERROR] default - Controller Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:51:48.431] [ERROR] default - Path Technologies PUT /technologies/:id { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:52:07.357] [ERROR] default - Service Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:52:07.357] [ERROR] default - Controller Technologies updateById { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:52:07.358] [ERROR] default - Path Technologies PUT /technologies/:id { message: 'This technology with this name already exists.',
+  code: 400 }
+[2018-10-26T10:52:10.276] [ERROR] default - Service Technologies updateById { message: 'name empty or null', code: 400 }
+[2018-10-26T10:52:10.276] [ERROR] default - Controller Technologies updateById { message: 'name empty or null', code: 400 }
+[2018-10-26T10:52:10.276] [ERROR] default - Path Technologies PUT /technologies/:id { message: 'name empty or null', code: 400 }
+[2018-10-26T10:56:34.765] [ERROR] default - { TokenExpiredError: jwt expired
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:141:21
+    at getSecret (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:76:14)
+    at Object.module.exports [as verify] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:80:10)
+    at Object.getUserId (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/tools/jwt.tool.js:44:36)
+    at Object.exports.updateById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:123:28)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:233:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+  name: 'TokenExpiredError',
+  message: 'jwt expired',
+  expiredAt: 2018-10-01T19:16:50.000Z }
+[2018-10-26T10:56:34.766] [ERROR] default - Controller Technologies updateById { message: 'Forbidden Access', code: 403 }
+[2018-10-26T10:56:34.766] [ERROR] default - Path Technologies PUT /technologies/:id { message: 'Forbidden Access', code: 403 }
+[2018-10-26T10:58:21.246] [ERROR] default - Controller Applications findAll { message: 'Forbidden Access', code: 403 }
+[2018-10-26T10:58:21.246] [ERROR] default - Path Applications GET /applications { message: 'Forbidden Access', code: 403 }
+[2018-10-26T11:11:58.701] [ERROR] default - Controller Applications add TypeError: user_controller.isAdmin is not a function
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:100:45)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/applications.path.js:197:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:174:3)
+[2018-10-26T11:11:58.702] [ERROR] default - Path Applications POST /applications TypeError: user_controller.isAdmin is not a function
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:100:45)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/applications.path.js:197:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:174:3)
+[2018-10-26T11:15:58.959] [ERROR] default - Controller Applications add TypeError: user_controller.isAdmin is not a function
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:100:45)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/applications.path.js:197:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:174:3)
+[2018-10-26T11:15:58.960] [ERROR] default - Path Applications POST /applications TypeError: user_controller.isAdmin is not a function
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:100:45)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/applications.path.js:197:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/index.js:174:3)
+[2018-10-26T11:20:16.466] [ERROR] default - Service Applications add TypeError: this.findByName is not a function
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:63:38)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:106:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-26T11:20:16.468] [ERROR] default - Controller Applications add TypeError: this.findByName is not a function
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:63:38)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:106:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-26T11:20:16.468] [ERROR] default - Path Applications POST /applications TypeError: this.findByName is not a function
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:63:38)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:106:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-26T11:30:34.728] [ERROR] default - Service Applications findByName TypeError: applications_repository.findByName is not a function
+    at Object.exports.findByName (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:60:46)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:86:38)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:106:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-26T11:30:34.729] [ERROR] default - Service Applications add TypeError: applications_repository.findByName is not a function
+    at Object.exports.findByName (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:60:46)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:86:38)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:106:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-26T11:30:34.729] [ERROR] default - Controller Applications add TypeError: applications_repository.findByName is not a function
+    at Object.exports.findByName (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:60:46)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:86:38)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:106:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-26T11:30:34.729] [ERROR] default - Path Applications POST /applications TypeError: applications_repository.findByName is not a function
+    at Object.exports.findByName (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:60:46)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:86:38)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:106:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-26T11:35:35.446] [ERROR] default - Service Applications findByName TypeError: applications_repository.findByName is not a function
+    at Object.exports.findByName (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:60:46)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:86:38)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:106:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-26T11:35:35.448] [ERROR] default - Service Applications add TypeError: applications_repository.findByName is not a function
+    at Object.exports.findByName (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:60:46)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:86:38)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:106:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-26T11:35:35.448] [ERROR] default - Controller Applications add TypeError: applications_repository.findByName is not a function
+    at Object.exports.findByName (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:60:46)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:86:38)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:106:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-26T11:35:35.448] [ERROR] default - Path Applications POST /applications TypeError: applications_repository.findByName is not a function
+    at Object.exports.findByName (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:60:46)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:86:38)
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:106:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-26T11:36:02.614] [ERROR] default - Service Applications add { message: 'This application with this name already exists.',
+  code: 400 }
+[2018-10-26T11:36:02.615] [ERROR] default - Controller Applications add { message: 'This application with this name already exists.',
+  code: 400 }
+[2018-10-26T11:36:02.615] [ERROR] default - Path Applications POST /applications { message: 'This application with this name already exists.',
+  code: 400 }
+[2018-10-26T11:36:10.597] [ERROR] default - Service Applications add { message: 'This application with this name already exists.',
+  code: 400 }
+[2018-10-26T11:36:10.598] [ERROR] default - Controller Applications add { message: 'This application with this name already exists.',
+  code: 400 }
+[2018-10-26T11:36:10.598] [ERROR] default - Path Applications POST /applications { message: 'This application with this name already exists.',
+  code: 400 }
+[2018-10-26T11:38:45.429] [ERROR] default - Service Applications add { message: 'This application with this name already exists.',
+  code: 400 }
+[2018-10-26T11:38:45.430] [ERROR] default - Controller Applications add { message: 'This application with this name already exists.',
+  code: 400 }
+[2018-10-26T11:38:45.430] [ERROR] default - Path Applications POST /applications { message: 'This application with this name already exists.',
+  code: 400 }
+[2018-10-26T11:38:46.672] [ERROR] default - Service Applications add { message: 'This application with this name already exists.',
+  code: 400 }
+[2018-10-26T11:38:46.672] [ERROR] default - Controller Applications add { message: 'This application with this name already exists.',
+  code: 400 }
+[2018-10-26T11:38:46.672] [ERROR] default - Path Applications POST /applications { message: 'This application with this name already exists.',
+  code: 400 }

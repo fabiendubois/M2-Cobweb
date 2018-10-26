@@ -64,6 +64,26 @@ exports.findByIdTechnologies = async function (id_technologies) {
 }
 
 /**
+ * Repository 
+ * Find an applications_technologies & technologies associates by id_applications.
+ * @param {Number} id_applications applications_technologies id_technologies
+ */
+exports.findByIdApplications = async function (id_applications) {
+    try {
+        let request = {
+            text: `SELECT * FROM applications_technologies JOIN technologies on applications_technologies.id_technologies = technologies.id
+             WHERE id_applications = $1`,
+            values: [id_applications]
+        };
+        let response = await pg_tool.handle_databsase(request);
+        return response.rows;
+    } catch (error) {
+        log.error('Repository', 'Applications_technologies', 'findByIdApplications', error);
+        throw new exception.httpException('Internal DataBase Error', 500);
+    }
+}
+
+/**
  * Repository
  * Add a applications_technologies
  * @param {Number} ordering applications_technologies ordering

@@ -46,7 +46,7 @@ exports.findById = async function (id) {
 
 /**
  * Service 
- * Find an applications_technologies by id_technologies.
+ * Find all applications_technologies by id_technologies.
  * @param {Number} id_technologies applications_technologies id_technologies
  */
 exports.findByIdTechnologies =  async function (id_technologies) {
@@ -57,6 +57,28 @@ exports.findByIdTechnologies =  async function (id_technologies) {
         return await applications_technologies_repository.findByIdTechnologies(id_technologies);
     } catch (error) {
         log.error('Service', 'Applications_technologies', 'findByIdTechnologies', error);
+        throw error;
+    }
+}
+
+/**
+ * Service 
+ * Find all applications_technologies by id_applications.
+ * @param {Number} id Application id
+ */
+exports.findByIdApplications = async function (id_applications) {
+    try {
+        if (_.isEmpty(id)) {
+            throw new exception.httpException('id empty or null', 400);
+        }
+
+        if (_.isNaN(id)) {
+            throw new exception.httpException('id is not number', 400);
+        }
+        
+        return await applications_technologies_repository.findByIdApplications(id_applications);
+    } catch (error) {
+        log.error('Service', 'Applications_technologies', 'findByIdApplications', error);
         throw error;
     }
 }

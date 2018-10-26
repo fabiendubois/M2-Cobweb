@@ -57,7 +57,7 @@ router.get('/technologies', async function (req, res) {
 });
 
 /**
- * @api {get} /technologies/:id Technologies FindById
+ * @api {get} /technologies/:id Technologies Find By Id
  * @apiVersion 0.0.1
  * @apiName FindById
  * @apiGroup Technologies
@@ -150,7 +150,7 @@ router.post('/technologies', async function (req, res) {
 });
 
 /**
- * @api {delete} /technologies/:id Technologies DeleteById
+ * @api {delete} /technologies/:id Technologies Delete By Id
  * @apiVersion 0.0.1
  * @apiName Delete
  * @apiGroup Technologies
@@ -196,7 +196,7 @@ router.delete('/technologies/:id', async function (req, res) {
 });
 
 /**
- * @api {put} /technologies/:id Technologies UpdateById
+ * @api {put} /technologies/:id Technologies Update By Id
  * @apiVersion 0.0.1
  * @apiName Update
  * @apiGroup Technologies

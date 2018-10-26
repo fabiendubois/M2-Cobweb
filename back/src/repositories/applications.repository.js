@@ -46,6 +46,25 @@ exports.findById = async function (id) {
 
 /**
  * Repository
+ * Find an application by name.
+ * @param {String} name Application name
+ */
+exports.findByName = async function (name) {
+    try {
+        let request = {
+            text: `SELECT * FROM applications WHERE name = $1`,
+            values: [name]
+        };
+        let response = await pg_tool.handle_databsase(request);
+        return response.rows;
+    } catch (error) {
+        log.error('Repository', 'Applications', 'findById', error);
+        throw new exception.httpException('Internal DataBase Error', 500);
+    }
+}
+
+/**
+ * Repository
  * Add an application.
  * @param {String} name Application name
  * @param {String} description Application description

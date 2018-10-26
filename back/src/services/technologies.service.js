@@ -81,8 +81,8 @@ exports.add = async function (name) {
         }
 
         /* Est-ce qu'une technologie existe déjà avec ce nom ? */
-        let technologie = this.findByName(name);
-        if (technologie[0] != null) {
+        let technologie_findByName = await this.findByName(name);
+        if (!_.isEmpty(technologie_findByName[0])) {
             throw new exception.httpException('This technology with this name already exists.', 400);
         }
 
@@ -147,14 +147,14 @@ exports.updateById = async function (name, id) {
         }
 
         /* Est-ce que cette technologie existe bien avec cet id ? */
-        let technologie = this.findById(id);
-        if (technologie[0] === null) {
+        let technologie_findById = await this.findById(id);
+        if (technologie_findById[0] === null) {
             throw new exception.httpException('This technology with this id not exists.', 400);
         }
 
         /* Est-ce qu'une technologie existe déjà avec ce nom ? */
-        let technologie = this.findByName(name);
-        if (technologie[0] !== null) {
+        let technologie_findByName = await this.findByName(name);
+        if (!_.isEmpty(technologie_findByName[0])) {
             throw new exception.httpException('This technology with this name already exists.', 400);
         }
 

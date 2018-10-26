@@ -116,7 +116,7 @@ exports.deleteById = async function (headerAuth, id) {
  * Update a technology by id.
  * @param {String} headerAuth header authentification
  * @param {String} name Technology name
- * @param {String} name Technology id
+ * @param {Number} id Technology id
  */
 exports.updateById = async function (headerAuth, name, id) {
     try {

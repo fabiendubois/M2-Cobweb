@@ -61,7 +61,7 @@ router.get('/applications', async function (req, res) {
 });
 
 /**
- * @api {get} /applications/:id Applications FindById
+ * @api {get} /applications/:id Applications Find By Id
  * @apiVersion 0.0.1
  * @apiName FindById
  * @apiGroup Applications
@@ -113,6 +113,50 @@ router.get('/applications/:id', async function (req, res) {
 });
 
 /**
+ * @api {get} /applications/:id/technologies Applications Find All Technologies
+ * @apiVersion 0.0.1
+ * @apiName findAllTechnologies
+ * @apiGroup Applications
+ * @apiPermission Bearer Token. 
+ * 
+ * @apiDescription Find all technologies for an application
+ * @apiExample {curl} Example usage:
+ *     curl --request GET --url http://127.0.0.1:8080/api/v1/applications/1/technologies/ --header 'Authorization: Bearer <YOUR TOKEN>'
+ *
+ * @apiParam (Params) {Number} id Application id.
+ * 
+ * @apiSuccess (Succes 200) {JSON} technologies Technologies.
+ * 
+ * @apiError (Error 400) {String} 0 Missing param(s).
+ * @apiError (Error 400) {String} 1 Id is not a number.
+ * @apiError (Error 403) {String} Auth Forbidden Access.
+ * @apiError (Error 500) {String} Internal Database Error.
+ */
+router.get('/applications/:id/technologies', async function (req, res) {
+    try {
+        var return_code;
+        var return_data;
+
+        if (_.isUndefined(req.params.id)) {
+            throw new exception.httpException('Missing param(s)', 400);
+        }
+
+        let id = req.params.id;
+        let headerAuth = req.headers['authorization'];
+
+        return_data = await applications_controller.findAllTechnologies(headerAuth, id);
+        return_code = 200;
+    } catch (error) {
+        log.error('Path', 'Applications', 'GET', '/applications/:id/technologies', error);
+        return_code = error.code;
+        return_data = { error: error.message };
+    } finally {
+        return res.status(return_code).send(return_data);
+    }
+});
+
+
+/**
  * @api {post} /applications Applications Add
  * @apiVersion 0.0.1
  * @apiName Add
@@ -162,7 +206,52 @@ router.post('/applications', async function (req, res) {
 });
 
 /**
- * @api {delete} /applications/:id Applications DeleteById
+ * @api {post} /applications/:id/technologies Applications Add Technology
+ * @apiVersion 0.0.1
+ * @apiName AddTechnology
+ * @apiGroup Applications
+ * @apiPermission Bearer Token. Need to be an admin.
+ *
+ * @apiDescription Add an existing technology to an application.
+ * 
+ * @apiParam (Params) {Number} id Application id.
+ * @apiParam (Body) {Number} id Technology id.
+ * 
+ * @apiSuccess (Succes 201) {JSON}  Technology Technology.
+ * 
+ * @apiError (Error 400) {String} 0 Missing param(s).
+
+ * @apiError (Error 403) {String} Auth Forbidden Access.
+ * @apiError (Error 500) {String} Internal Database Error.
+ */
+router.post('/applications/:id/technologies', async function (req, res) {
+    try {
+        var return_code;
+        var return_data;
+
+        if (_.isUndefined(req.body.id)) {
+            throw new exception.httpException('Missing param(s)', 400);
+        }
+
+        let id_applications = req.params.id;
+        let id_technologies = req.body.id;
+        let headerAuth = req.headers['authorization'];
+
+        return_data = await applications_controller.addTechnology(headerAuth, id_applications, id_technologies);
+        return_code = 201;
+    } catch (error) {
+        log.error('Path', 'Applications', 'POST', '/applications/:id/technologies', error);
+        return_code = error.code;
+        return_data = { error: error.message };
+    } finally {
+        return res.status(return_code).send(return_data);
+    }
+});
+
+
+
+/**
+ * @api {delete} /applications/:id Applications Delete By Id
  * @apiVersion 0.0.1
  * @apiName Delete
  * @apiGroup Applications
@@ -209,7 +298,7 @@ router.delete('/applications/:id', async function (req, res) {
 
 
 /**
- * @api {put} /applications/:id Applications UpdateById
+ * @api {put} /applications/:id Applications Update By Id
  * @apiVersion 0.0.1
  * @apiName Update
  * @apiGroup Applications

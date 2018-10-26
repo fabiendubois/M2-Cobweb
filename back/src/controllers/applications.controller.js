@@ -1,7 +1,9 @@
 'use strict'
 
 const applications_service = require('../services/applications.service');
-const user_controller = require('../controllers/users.controller');
+const applications_technologies_service = require('../services/applications_technologies.service');
+
+const users_service = require('../services/users.service');
 
 const exception = require('../exceptions/http.exception');
 const jwt = require('../tools/jwt.tool');
@@ -36,6 +38,28 @@ exports.findAll = async function (headerAuth) {
 
 /**
  * Controller 
+ * Find all technologies for an applications.
+ * @param {String} headerAuth header authentification
+ * @param {Number} id_applications Application id
+ */
+exports.findAllTechnologies = async function (headerAuth, id_applications) {
+    try {
+        var users_id = jwt.getUserId(headerAuth);
+
+        if (_.isUndefined(users_id) || users_id < 0) {
+            throw new exception.httpException('Forbidden Access', 403);
+        }
+
+        return await applications_technologies_service.findByIdApplications(id);
+    } catch (error) {
+        log.error('Controller', 'Applications', 'findAll', error);
+        throw error;
+    }
+}
+
+
+/**
+ * Controller 
  * Find an applications by id
  * @param {String} headerAuth header authentification
  * @param {Number} id Application id
@@ -65,7 +89,7 @@ exports.findById = async function (headerAuth, id) {
  */
 exports.add = async function (headerAuth, name, description, team) {
     try {
-        var users_id = jwt.getUserId(headerAuth);
+        let users_id = jwt.getUserId(headerAuth);
 
         /* Si l'utilisateur n'existe pas */
         if (_.isUndefined(users_id) || users_id < 0) {
@@ -73,7 +97,7 @@ exports.add = async function (headerAuth, name, description, team) {
         }
 
         /* Est-ce que l'utilisateur est un admin */
-        let isAdmin = await user_controller.isAdmin(users_id);
+        let isAdmin = await users_service.isAdmin(users_id);
         if (!isAdmin || isAdmin === null) {
             throw new exception.httpException('Forbidden Access', 403);
         }
@@ -82,6 +106,29 @@ exports.add = async function (headerAuth, name, description, team) {
         return await applications_service.add(name, description, team);
     } catch (error) {
         log.error('Controller', 'Applications', 'add', error);
+        throw error;
+    }
+}
+
+exports.addTechnology = async function (headerAuth, id_applications, id_technologies){
+    try {
+        var users_id = jwt.getUserId(headerAuth);
+
+        /* Si l'utilisateur n'existe pas */
+        if (_.isUndefined(users_id) || users_id < 0) {
+            throw new exception.httpException('Forbidden Access', 403);
+        }
+
+        /* Est-ce que l'utilisateur est un admin */
+        let isAdmin = await users_service.isAdmin(users_id);
+        if (!isAdmin || isAdmin === null) {
+            throw new exception.httpException('Forbidden Access', 403);
+        }
+
+
+        return await applications_technologies_service.add(id_applications, id_technologies);
+    } catch (error) {
+        log.error('Controller', 'Applications', 'addTechnologies', error);
         throw error;
     }
 }
@@ -102,7 +149,7 @@ exports.deleteById = async function (headerAuth, id) {
         }
 
         /* Est-ce que l'utilisateur est un admin */
-        let isAdmin = await user_controller.isAdmin(users_id);
+        let isAdmin = await users_service.isAdmin(users_id);
         if (!isAdmin || isAdmin === null) {
             throw new exception.httpException('Forbidden Access', 403);
         }
@@ -133,7 +180,7 @@ exports.updateById = async function(headerAuth, name, description, team, id) {
         }
 
         /* Est-ce que l'utilisateur est un admin */
-        let isAdmin = await user_controller.isAdmin(users_id);
+        let isAdmin = await users_service.isAdmin(users_id);
         if (!isAdmin || isAdmin === null) {
             throw new exception.httpException('Forbidden Access', 403);
         }
