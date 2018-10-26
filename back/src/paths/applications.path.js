@@ -284,7 +284,6 @@ router.delete('/applications/:id', async function (req, res) {
         let id = req.params.id;
         let headerAuth = req.headers['authorization'];
 
-        log.debug('params : ', id);
         return_data = await applications_controller.deleteById(headerAuth, id);
         return_code = 204;
     } catch (error) {

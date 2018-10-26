@@ -315,3 +315,27 @@
   code: 400 }
 [2018-10-26T11:38:46.672] [ERROR] default - Path Applications POST /applications { message: 'This application with this name already exists.',
   code: 400 }
+[2018-10-26T11:52:42.797] [ERROR] default - Service Applications deleteById ReferenceError: flows_service is not defined
+    at Object.exports.deleteById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:136:35)
+    at Object.exports.deleteById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:157:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-26T11:52:42.797] [ERROR] default - Controller Applications deleteById ReferenceError: flows_service is not defined
+    at Object.exports.deleteById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:136:35)
+    at Object.exports.deleteById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:157:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-26T11:52:42.798] [ERROR] default - Path Applications DELETE /applications/:id ReferenceError: flows_service is not defined
+    at Object.exports.deleteById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:136:35)
+    at Object.exports.deleteById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:157:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-26T11:55:01.273] [ERROR] default - Service Applications deleteById ReferenceError: name is not defined
+    at Object.exports.deleteById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:143:57)
+    at Object.exports.deleteById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:157:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-26T11:55:01.274] [ERROR] default - Controller Applications deleteById ReferenceError: name is not defined
+    at Object.exports.deleteById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:143:57)
+    at Object.exports.deleteById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:157:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-26T11:55:01.274] [ERROR] default - Path Applications DELETE /applications/:id ReferenceError: name is not defined
+    at Object.exports.deleteById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications.service.js:143:57)
+    at Object.exports.deleteById (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:157:43)
+    at process._tickCallback (internal/process/next_tick.js:68:7)

@@ -132,15 +132,15 @@ exports.deleteById = async function (id) {
             throw new exception.httpException('id is not number', 400);
         }
 
-        /* Est-ce que cette application est utilisée ? */
+        /* Est-ce que cette application est utilisée ? 
         let applications_source = await flows_service.findByIdApplicationsSource(id);
         let applications_target = await flows_service.findByIdApplicationsTarget(id);
-        if(applications_source[0] !== null || applications_target[0] !== null) {
+        if(!_.isEmpty(applications_source[0]) || !_.isEmpty(applications_target[0])) {
             throw new exception.httpException('This resource cannot be deleted. It is already in use.', 400);
         }
+        */
 
-
-        return await applications_repository.updateById(name, description, team, id);
+        return await applications_repository.deleteById(id);
     } catch (error) {
         log.error('Service', 'Applications', 'deleteById', error);
         throw error;
