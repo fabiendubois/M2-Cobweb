@@ -399,3 +399,36 @@
 [2018-10-26T11:58:11.966] [DEBUG] default - params :  1
 [2018-10-26T11:58:13.561] [DEBUG] default - params :  1
 [2018-10-26T11:58:49.523] [TRACE] default - app listening at 8080
+[2018-10-26T12:08:07.154] [TRACE] default - app listening at 8080
+[2018-10-26T12:08:15.858] [ERROR] default - { TokenExpiredError: jwt expired
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:141:21
+    at getSecret (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:76:14)
+    at Object.module.exports [as verify] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:80:10)
+    at Object.getUserId (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/tools/jwt.tool.js:44:36)
+    at Object.exports.findAll (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:25:28)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:48:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+  name: 'TokenExpiredError',
+  message: 'jwt expired',
+  expiredAt: 2018-09-27T10:00:45.000Z }
+[2018-10-26T12:08:15.860] [ERROR] default - Controller Technologies findAll { message: 'Forbidden Access', code: 403 }
+[2018-10-26T12:08:15.860] [ERROR] default - Path Technologies GET /technologies { message: 'Forbidden Access', code: 403 }
+[2018-10-26T12:08:16.676] [ERROR] default - { TokenExpiredError: jwt expired
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:141:21
+    at getSecret (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:76:14)
+    at Object.module.exports [as verify] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:80:10)
+    at Object.getUserId (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/tools/jwt.tool.js:44:36)
+    at Object.exports.findAll (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:25:28)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:48:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+  name: 'TokenExpiredError',
+  message: 'jwt expired',
+  expiredAt: 2018-09-27T10:00:45.000Z }
+[2018-10-26T12:08:16.677] [ERROR] default - Controller Technologies findAll { message: 'Forbidden Access', code: 403 }
+[2018-10-26T12:08:16.677] [ERROR] default - Path Technologies GET /technologies { message: 'Forbidden Access', code: 403 }

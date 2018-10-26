@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
+const rateLimit = require("express-rate-limit"); // https://www.npmjs.com/package/express-rate-limit
+
 
 var log4js = require('log4js');
 var log = log4js.getLogger("default");
@@ -18,6 +20,16 @@ app.use(function (req, res, next) {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100 // limit each IP to 100 requests per windowMs
+});
+
+//  apply to all requests
+app.use(limiter);
+
 
 /*
 Middleware exemple : http://expressjs.com/fr/guide/writing-middleware.html
