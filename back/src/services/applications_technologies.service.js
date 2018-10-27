@@ -51,7 +51,11 @@ exports.findById = async function (id) {
  */
 exports.findByIdTechnologies =  async function (id_technologies) {
     try {
-        if (isNaN(id_technologies)) {
+        if (_.isEmpty(id_applications)) {
+            throw new exception.httpException('id empty or null', 400);
+        }
+
+        if (_.isNaN(id_technologies)) {
             throw new exception.httpException('id_technologies is not number', 400);
         }
         return await applications_technologies_repository.findByIdTechnologies(id_technologies);
@@ -68,11 +72,11 @@ exports.findByIdTechnologies =  async function (id_technologies) {
  */
 exports.findByIdApplications = async function (id_applications) {
     try {
-        if (_.isEmpty(id)) {
+        if (_.isEmpty(id_applications)) {
             throw new exception.httpException('id empty or null', 400);
         }
 
-        if (_.isNaN(id)) {
+        if (_.isNaN(id_applications)) {
             throw new exception.httpException('id is not number', 400);
         }
         

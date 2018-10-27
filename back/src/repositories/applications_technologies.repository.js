@@ -87,14 +87,14 @@ exports.findByIdApplications = async function (id_applications) {
  * Repository
  * Add a applications_technologies
  * @param {Number} ordering applications_technologies ordering
- * @param {Number} id_flows applications_technologies id_flows
+ * @param {Number} id_applications applications_technologies id_applications
  * @param {Number} id_technologies applications_technologies id_technologies
  */
-exports.add = async function (id_flows, id_technologies) {
+exports.add = async function (id_applications, id_technologies) {
     try {
         let request = {
-            text: `INSERT INTO applications_technologies (id_flows, id_technologies) VALUES($1, $2) RETURNING *`,
-            values: [id_flows, id_technologies]
+            text: `INSERT INTO applications_technologies (id_applications, id_technologies) VALUES($1, $2) RETURNING *`,
+            values: [id_applications, id_technologies]
         };
         let response = await pg_tool.handle_databsase(request);
         return response.rows;

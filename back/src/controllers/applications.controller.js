@@ -50,7 +50,7 @@ exports.findAllTechnologies = async function (headerAuth, id_applications) {
             throw new exception.httpException('Forbidden Access', 403);
         }
 
-        return await applications_technologies_service.findByIdApplications(id);
+        return await applications_technologies_service.findByIdApplications(id_applications);
     } catch (error) {
         log.error('Controller', 'Applications', 'findAll', error);
         throw error;

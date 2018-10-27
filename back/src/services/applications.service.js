@@ -68,7 +68,6 @@ exports.findByName = async function (name) {
 /**
  * Service 
  * Add an application.
- * Impossible d'ajouter une application qui a le même nom qu'une autre.
  * @param {String} name Application name
  * @param {String} description Application description
  * @param {String} team Application team
@@ -175,8 +174,15 @@ exports.updateById = async function (name, description, team, id) {
             throw new exception.httpException('name is not string', 400);
         }
 
-        let application = await this.findByName(name);
-        if(application[0] !== null) {
+        let application_findById = await this.findById(id);
+        if(_.isEmpty(application_findById[0])) {
+            throw new exception.httpException('This application with this id not exists.', 400);
+        }
+
+
+        /* Est-ce qu'une application avec ce nom existe déjà ? */
+        let application_findByName = await this.findByName(name);
+        if(!_.isEmpty(application_findByName[0]) && name !== application_findById[0].name ) {
             throw new exception.httpException('This application with this name already exists.', 400);
         }
 
@@ -203,7 +209,6 @@ exports.updateById = async function (name, description, team, id) {
         }
 
         return await applications_repository.updateById(name, description, team, id);
-
     } catch (error) {
         log.error('Service', 'Applications', 'updateById', error);
         throw error;

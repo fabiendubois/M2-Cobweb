@@ -154,7 +154,7 @@ exports.updateById = async function (name, id) {
 
         /* Est-ce qu'une technologie existe déjà avec ce nom ? */
         let technologie_findByName = await this.findByName(name);
-        if (!_.isEmpty(technologie_findByName[0])) {
+        if (!_.isEmpty(technologie_findByName[0]) && name !== technologie_findById[0].name) {
             throw new exception.httpException('This technology with this name already exists.', 400);
         }
 
