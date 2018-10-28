@@ -1043,3 +1043,4 @@
 [2018-10-28T09:06:14.236] [ERROR] default - Controller Applications addTechnologies { message: 'id_applications is not number', code: 400 }
 [2018-10-28T09:06:14.237] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_applications is not number', code: 400 }
 [2018-10-28T09:07:07.705] [TRACE] default - app listening at 8080
+[2018-10-28T09:09:49.840] [TRACE] default - app listening at 8080

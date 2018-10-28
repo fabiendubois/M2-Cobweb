@@ -13,7 +13,7 @@ var config_log4js = require('../../config/log4js');
 log4js.configure(config_log4js);
 
 /**
- * @api {get} /applications Applications FindAll
+ * @api {get} /applications Applications Find All
  * @apiVersion 0.0.1
  * @apiName FindAll
  * @apiGroup Applications
