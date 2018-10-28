@@ -49,13 +49,9 @@ exports.findById = async function (id) {
  * Find all applications_technologies by id_technologies.
  * @param {Number} id_technologies applications_technologies id_technologies
  */
-exports.findByIdTechnologies =  async function (id_technologies) {
+exports.findByIdTechnologies = async function (id_technologies) {
     try {
-        if (_.isEmpty(id_applications)) {
-            throw new exception.httpException('id empty or null', 400);
-        }
-
-        if (_.isNaN(id_technologies)) {
+        if (isNaN(id_technologies)) {
             throw new exception.httpException('id_technologies is not number', 400);
         }
         return await applications_technologies_repository.findByIdTechnologies(id_technologies);
@@ -68,7 +64,7 @@ exports.findByIdTechnologies =  async function (id_technologies) {
 /**
  * Service 
  * Find all applications_technologies by id_applications.
- * @param {Number} id Application id
+ * @param {Number} id_applications Application id
  */
 exports.findByIdApplications = async function (id_applications) {
     try {
@@ -76,10 +72,10 @@ exports.findByIdApplications = async function (id_applications) {
             throw new exception.httpException('id empty or null', 400);
         }
 
-        if (_.isNaN(id_applications)) {
+        if (isNaN(id_applications)) {
             throw new exception.httpException('id is not number', 400);
         }
-        
+
         return await applications_technologies_repository.findByIdApplications(id_applications);
     } catch (error) {
         log.error('Service', 'Applications_technologies', 'findByIdApplications', error);
@@ -88,32 +84,61 @@ exports.findByIdApplications = async function (id_applications) {
 }
 
 /**
- * Service 
- * Add an applications_technologies
- * @param {Number} id_application applications_technologies id_application
- * @param {Number} id_technologies applications_technologies id_technologies
+ * Service
+ * Find all applications_technologies by id_applications and id_technologies.
+ * @param {Number} id_applications Application id
+ * @param {Number} id_technologies Technology id
  */
-exports.add = async function (id_application, id_technologies) {
+exports.findByIdApplicationsAndIdTechnologies = async function (id_applications, id_technologies) {
     try {
-        if (isNaN(id_application)) {
-            throw new exception.httpException('id_application is not number', 400);
+        if (isNaN(id_applications)) {
+            throw new exception.httpException('id_applications is not number', 400);
         }
 
         if (isNaN(id_technologies)) {
             throw new exception.httpException('id_technologies is not number', 400);
         }
 
-        let application = applications_repository.findById(id_application);
-        if (application[0] === null) {
-            throw new exception.httpException('id_application not exists', 400);
+        return await applications_technologies_repository.findByIdApplicationsAndIdTechnologies(id_applications, id_technologies);
+    } catch (error) {
+        log.error('Service', 'Applications_technologies', 'findByIdApplicationsAndIdTechnologies', error);
+        throw error;
+    }
+}
+
+/**
+ * Service 
+ * Add an applications_technologies
+ * @param {Number} id_applications applications_technologies id_applications
+ * @param {Number} id_technologies applications_technologies id_technologies
+ */
+exports.add = async function (id_applications, id_technologies) {
+    try {
+        if (isNaN(id_applications)) {
+            throw new exception.httpException('id_applications is not number', 400);
         }
 
-        let technologie = technologies_repository.findById(id_technologies);
-        if (technologie[0] === null) {
+        if (isNaN(id_technologies)) {
+            throw new exception.httpException('id_technologies is not number', 400);
+        }
+
+        let application = await applications_repository.findById(id_applications);
+        if (_.isEmpty(application[0])) {
+            throw new exception.httpException('id_applications not exists', 400);
+        }
+
+        let technologie = await technologies_repository.findById(id_technologies);
+        if (_.isEmpty(technologie[0])) {
             throw new exception.httpException('id_technologies not exists', 400);
         }
 
-        return await applications_technologies_repository.add(id_application, id_technologies);
+        /* Est ce que cette technologie est déjà associée à cette application ? */
+        let applications_technologies = await this.findByIdApplicationsAndIdTechnologies(id_applications, id_technologies);
+        if (!_.isEmpty(applications_technologies[0])) {
+            throw new exception.httpException('This technology is always bind with this application', 400);
+        }
+
+        return await applications_technologies_repository.add(id_applications, id_technologies);
     } catch (error) {
         log.error('Service', 'Applications_technologies', 'add', error);
         throw error;

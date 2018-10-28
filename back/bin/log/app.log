@@ -712,3 +712,334 @@
 [2018-10-27T09:32:08.668] [ERROR] default - Controller Applications addTechnologies { message: 'Internal DataBase Error', code: 500 }
 [2018-10-27T09:32:08.668] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'Internal DataBase Error', code: 500 }
 [2018-10-27T09:34:36.052] [TRACE] default - app listening at 8080
+[2018-10-27T10:24:29.949] [TRACE] default - app listening at 8080
+[2018-10-27T10:24:32.315] [ERROR] default - { TokenExpiredError: jwt expired
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:141:21
+    at getSecret (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:76:14)
+    at Object.module.exports [as verify] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:80:10)
+    at Object.getUserId (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/tools/jwt.tool.js:44:36)
+    at Object.exports.findAllTechnologies (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:47:28)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/applications.path.js:147:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+  name: 'TokenExpiredError',
+  message: 'jwt expired',
+  expiredAt: 2018-10-27T08:19:24.000Z }
+[2018-10-27T10:24:32.316] [ERROR] default - Controller Applications findAll { message: 'Forbidden Access', code: 403 }
+[2018-10-27T10:24:32.317] [ERROR] default - Path Applications GET /applications/:id/technologies { message: 'Forbidden Access', code: 403 }
+[2018-10-27T10:24:50.378] [ERROR] default - Service Applications_technologies add TypeError: this.findByIdApplicationsAndIdTechnologies is not a function
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications_technologies.service.js:118:52)
+    at Object.exports.addTechnology (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:129:56)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-27T10:24:50.378] [ERROR] default - Controller Applications addTechnologies TypeError: this.findByIdApplicationsAndIdTechnologies is not a function
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications_technologies.service.js:118:52)
+    at Object.exports.addTechnology (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:129:56)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-27T10:24:50.378] [ERROR] default - Path Applications POST /applications/:id/technologies TypeError: this.findByIdApplicationsAndIdTechnologies is not a function
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications_technologies.service.js:118:52)
+    at Object.exports.addTechnology (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:129:56)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-27T10:38:41.009] [TRACE] default - app listening at 8080
+[2018-10-27T10:38:50.426] [ERROR] default - Service Applications_technologies findByIdApplicationsAndIdTechnologies { message: 'id empty or null', code: 400 }
+[2018-10-27T10:38:50.428] [ERROR] default - Service Applications_technologies add { message: 'id empty or null', code: 400 }
+[2018-10-27T10:38:50.428] [ERROR] default - Controller Applications addTechnologies { message: 'id empty or null', code: 400 }
+[2018-10-27T10:38:50.428] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id empty or null', code: 400 }
+[2018-10-27T10:39:47.159] [TRACE] default - app listening at 8080
+[2018-10-27T10:39:49.676] [ERROR] default - Service Applications_technologies findByIdApplicationsAndIdTechnologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:39:49.678] [ERROR] default - Service Applications_technologies add { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:39:49.678] [ERROR] default - Controller Applications addTechnologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:39:49.678] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:41:09.766] [TRACE] default - app listening at 8080
+[2018-10-27T10:41:12.393] [WARN] default - id_applications 2 id_technologies 2
+[2018-10-27T10:41:12.394] [ERROR] default - Service Applications_technologies add { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:41:12.394] [ERROR] default - Controller Applications addTechnologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:41:12.395] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:41:20.978] [WARN] default - id_applications 1 id_technologies 2
+[2018-10-27T10:41:20.978] [ERROR] default - Service Applications_technologies add { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:41:20.979] [ERROR] default - Controller Applications addTechnologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:41:20.979] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:41:22.839] [WARN] default - id_applications 3 id_technologies 2
+[2018-10-27T10:41:22.839] [ERROR] default - Service Applications_technologies add { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:41:22.839] [ERROR] default - Controller Applications addTechnologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:41:22.839] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:41:58.155] [TRACE] default - app listening at 8080
+[2018-10-27T10:42:04.178] [WARN] default - id_applications 3 id_technologies 2
+[2018-10-27T10:42:04.178] [ERROR] default - Service Applications_technologies add { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:42:04.179] [ERROR] default - Controller Applications addTechnologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:42:04.180] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:42:39.661] [TRACE] default - app listening at 8080
+[2018-10-27T10:42:42.258] [WARN] default - id_applications 3 id_technologies 2
+[2018-10-27T10:42:42.258] [ERROR] default - Service Applications_technologies add ReferenceError: id_applications is not defined
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications_technologies.service.js:131:38)
+    at Object.exports.addTechnology (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:130:56)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-27T10:42:42.259] [ERROR] default - Controller Applications addTechnologies ReferenceError: id_applications is not defined
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications_technologies.service.js:131:38)
+    at Object.exports.addTechnology (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:130:56)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-27T10:42:42.259] [ERROR] default - Path Applications POST /applications/:id/technologies ReferenceError: id_applications is not defined
+    at Object.exports.add (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/services/applications_technologies.service.js:131:38)
+    at Object.exports.addTechnology (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:130:56)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-10-27T10:43:55.840] [TRACE] default - app listening at 8080
+[2018-10-27T10:43:58.321] [WARN] default - id_applications 3 id_technologies 2
+[2018-10-27T10:43:58.322] [DEBUG] default - id_applications 3 id_technologies 2
+[2018-10-27T10:43:58.322] [ERROR] default - Service Applications_technologies add { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:43:58.323] [ERROR] default - Controller Applications addTechnologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:43:58.323] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:47:47.708] [TRACE] default - app listening at 8080
+[2018-10-27T10:47:50.244] [WARN] default - id_applications 3 id_technologies 2
+[2018-10-27T10:47:50.245] [DEBUG] default - id_applications 3 id_technologies 2
+[2018-10-27T10:47:50.245] [ERROR] default - Service Applications_technologies add { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:47:50.246] [ERROR] default - Controller Applications addTechnologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:47:50.246] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:48:40.833] [TRACE] default - app listening at 8080
+[2018-10-27T10:48:43.055] [WARN] default - id_applications 3 id_technologies 2
+[2018-10-27T10:48:43.056] [DEBUG] default - id_applications 3 id_technologies 2
+[2018-10-27T10:48:43.056] [ERROR] default - Service Applications_technologies add { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:48:43.057] [ERROR] default - Controller Applications addTechnologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-27T10:48:43.057] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-28T08:49:28.361] [TRACE] default - app listening at 8080
+[2018-10-28T08:49:33.595] [ERROR] default - { TokenExpiredError: jwt expired
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:141:21
+    at getSecret (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:76:14)
+    at Object.module.exports [as verify] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:80:10)
+    at Object.getUserId (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/tools/jwt.tool.js:44:36)
+    at Object.exports.addTechnology (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/applications.controller.js:115:28)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/applications.path.js:240:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+  name: 'TokenExpiredError',
+  message: 'jwt expired',
+  expiredAt: 2018-10-27T09:24:35.000Z }
+[2018-10-28T08:49:33.596] [ERROR] default - Controller Applications addTechnologies { message: 'Forbidden Access', code: 403 }
+[2018-10-28T08:49:33.597] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'Forbidden Access', code: 403 }
+[2018-10-28T08:49:50.305] [WARN] default - id_applications 3 id_technologies 2
+[2018-10-28T08:49:50.306] [DEBUG] default - id_applications 3 id_technologies 2
+[2018-10-28T08:49:50.306] [ERROR] default - Service Applications_technologies add { message: 'id_technologies empty or null', code: 400 }
+[2018-10-28T08:49:50.307] [ERROR] default - Controller Applications addTechnologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-28T08:49:50.307] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-28T08:51:49.309] [TRACE] default - app listening at 8080
+[2018-10-28T08:51:51.819] [WARN] default - id_applications 3 id_technologies 2
+[2018-10-28T08:51:51.819] [DEBUG] default - id_applications 3 id_technologies 2
+[2018-10-28T08:51:51.819] [ERROR] default - Service Applications_technologies findByIdApplicationsAndIdTechnologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-28T08:51:51.820] [ERROR] default - Service Applications_technologies add { message: 'id_technologies empty or null', code: 400 }
+[2018-10-28T08:51:51.820] [ERROR] default - Controller Applications addTechnologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-28T08:51:51.821] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_technologies empty or null', code: 400 }
+[2018-10-28T08:53:15.698] [TRACE] default - app listening at 8080
+[2018-10-28T08:53:18.432] [WARN] default - id_applications 3 id_technologies 2
+[2018-10-28T08:53:18.445] [ERROR] default - Repository Applications_technologies add { error: insert or update on table "applications_technologies" violates foreign key constraint "applications_technologies_id_applications_fkey"
+    at Connection.parseE (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/pg/lib/connection.js:553:11)
+    at Connection.parseMessage (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/pg/lib/connection.js:378:19)
+    at Socket.<anonymous> (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/pg/lib/connection.js:119:22)
+    at Socket.emit (events.js:182:13)
+    at addChunk (_stream_readable.js:283:12)
+    at readableAddChunk (_stream_readable.js:264:11)
+    at Socket.Readable.push (_stream_readable.js:219:10)
+    at TCP.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)
+  name: 'error',
+  length: 353,
+  severity: 'ERROR',
+  code: '23503',
+  detail:
+   'Key (id_applications)=(3) is not present in table "applications".',
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: 'public',
+  table: 'applications_technologies',
+  column: undefined,
+  dataType: undefined,
+  constraint: 'applications_technologies_id_applications_fkey',
+  file: 'ri_triggers.c',
+  line: '3266',
+  routine: 'ri_ReportViolation' }
+[2018-10-28T08:53:18.446] [ERROR] default - Service Applications_technologies add { message: 'Internal DataBase Error', code: 500 }
+[2018-10-28T08:53:18.446] [ERROR] default - Controller Applications addTechnologies { message: 'Internal DataBase Error', code: 500 }
+[2018-10-28T08:53:18.446] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'Internal DataBase Error', code: 500 }
+[2018-10-28T08:54:25.433] [WARN] default - id_applications 1 id_technologies 2
+[2018-10-28T08:54:25.444] [ERROR] default - Repository Applications_technologies add { error: insert or update on table "applications_technologies" violates foreign key constraint "applications_technologies_id_applications_fkey"
+    at Connection.parseE (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/pg/lib/connection.js:553:11)
+    at Connection.parseMessage (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/pg/lib/connection.js:378:19)
+    at Socket.<anonymous> (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/pg/lib/connection.js:119:22)
+    at Socket.emit (events.js:182:13)
+    at addChunk (_stream_readable.js:283:12)
+    at readableAddChunk (_stream_readable.js:264:11)
+    at Socket.Readable.push (_stream_readable.js:219:10)
+    at TCP.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)
+  name: 'error',
+  length: 353,
+  severity: 'ERROR',
+  code: '23503',
+  detail:
+   'Key (id_applications)=(1) is not present in table "applications".',
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: 'public',
+  table: 'applications_technologies',
+  column: undefined,
+  dataType: undefined,
+  constraint: 'applications_technologies_id_applications_fkey',
+  file: 'ri_triggers.c',
+  line: '3266',
+  routine: 'ri_ReportViolation' }
+[2018-10-28T08:54:25.445] [ERROR] default - Service Applications_technologies add { message: 'Internal DataBase Error', code: 500 }
+[2018-10-28T08:54:25.445] [ERROR] default - Controller Applications addTechnologies { message: 'Internal DataBase Error', code: 500 }
+[2018-10-28T08:54:25.445] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'Internal DataBase Error', code: 500 }
+[2018-10-28T08:54:33.414] [WARN] default - id_applications 2 id_technologies 2
+[2018-10-28T08:54:33.421] [ERROR] default - Service Applications_technologies add { message: 'This technology is always bind with this application',
+  code: 400 }
+[2018-10-28T08:54:33.421] [ERROR] default - Controller Applications addTechnologies { message: 'This technology is always bind with this application',
+  code: 400 }
+[2018-10-28T08:54:33.421] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'This technology is always bind with this application',
+  code: 400 }
+[2018-10-28T08:55:52.667] [TRACE] default - app listening at 8080
+[2018-10-28T08:55:58.559] [ERROR] default - { TokenExpiredError: jwt expired
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:141:21
+    at getSecret (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:76:14)
+    at Object.module.exports [as verify] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/jsonwebtoken/verify.js:80:10)
+    at Object.getUserId (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/tools/jwt.tool.js:44:36)
+    at Object.exports.findAll (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/controllers/technologies.controller.js:25:28)
+    at /Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/src/paths/technologies.path.js:48:53
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/express/lib/router/layer.js:95:5)
+  name: 'TokenExpiredError',
+  message: 'jwt expired',
+  expiredAt: 2018-09-27T10:00:45.000Z }
+[2018-10-28T08:55:58.561] [ERROR] default - Controller Technologies findAll { message: 'Forbidden Access', code: 403 }
+[2018-10-28T08:55:58.561] [ERROR] default - Path Technologies GET /technologies { message: 'Forbidden Access', code: 403 }
+[2018-10-28T08:56:31.049] [WARN] default - id_applications 2 id_technologies 1
+[2018-10-28T08:56:31.049] [ERROR] default - Service Applications_technologies add { message: 'id_applications not exists', code: 400 }
+[2018-10-28T08:56:31.050] [ERROR] default - Controller Applications addTechnologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T08:56:31.050] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T08:56:37.832] [WARN] default - id_applications 2 id_technologies 12
+[2018-10-28T08:56:37.832] [ERROR] default - Service Applications_technologies add { message: 'id_applications not exists', code: 400 }
+[2018-10-28T08:56:37.833] [ERROR] default - Controller Applications addTechnologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T08:56:37.833] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T08:56:41.511] [WARN] default - id_applications 23 id_technologies 12
+[2018-10-28T08:56:41.511] [ERROR] default - Service Applications_technologies add { message: 'id_applications not exists', code: 400 }
+[2018-10-28T08:56:41.512] [ERROR] default - Controller Applications addTechnologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T08:56:41.512] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T08:56:46.234] [WARN] default - id_applications 2 id_technologies 12
+[2018-10-28T08:56:46.234] [ERROR] default - Service Applications_technologies add { message: 'id_applications not exists', code: 400 }
+[2018-10-28T08:56:46.235] [ERROR] default - Controller Applications addTechnologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T08:56:46.235] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T08:56:49.197] [WARN] default - id_applications 2 id_technologies 12
+[2018-10-28T08:56:49.197] [ERROR] default - Service Applications_technologies add { message: 'id_applications not exists', code: 400 }
+[2018-10-28T08:56:49.197] [ERROR] default - Controller Applications addTechnologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T08:56:49.197] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T08:56:51.711] [WARN] default - id_applications 2 id_technologies 1
+[2018-10-28T08:56:51.712] [ERROR] default - Service Applications_technologies add { message: 'id_applications not exists', code: 400 }
+[2018-10-28T08:56:51.713] [ERROR] default - Controller Applications addTechnologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T08:56:51.713] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T08:57:45.982] [TRACE] default - app listening at 8080
+[2018-10-28T09:04:39.160] [WARN] default - id_applications 2 id_technologies 1
+[2018-10-28T09:04:39.160] [DEBUG] default - application Promise { <pending> }
+[2018-10-28T09:04:39.162] [ERROR] default - Service Applications_technologies add { message: 'id_applications not exists', code: 400 }
+[2018-10-28T09:04:39.163] [ERROR] default - Controller Applications addTechnologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T09:04:39.163] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T09:04:59.615] [TRACE] default - app listening at 8080
+[2018-10-28T09:05:02.911] [WARN] default - id_applications 2 id_technologies 1
+[2018-10-28T09:05:05.291] [WARN] default - id_applications 2 id_technologies 1
+[2018-10-28T09:05:05.294] [ERROR] default - Service Applications_technologies add { message: 'This technology is always bind with this application',
+  code: 400 }
+[2018-10-28T09:05:05.295] [ERROR] default - Controller Applications addTechnologies { message: 'This technology is always bind with this application',
+  code: 400 }
+[2018-10-28T09:05:05.295] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'This technology is always bind with this application',
+  code: 400 }
+[2018-10-28T09:05:06.359] [WARN] default - id_applications 2 id_technologies 1
+[2018-10-28T09:05:06.362] [ERROR] default - Service Applications_technologies add { message: 'This technology is always bind with this application',
+  code: 400 }
+[2018-10-28T09:05:06.362] [ERROR] default - Controller Applications addTechnologies { message: 'This technology is always bind with this application',
+  code: 400 }
+[2018-10-28T09:05:06.362] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'This technology is always bind with this application',
+  code: 400 }
+[2018-10-28T09:05:07.002] [WARN] default - id_applications 2 id_technologies 1
+[2018-10-28T09:05:07.006] [ERROR] default - Service Applications_technologies add { message: 'This technology is always bind with this application',
+  code: 400 }
+[2018-10-28T09:05:07.006] [ERROR] default - Controller Applications addTechnologies { message: 'This technology is always bind with this application',
+  code: 400 }
+[2018-10-28T09:05:07.006] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'This technology is always bind with this application',
+  code: 400 }
+[2018-10-28T09:05:07.529] [WARN] default - id_applications 2 id_technologies 1
+[2018-10-28T09:05:07.532] [ERROR] default - Service Applications_technologies add { message: 'This technology is always bind with this application',
+  code: 400 }
+[2018-10-28T09:05:07.532] [ERROR] default - Controller Applications addTechnologies { message: 'This technology is always bind with this application',
+  code: 400 }
+[2018-10-28T09:05:07.532] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'This technology is always bind with this application',
+  code: 400 }
+[2018-10-28T09:05:07.924] [WARN] default - id_applications 2 id_technologies 1
+[2018-10-28T09:05:07.928] [ERROR] default - Service Applications_technologies add { message: 'This technology is always bind with this application',
+  code: 400 }
+[2018-10-28T09:05:07.928] [ERROR] default - Controller Applications addTechnologies { message: 'This technology is always bind with this application',
+  code: 400 }
+[2018-10-28T09:05:07.928] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'This technology is always bind with this application',
+  code: 400 }
+[2018-10-28T09:05:10.364] [WARN] default - id_applications 2 id_technologies 12
+[2018-10-28T09:05:10.367] [DEBUG] default - technologie []
+[2018-10-28T09:05:10.368] [ERROR] default - Service Applications_technologies add { message: 'id_technologies not exists', code: 400 }
+[2018-10-28T09:05:10.368] [ERROR] default - Controller Applications addTechnologies { message: 'id_technologies not exists', code: 400 }
+[2018-10-28T09:05:10.368] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_technologies not exists', code: 400 }
+[2018-10-28T09:05:24.018] [WARN] default - id_applications 1 id_technologies 1
+[2018-10-28T09:05:24.021] [DEBUG] default - application []
+[2018-10-28T09:05:24.021] [ERROR] default - Service Applications_technologies add { message: 'id_applications not exists', code: 400 }
+[2018-10-28T09:05:24.021] [ERROR] default - Controller Applications addTechnologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T09:05:24.022] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T09:05:25.440] [WARN] default - id_applications 1 id_technologies 1
+[2018-10-28T09:05:25.442] [DEBUG] default - application []
+[2018-10-28T09:05:25.442] [ERROR] default - Service Applications_technologies add { message: 'id_applications not exists', code: 400 }
+[2018-10-28T09:05:25.442] [ERROR] default - Controller Applications addTechnologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T09:05:25.442] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T09:05:28.634] [WARN] default - id_applications 33 id_technologies 1
+[2018-10-28T09:05:28.636] [DEBUG] default - application []
+[2018-10-28T09:05:28.636] [ERROR] default - Service Applications_technologies add { message: 'id_applications not exists', code: 400 }
+[2018-10-28T09:05:28.636] [ERROR] default - Controller Applications addTechnologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T09:05:28.636] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_applications not exists', code: 400 }
+[2018-10-28T09:05:30.359] [WARN] default - id_applications a id_technologies 1
+[2018-10-28T09:05:30.361] [ERROR] default - Repository Applications findById { error: invalid input syntax for integer: "a"
+    at Connection.parseE (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/pg/lib/connection.js:553:11)
+    at Connection.parseMessage (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/pg/lib/connection.js:378:19)
+    at Socket.<anonymous> (/Users/fabien/Documents/Cours/M2 - III/Web/M2_III_Web/back/node_modules/pg/lib/connection.js:119:22)
+    at Socket.emit (events.js:182:13)
+    at addChunk (_stream_readable.js:283:12)
+    at readableAddChunk (_stream_readable.js:264:11)
+    at Socket.Readable.push (_stream_readable.js:219:10)
+    at TCP.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)
+  name: 'error',
+  length: 90,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '62',
+  routine: 'pg_atoi' }
+[2018-10-28T09:05:30.362] [ERROR] default - Service Applications_technologies add { message: 'Internal DataBase Error', code: 500 }
+[2018-10-28T09:05:30.362] [ERROR] default - Controller Applications addTechnologies { message: 'Internal DataBase Error', code: 500 }
+[2018-10-28T09:05:30.362] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'Internal DataBase Error', code: 500 }
+[2018-10-28T09:06:10.873] [TRACE] default - app listening at 8080
+[2018-10-28T09:06:14.235] [WARN] default - id_applications a id_technologies 1
+[2018-10-28T09:06:14.235] [ERROR] default - Service Applications_technologies add { message: 'id_applications is not number', code: 400 }
+[2018-10-28T09:06:14.236] [ERROR] default - Controller Applications addTechnologies { message: 'id_applications is not number', code: 400 }
+[2018-10-28T09:06:14.237] [ERROR] default - Path Applications POST /applications/:id/technologies { message: 'id_applications is not number', code: 400 }
+[2018-10-28T09:07:07.705] [TRACE] default - app listening at 8080

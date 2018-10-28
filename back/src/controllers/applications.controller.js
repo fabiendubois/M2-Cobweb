@@ -125,6 +125,7 @@ exports.addTechnology = async function (headerAuth, id_applications, id_technolo
             throw new exception.httpException('Forbidden Access', 403);
         }
 
+        log.warn('id_applications', id_applications, 'id_technologies', id_technologies);
 
         return await applications_technologies_service.add(id_applications, id_technologies);
     } catch (error) {
