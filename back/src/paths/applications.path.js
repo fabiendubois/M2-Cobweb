@@ -248,8 +248,6 @@ router.post('/applications/:id/technologies', async function (req, res) {
     }
 });
 
-
-
 /**
  * @api {delete} /applications/:id Applications Delete By Id
  * @apiVersion 0.0.1
@@ -293,6 +291,50 @@ router.delete('/applications/:id', async function (req, res) {
     } finally {
         return res.status(return_code).send(return_data);
     }
+});
+
+/**
+ * @api {post} /applications/:id/technologies Applications Delete Technology
+ * @apiVersion 0.0.1
+ * @apiName DeleteTechnology
+ * @apiGroup Applications
+ * @apiPermission Bearer Token. Need to be an admin.
+ *
+ * @apiDescription Delete an existing technology to an application.
+ * 
+ * @apiParam (Params) {Number} id Application id.
+ * @apiParam (Body) {Number} id Technology id.
+ * 
+ * @apiSuccess (Succes 201) {JSON}  Technology Technology.
+ * 
+ * @apiError (Error 400) {String} 0 Missing param(s).
+
+ * @apiError (Error 403) {String} Auth Forbidden Access.
+ * @apiError (Error 500) {String} Internal Database Error.
+ */
+router.delete('/applications/:id_applications/technologies/:id_technologies', async function (req, res) {
+    try {
+        var return_code;
+        var return_data;
+
+        if (_.isUndefined(req.params.id_applications) || _.isUndefined(req.params.id_technologies)) {
+            throw new exception.httpException('Missing param(s)', 400);
+        }
+
+        let id_applications = req.params.id_applications;
+        let id_technologies = req.params.id_technologies;
+        let headerAuth = req.headers['authorization'];
+
+        return_data = await applications_controller.deleteTechnology(headerAuth, id_applications, id_technologies);
+        return_code = 204;
+    } catch (error) {
+        log.error('Path', 'Applications', 'DELETE', '/applications/:id', error);
+        return_code = error.code;
+        return_data = { error: error.message };
+    } finally {
+        return res.status(return_code).send(return_data);
+    }
+
 });
 
 

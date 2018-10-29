@@ -57,7 +57,6 @@ exports.findAllTechnologies = async function (headerAuth, id_applications) {
     }
 }
 
-
 /**
  * Controller 
  * Find an applications by id
@@ -102,7 +101,6 @@ exports.add = async function (headerAuth, name, description, team) {
             throw new exception.httpException('Forbidden Access', 403);
         }
 
-
         return await applications_service.add(name, description, team);
     } catch (error) {
         log.error('Controller', 'Applications', 'add', error);
@@ -110,6 +108,13 @@ exports.add = async function (headerAuth, name, description, team) {
     }
 }
 
+/**
+ * Controller
+ * Add a technology to this application
+ * @param {String} headerAuth header authentification
+ * @param {Number} id_applications Application id
+ * @param {Number} id_technologies Technology id
+ */
 exports.addTechnology = async function (headerAuth, id_applications, id_technologies){
     try {
         var users_id = jwt.getUserId(headerAuth);
@@ -124,8 +129,6 @@ exports.addTechnology = async function (headerAuth, id_applications, id_technolo
         if (!isAdmin || isAdmin === null) {
             throw new exception.httpException('Forbidden Access', 403);
         }
-
-        log.warn('id_applications', id_applications, 'id_technologies', id_technologies);
 
         return await applications_technologies_service.add(id_applications, id_technologies);
     } catch (error) {
@@ -158,6 +161,35 @@ exports.deleteById = async function (headerAuth, id) {
         return await applications_service.deleteById(id);
     } catch (error) {
         log.error('Controller', 'Applications', 'deleteById', error);
+        throw error;
+    }
+}
+
+/**
+ * Controller
+ * Delete a technology from this application
+ * @param {String} headerAuth header authentification
+ * @param {Number} id_applications Application id
+ * @param {Number} id_technologies Technology id 
+ */
+exports.deleteTechnology = async function (headerAuth, id_applications, id_technologies){
+    try {
+        var users_id = jwt.getUserId(headerAuth);
+
+        /* Si l'utilisateur n'existe pas */
+        if (_.isUndefined(users_id) || users_id < 0) {
+            throw new exception.httpException('Forbidden Access', 403);
+        }
+
+        /* Est-ce que l'utilisateur est un admin */
+        let isAdmin = await users_service.isAdmin(users_id);
+        if (!isAdmin || isAdmin === null) {
+            throw new exception.httpException('Forbidden Access', 403);
+        }
+
+        return await applications_technologies_service.delete(id_applications, id_technologies);
+    } catch (error) {
+        log.error('Controller', 'Applications', 'deleteTechnology', error);
         throw error;
     }
 }

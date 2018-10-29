@@ -106,7 +106,6 @@ exports.findByIdApplicationsAndIdTechnologies = async function (id_applications,
 /**
  * Repository
  * Add a applications_technologies
- * @param {Number} ordering applications_technologies ordering
  * @param {Number} id_applications applications_technologies id_applications
  * @param {Number} id_technologies applications_technologies id_technologies
  */
@@ -126,7 +125,7 @@ exports.add = async function (id_applications, id_technologies) {
 
 /**
  * Repository
- * Delete a applications_technologies by id.
+ * Delete an applications_technologies by id.
  * @param {Number} id applications_technologies id
  */
 exports.deleteById = async function (id) {
@@ -139,6 +138,26 @@ exports.deleteById = async function (id) {
         return response.rows;
     } catch (error) {
         log.error('Repository', 'Applications_technologies', 'deleteById', error);
+        throw new exception.httpException('Internal DataBase Error', 500);
+    }
+}
+
+/**
+ * Repository
+ * Delete an applications_technologies by id_applications and id_technologies.
+ * @param {Number} id_applications applications_technologies id_applications
+ * @param {Number} id_technologies applications_technologies id_technologies
+ */
+exports.deleteByIdApplicationsAndIdTechnologies = async function (id_applications, id_technologies) {
+    try {
+        let request = {
+            text: `DELETE FROM applications_technologies WHERE id_applications = $1 AND id_technologies = $2`,
+            values: [id_applications, id_technologies]
+        };
+        let response = await pg_tool.handle_databsase(request);
+        return response.rows;
+    } catch (error) {
+        log.error('Repository', 'Applications_technologies', 'deleteByIdApplicationsAndIdTechnologies', error);
         throw new exception.httpException('Internal DataBase Error', 500);
     }
 }
