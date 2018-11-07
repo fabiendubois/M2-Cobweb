@@ -163,3 +163,26 @@ exports.deleteById = async function (id) {
         throw error;
     }
 }
+
+/**
+ * Service 
+ * Delete an applications_technologies by id_applications and id_technologies.
+ * @param {Number} id_applications applications_technologies id_applications
+ * @param {Number} id_technologies applications_technologies id_technologies
+ */
+exports.deleteByIdApplicationsAndIdTechnologies = async function (id_applications, id_technologies) {
+    try {
+        if (isNaN(id_applications)) {
+            throw new exception.httpException('id_applications is not number', 400);
+        }
+
+        if (isNaN(id_technologies)) {
+            throw new exception.httpException('id_technologies is not number', 400);
+        }
+
+        return await applications_technologies_repository.deleteByIdApplicationsAndIdTechnologies(id_applications, id_technologies);
+    } catch (error) {
+        log.error('Service', 'Applications_technologies', 'deleteByIdApplicationsAndIdTechnologies', error);
+        throw error;
+    }
+}

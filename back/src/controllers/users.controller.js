@@ -14,7 +14,7 @@ log4js.configure(config_log4js);
 
 /**
  * Controller 
- * User authentication
+ * User authentication, sign in.
  * @param {String} email User email address
  * @param {String} password User password
  */
@@ -24,14 +24,14 @@ exports.signIn = async function (email, password) {
 
         /* Si il n'y a pas d'utilisateur ayant cet email */
         if (_.isUndefined(user[0])) {
-            throw new exception.httpException('Email Not Found', 409);
+            throw new exception.httpException('Email Not Found', 400);
         }
 
         const bool = await bcrypt.compareSync(password, user[0].password);
         if (bool) {
             user[0].token = jwt.generateTokenForUser(user[0]);
         } else {
-            throw new exception.httpException('Bad Password', 409);
+            throw new exception.httpException('Bad Password', 400);
         }
         return user;
     } catch (error) {
@@ -42,7 +42,7 @@ exports.signIn = async function (email, password) {
 
 /**
  * Controller 
- * User registration
+ * User registration, sign up.
  * @param {String} email User email address
  * @param {String} password User password
  * @param {Boolean} admin User status

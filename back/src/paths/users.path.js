@@ -25,7 +25,7 @@ log4js.configure(config_log4js);
  * @apiParam (Params) {String} password User password.
  * 
  * @apiSuccess (Succes 201) {Integer} id User id.
- * @apiSuccess (Succes 201) {String} token User token.
+ * @apiSuccess (Succes 201) {String} token User token --> users_id, admin,  expiresIn: 1H
  * 
  * @apiError (Error 400) {String} 0 Missing param(s).
  * @apiError (Error 400) {String} 1 Email Not Found.
@@ -37,7 +37,6 @@ router.post('/users/sign_in', async function (req, res) {
         var return_code;
         var return_data;
 
-        /* Vérification de la présence des arguments dans le body */
         if (_.isUndefined(req.body.email) || _.isUndefined(req.body.password)) {
             throw new exception.httpException('Missing param(s)', 400);
         }
@@ -46,7 +45,7 @@ router.post('/users/sign_in', async function (req, res) {
         let password = req.body.password;
         let users = await users_controller.signIn(email, password);
 
-        return_data = JSON.parse(`{ "id":${users[0].id},"token":"${users[0].token}"}`);
+        return_data = JSON.parse(`{ "id":${users[0].id}, "token":"${users[0].token}"}`);
         return_code = 200;
     } catch (error) {
         log.error('Path', 'Users', '/users/sign_in', error);
@@ -56,7 +55,6 @@ router.post('/users/sign_in', async function (req, res) {
         return res.status(return_code).send(return_data);
     }
 });
-
 
 /**
  * @api {post} /users/sign_up Sign Up
@@ -90,16 +88,15 @@ router.post('/users/sign_up', async function (req, res) {
         var return_code;
         var return_data;
 
-        /* Vérification de la présence des arguments dans le body */
         if (_.isUndefined(req.body.email) || _.isUndefined(req.body.password) || _.isUndefined(req.body.admin)) {
             throw new exception.httpException('Missing param(s)', 400);
         }
 
-        log.debug(req.body.admin);
         let email = req.body.email;
         let password = req.body.password;
         let admin = req.body.admin;
 
+        // @TODO : Ne pas retourner le mot de passe !
         let users = await users_controller.signUp(email, password, admin);
 
         return_code = 201;
