@@ -31,7 +31,7 @@ CREATE TABLE flows (
     -- PRIMARY KEY --
     id SERIAL PRIMARY KEY,
     -- OTHER --
-    name TEXT NOT NULL,
+    name TEXT NOT NULL UNIQUE,
     description TEXT NOT NULL,
     -- FOREIGN KEY --
     id_applications_source INTEGER NOT NULL REFERENCES applications (id),

@@ -1,7 +1,7 @@
 'use strict'
 
 const flows_service = require('../services/flows.service');
-const user_controller = require('../controllers/users.controller');
+const user_service = require('../services/users.service');
 
 const exception = require('../exceptions/http.exception');
 const jwt = require('../tools/jwt.tool');
@@ -74,7 +74,7 @@ exports.add = async function (headerAuth, name, description, id_applications_sou
         }
 
         /* Est-ce que l'utilisateur est un admin */
-        let isAdmin = await user_controller.isAdmin(users_id);
+        let isAdmin = await user_service.isAdmin(users_id);
         if (!isAdmin || isAdmin === null) {
             throw new exception.httpException('Forbidden Access', 403);
         }
@@ -102,7 +102,7 @@ exports.deleteById = async function (headerAuth, id) {
         }
 
         /* Est-ce que l'utilisateur est un admin */
-        let isAdmin = await user_controller.isAdmin(users_id);
+        let isAdmin = await user_service.isAdmin(users_id);
         if (!isAdmin || isAdmin === null) {
             throw new exception.httpException('Forbidden Access', 403);
         }

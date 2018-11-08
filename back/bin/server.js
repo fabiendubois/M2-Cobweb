@@ -21,7 +21,7 @@ app.use(function (req, res, next) {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
+// Rate Limiter
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 100 // limit each IP to 100 requests per windowMs
@@ -57,6 +57,10 @@ app.use('/api/v1/', technologies);
 /* Applications */
 var applications = require('../src/paths/applications.path.js');
 app.use('/api/v1/', applications);
+
+/* Flows */
+var flows = require('../src/paths/flows.path');
+app.use('/api/v1/', flows);
 
 var port = process.env.PORT || 8080;
 

@@ -17,6 +17,9 @@ log4js.configure(config_log4js);
  * @apiName Ping
  * @apiGroup General
  *
+ * @apiExample {curl} Example usage:
+ *     curl --request GET --url http://127.0.0.1:8080/api/v1/ping
+ *
  * @apiSuccess {String} ping Pong.
  *
  * @apiSuccessExample Success-Response:
@@ -24,14 +27,15 @@ log4js.configure(config_log4js);
  *     {
  *       "ping":"pong",
  *     }
- * @apiSampleRequest http://exemple.com/api/v1/ping
+ * 
+ * @apiSampleRequest http://127.0.0.1:8080/api/v1/ping
  */
 router.get('/ping', async function (req, res) {
     try {
         var return_code;
         var return_data;
 
-        return_data = '{ "ping": "pong"}';
+        return_data = 'pong';
         return_code = 200;
     } catch (error) {
         log.error(error);

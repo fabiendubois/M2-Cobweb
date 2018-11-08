@@ -29,7 +29,7 @@ exports.findAll = async function () {
 
 /**
  * Service 
- * Find a flow  by id.
+ * Find a flow by id.
  * @param {Number} id Flow id
  */
 exports.findById = async function (id) {
@@ -40,6 +40,28 @@ exports.findById = async function (id) {
         return await flows_repository.findById(id);
     } catch (error) {
         log.error('Service', 'Flows', 'findById', error);
+        throw error;
+    }
+}
+
+/**
+ * Service 
+ * Find a flow by name.
+ * @param {String} name Flow name
+ */
+exports.findByName = async function (name) {
+    try {
+        if (_.isEmpty(name)) {
+            throw new exception.httpException('name empty or null', 400);
+        }
+
+        if (!_.isString(name)) {
+            throw new exception.httpException('name is not string', 400);
+        }
+
+        return await flows_repository.findByName(name);
+    } catch (error) {
+        log.error('Service', 'Flows', 'findByName', error);
         throw error;
     }
 }
@@ -79,17 +101,22 @@ exports.add = async function (name, description, id_applications_source, id_appl
             throw new exception.httpException('id_applications_target is not number', 400);
         }
 
-
-
-
-        let applications_source = applications_recpository.findById(id_applications_source);
-        if (applications_source[0] === null) {
+        /* Est-ce que l'application source existe ? */
+        let applications_source = await applications_recpository.findById(id_applications_source);
+        if (_.isEmpty(applications_source[0])) {
             throw new exception.httpException('id_applications_source not exists', 400);
         }
 
-        let applications_target = applications_recpository.findById(id_applications_target);
-        if (applications_target[0] === null) {
+        /* Est-ce que l'application target existe ? */
+        let applications_target = await applications_recpository.findById(id_applications_target);
+        if (_.isEmpty(applications_target[0])) {
             throw new exception.httpException('id_applications_target not exists', 400);
+        }
+
+        /* Est-ce qu'un flow avec ce nom existe déjà ? */
+        let flow = await this.findByName(name);
+        if (!_.isEmpty(flow[0])) {
+            throw new exception.httpException('A flow with this name exists', 400);
         }
 
         return await flows_repository.add(name, description, id_applications_source, id_applications_target);

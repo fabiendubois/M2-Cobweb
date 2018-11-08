@@ -46,9 +46,28 @@ exports.findById = async function (id) {
 
 /**
  * Repository
+ * Find a flow by name.
+ * @param {Number} name Flows name
+ */
+exports.findByName = async function (name) {
+    try {
+        let request = {
+            text: `SELECT * FROM flows WHERE name = $1`,
+            values: [name]
+        };
+        let response = await pg_tool.handle_databsase(request);
+        return response.rows;
+    } catch (error) {
+        log.error('Repository', 'Flows', 'findByName', error);
+        throw new exception.httpException('Internal DataBase Error', 500);
+    }
+}
+
+/**
+ * Repository
  * Add a flow
  * @param {String} name Flow name
- * @param {String} name Flow description
+ * @param {String} description Flow description
  * @param {Number} id_applications_source Flows id_applications_source
  * @param {Number} id_applications_target Flows id_applications_target
  */
@@ -56,7 +75,7 @@ exports.add = async function (name, description, id_applications_source, id_appl
     try {
         let request = {
             text: `INSERT INTO flows (name, description, id_applications_source, id_applications_target) VALUES($1, $2, $3, $4) RETURNING *`,
-            values: [name, description, id_applications_source, id_applications_target, id_users]
+            values: [name, description, id_applications_source, id_applications_target]
         };
         let response = await pg_tool.handle_databsase(request);
         return response.rows;

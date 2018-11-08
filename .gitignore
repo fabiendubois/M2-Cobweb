@@ -1,4 +1,4 @@
 /back/node_modules
-/back/src/paths/doc
+/back/src/paths/doc/
 /back/bin/log/*
 **.log
