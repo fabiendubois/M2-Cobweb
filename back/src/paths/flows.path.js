@@ -213,7 +213,7 @@ router.delete('/flows/:id', async function (req, res) {
  * @apiError (Error 403) {String} Auth Forbidden Access.
  * @apiError (Error 500) {String} Internal Database Error.
  */
-router.put('/technologies/:id', async function (req, res) {
+router.put('/flows/:id', async function (req, res) {
     try {
         var return_code;
         var return_data;
@@ -222,8 +222,8 @@ router.put('/technologies/:id', async function (req, res) {
             throw new exception.httpException('Missing param(s)', 400);
         }
 
-        let name = req.body.name;
         let id = req.params.id;
+        let name = req.body.name;
         let description = req.body.description;
         let id_applications_source = req.body.id_applications_source;
         let id_applications_target = req.body.id_applications_target;
