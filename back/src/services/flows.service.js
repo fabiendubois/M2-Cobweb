@@ -73,7 +73,6 @@ exports.findByName = async function (name) {
  * @param {String} description Flow description
  * @param {Number} id_applications_source Flows id_applications_source
  * @param {Number} id_applications_target Flows id_applications_target
- * @param {Number} id_users Flows id_users  
  */
 exports.add = async function (name, description, id_applications_source, id_applications_target) {
     try {
@@ -128,7 +127,7 @@ exports.add = async function (name, description, id_applications_source, id_appl
 
 /**
  * Service 
- * Delete a flow  by id.
+ * Delete a flow by id.
  * @param {Number} id Flow id
  */
 exports.deleteById = async function (id) {
@@ -137,14 +136,83 @@ exports.deleteById = async function (id) {
             throw new exception.httpException('id is not number', 400);
         }
 
-        let flow = this.findById(id);
-        if (flow[0] === null) {
+        let flow = await this.findById(id);
+        if (_.isEmpty(flow[0])) {
             throw new exception.httpException('flow not exists', 400);
         }
 
         return await flows_repository.deleteById(id);
     } catch (error) {
         log.error('Service', 'Flows', 'deleteById', error);
+        throw error;
+    }
+}
+
+/**
+ * Service 
+ * Update a flow by id.
+ * @param {String} name Flow name
+ * @param {String} description Flow description
+ * @param {Number} id_applications_source Flows id_applications_source
+ * @param {Number} id_applications_target Flows id_applications_target
+ * @param {Number} id Flow id
+ */
+exports.updateById = async function (name, description, id_applications_source, id_applications_target, id) {
+    try {
+        if (_.isEmpty(name)) {
+            throw new exception.httpException('name empty or null', 400);
+        }
+
+        if (!_.isString(name)) {
+            throw new exception.httpException('name is not string', 400);
+        }
+
+        if (_.isEmpty(description)) {
+            throw new exception.httpException('description empty or null', 400);
+        }
+
+        if (!_.isString(description)) {
+            throw new exception.httpException('description is not string', 400);
+        }
+
+        if (isNaN(id_applications_source)) {
+            throw new exception.httpException('id_applications_source is not number', 400);
+        }
+
+        if (isNaN(id_applications_target)) {
+            throw new exception.httpException('id_applications_target is not number', 400);
+        }
+
+        /* Est-ce que l'application source existe ? */
+        let applications_source = await applications_recpository.findById(id_applications_source);
+        if (_.isEmpty(applications_source[0])) {
+            throw new exception.httpException('id_applications_source not exists', 400);
+        }
+
+        /* Est-ce que l'application target existe ? */
+        let applications_target = await applications_recpository.findById(id_applications_target);
+        if (_.isEmpty(applications_target[0])) {
+            throw new exception.httpException('id_applications_target not exists', 400);
+        }
+
+        if (isNaN(id)) {
+            throw new exception.httpException('id is not number', 400);
+        }
+
+        let flow_findById= await this.findById(id);
+        if (_.isEmpty(flow_findById[0])) {
+            throw new exception.httpException('flow not exists', 400);
+        }
+
+        /* Est-ce qu'un flow avec ce nom existe déjà (sauf si c'est le même nom) ? */
+        let flow_findByName = await this.findByName(name);
+        if (!_.isEmpty(flow_findByName[0]) && flow_findByName[0].nom !== flow_findById[0].nom) {
+            throw new exception.httpException('A flow with this name already exists', 400);
+        }
+
+        return await flows_repository.updateById(name, description, id_applications_source, id_applications_target, id);
+    } catch (error) {
+        log.error('Service', 'Flows', 'updateById', error);
         throw error;
     }
 }

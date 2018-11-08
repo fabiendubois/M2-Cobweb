@@ -1085,3 +1085,6 @@
 [2018-11-08T18:01:04.110] [ERROR] default - Service Flows add { message: 'A flow with this name exists', code: 400 }
 [2018-11-08T18:01:04.111] [ERROR] default - Controller Flows add { message: 'A flow with this name exists', code: 400 }
 [2018-11-08T18:01:04.111] [ERROR] default - Path Flows POST /flows { message: 'A flow with this name exists', code: 400 }
+[2018-11-08T18:13:31.806] [ERROR] default - Service Flows deleteById { message: 'flow not exists', code: 400 }
+[2018-11-08T18:13:31.807] [ERROR] default - Controller Flows deleteById { message: 'flow not exists', code: 400 }
+[2018-11-08T18:13:31.808] [ERROR] default - Path Flows DELETE /flows/:id { message: 'flow not exists', code: 400 }

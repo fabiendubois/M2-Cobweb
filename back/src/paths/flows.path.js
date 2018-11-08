@@ -88,7 +88,6 @@ router.get('/flows/:id', async function (req, res) {
     }
 });
 
-
 /**
  * @api {post} /flows Flows Add
  * @apiVersion 0.0.1
@@ -142,11 +141,105 @@ router.post('/flows', async function (req, res) {
     }
 });
 
+/**
+ * @api {delete} /flows/:id Flows Delete By Id
+ * @apiVersion 0.0.1
+ * @apiName Delete
+ * @apiGroup Flows
+ * @apiPermission Bearer Token. Need to be an admin.
+ *
+ * @apiExample {curl} Example usage:
+ *     curl --request DELETE --url http://127.0.0.1:8080/api/v1/flows/1 --header 'Authorization: Bearer <YOUR TOKEN>'
+ * 
+ * @apiDescription Delete a flows by id.
+ * 
+ * @apiParam (Params) {String} id Flow id.
+ * 
+ * @apiSuccess (Succes 204) {String} Accepted
+ * 
+ * @apiError (Error 400) {String} 0 Missing param(s).
+ * @apiError (Error 400) {String} 1 Id is not a number.
+ * @apiError (Error 400) {String} 2 Flow not exist.
+ * @apiError (Error 403) {String} Auth Forbidden Access.
+ * @apiError (Error 500) {String} Internal Database Error.
+ */
+router.delete('/flows/:id', async function (req, res) {
+    try {
+        var return_code;
+        var return_data;
 
+        if (_.isUndefined(req.params.id)) {
+            throw new exception.httpException('Missing param(s)', 400);
+        }
 
+        let id = req.params.id;
+        let headerAuth = req.headers['authorization'];
 
-// DELETE /flows/:id
-// PUT /flows:id
+        return_data = await flows_controller.deleteById(headerAuth, id);
+        return_code = 204;
+    } catch (error) {
+        log.error('Path', 'Flows', 'DELETE', '/flows/:id', error);
+        return_code = error.code;
+        return_data = { error: error.message };
+    } finally {
+        return res.status(return_code).send(return_data);
+    }
+});
+
+/**
+ * @api {put} /flows/:id Flows Update By Id
+ * @apiVersion 0.0.1
+ * @apiName Update
+ * @apiGroup Flows
+ * @apiPermission Bearer Token. Need to be an admin.
+ *
+ * @apiDescription Update a flow by id.
+ * 
+ * @apiParam (Body) {String} name Technology Name.
+ * @apiParam (Body) {String} description Flows Description.
+ * @apiParam (Body) {Number} id_applications_source Technology id_applications_source.
+ * @apiParam (Body) {Number} id_applications_target Technology id_applications_target.
+ * 
+ * @apiSuccess (Succes 204) {String} Accepted
+ * 
+ * @apiError (Error 400) {String} 0 Missing param(s).
+ * @apiError (Error 400) {String} 1 Name empty or null.
+ * @apiError (Error 400) {String} 2 Name is not string.
+ * @apiError (Error 400) {String} 3 Description empty or null.
+ * @apiError (Error 400) {String} 4 Description is not string.
+ * @apiError (Error 400) {String} 5 id_applications_source is not a number.
+ * @apiError (Error 400) {String} 6 id_applications_target is not a number.
+ * @apiError (Error 400) {String} 7 A flow with this name exists
+ * @apiError (Error 403) {String} Auth Forbidden Access.
+ * @apiError (Error 500) {String} Internal Database Error.
+ */
+router.put('/technologies/:id', async function (req, res) {
+    try {
+        var return_code;
+        var return_data;
+
+        if (_.isUndefined(req.params.id) || _.isUndefined(req.body.name)  || _.isUndefined(req.body.description) || _.isUndefined(req.body.id_applications_source) ||_.isUndefined(req.body.id_applications_target)) {
+            throw new exception.httpException('Missing param(s)', 400);
+        }
+
+        let name = req.body.name;
+        let id = req.params.id;
+        let description = req.body.description;
+        let id_applications_source = req.body.id_applications_source;
+        let id_applications_target = req.body.id_applications_target;
+        let headerAuth = req.headers['authorization'];
+
+        return_data = await flows_controller.updateById(headerAuth, name, description, id_applications_source, id_applications_target, id);
+        return_code = 204;
+    } catch (error) {
+        log.error('Path', 'Flows', 'PUT', '/flows/:id', error);
+        return_code = error.code;
+        return_data = { error: error.message };
+    } finally {
+        return res.status(return_code).send(return_data);
+    }
+});
+
 // GET /flows/:id/technologies/
 // GET /flows/:id/technologies/:id
 // POST /flows/:id/technologies/:id

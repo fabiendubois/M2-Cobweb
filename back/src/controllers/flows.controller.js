@@ -113,3 +113,35 @@ exports.deleteById = async function (headerAuth, id) {
         throw error;
     }
 }
+
+/**
+ * Controller 
+ * Update a flow by id.
+ * @param {String} headerAuth header authentification
+ * @param {String} name Flow name
+ * @param {String} description Flow description
+ * @param {Number} id_applications_source Flows id_applications_source
+ * @param {Number} id_applications_target Flows id_applications_target
+ * @param {Number} id Flow id
+ */
+exports.updateById = async function (headerAuth, name, description, id_applications_source, id_applications_target, id) {
+    try {
+        var users_id = jwt.getUserId(headerAuth);
+
+        /* Si l'utilisateur n'existe pas */
+        if (_.isUndefined(users_id) || users_id < 0) {
+            throw new exception.httpException('Forbidden Access', 403);
+        }
+
+        /* Est-ce que l'utilisateur est un admin */
+        let isAdmin = await user_service.isAdmin(users_id);
+        if (!isAdmin || isAdmin === null) {
+            throw new exception.httpException('Forbidden Access', 403);
+        }
+
+        return await flows_service.updateById(name, description, id_applications_source, id_applications_target, id);
+    } catch (error) {
+        log.error('Controller', 'Flows', 'updateById', error);
+        throw error;
+    }
+}
