@@ -2,9 +2,6 @@
 
 const express = require('express');
 const router = express.Router();
-const _ = require('lodash');
-
-const exception = require('../exceptions/http.exception');
 
 var log4js = require('log4js');
 var log = log4js.getLogger("default");
@@ -15,27 +12,24 @@ log4js.configure(config_log4js);
  * @api {get} /ping Ping
  * @apiVersion 0.0.1
  * @apiName Ping
- * @apiGroup General
+ * @apiGroup Tools
  *
  * @apiExample {curl} Example usage:
  *     curl --request GET --url http://127.0.0.1:8080/api/v1/ping
  *
- * @apiSuccess {String} ping Pong.
+ * @apiSuccess (Succes 200) {String} pong Pong.
  *
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
  *     {
- *       "ping":"pong",
+ *       "pong":"true",
  *     }
- * 
- * @apiSampleRequest http://127.0.0.1:8080/api/v1/ping
  */
 router.get('/ping', async function (req, res) {
+    let return_code;
+    let return_data;
     try {
-        var return_code;
-        var return_data;
-
-        return_data = 'pong';
+        return_data = '{"pong":"true"}';
         return_code = 200;
     } catch (error) {
         log.error(error);
@@ -45,5 +39,6 @@ router.get('/ping', async function (req, res) {
         return res.status(return_code).send(return_data);
     }
 });
+
 
 module.exports = router;

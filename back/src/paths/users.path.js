@@ -25,18 +25,17 @@ log4js.configure(config_log4js);
  * @apiParam (Params) {String} password User password.
  * 
  * @apiSuccess (Succes 201) {Integer} id User id.
- * @apiSuccess (Succes 201) {String} token User token --> users_id, admin,  expiresIn: 1H
+ * @apiSuccess (Succes 201) {String} token The user token contains this information: users_id, admin. Token operating time : 1H
  * 
  * @apiError (Error 400) {String} 0 Missing param(s).
- * @apiError (Error 400) {String} 1 Email Not Found.
- * @apiError (Error 400) {String} 2 Bad Password.
+ * @apiError (Error 400) {String} 1 This email address was not found.
+ * @apiError (Error 400) {String} 2 This param : password, is wrong.
  * @apiError (Error 500) {String} Internal Database Error. 
  */
 router.post('/users/sign_in', async function (req, res) {
+    let return_code;
+    let return_data;
     try {
-        var return_code;
-        var return_data;
-
         if (_.isUndefined(req.body.email) || _.isUndefined(req.body.password)) {
             throw new exception.httpException('Missing param(s)', 400);
         }
@@ -74,20 +73,21 @@ router.post('/users/sign_in', async function (req, res) {
  * @apiSuccess (Succes 201) {Boolean} admin User status.
  * 
  * @apiError (Error 400) {String} 0 General Missing param(s).
- * @apiError (Error 400) {String} 1 Email empty or null.
- * @apiError (Error 400) {String} 2 Password empty or null.
- * @apiError (Error 400) {String} 3 Admin empty or null.
- * @apiError (Error 400) {String} 4 Email is not string.
- * @apiError (Error 400) {String} 5 Password is not string.
- * @apiError (Error 400) {String} 6 Admin is not boolean.
- * @apiError (Error 400) {String} 7 This email is already exists.
+ * @apiError (Error 400) {String} 1 This param : email, is empty or null. 
+ * @apiError (Error 400) {String} 2 This param : password, is empty or null. 
+ * @apiError (Error 400) {String} 3 This param : admin, is empty or null. 
+ * @apiError (Error 400) {String} 4 This param : email, is not a string.
+ * @apiError (Error 400) {String} 5 This param : password, is not a string.
+ * @apiError (Error 400) {String} 6 This param : admin, is not a boolean.
+ * @apiError (Error 400) {String} 7 This param : email, has a wrong format.
+ * @apiError (Error 400) {String} 8 This param : password, has a wrong format.
+ * @apiError (Error 400) {String} 9 This email address already exists.
  * @apiError (Error 500) {String} Internal Database Error. 
  */
 router.post('/users/sign_up', async function (req, res) {
+    let return_code;
+    let return_data;
     try {
-        var return_code;
-        var return_data;
-
         if (_.isUndefined(req.body.email) || _.isUndefined(req.body.password) || _.isUndefined(req.body.admin)) {
             throw new exception.httpException('Missing param(s)', 400);
         }
@@ -96,11 +96,8 @@ router.post('/users/sign_up', async function (req, res) {
         let password = req.body.password;
         let admin = req.body.admin;
 
-        // @TODO : Ne pas retourner le mot de passe !
-        let users = await users_controller.signUp(email, password, admin);
-
+        return_data = await users_controller.signUp(email, password, admin);
         return_code = 201;
-        return_data = users;
     } catch (error) {
         log.error('Path', 'Users', '/users/sign_up', error);
         return_code = error.code;

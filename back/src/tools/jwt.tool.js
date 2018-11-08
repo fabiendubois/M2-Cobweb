@@ -1,15 +1,17 @@
-const exception = require('../exceptions/http.exception');
+'use strict'
 
-var jwt = require('jsonwebtoken');
+const exception = require('../exceptions/http.exception');
+const config = require('../../config/jwt');
+
+const jwt = require('jsonwebtoken');
 
 var log4js = require('log4js');
 var log = log4js.getLogger("default");
 var config_log4js = require('../../config/log4js');
 log4js.configure(config_log4js);
 
-const JWT_SIGN_SECRET = '<JWT_SIGN_TOKEN>';
+const JWT_SIGN_SECRET = config.jwt_secret;
 
-// Exported functions
 module.exports = {
     /**
      * Génération d'un token avec une durée de validité d'une heure

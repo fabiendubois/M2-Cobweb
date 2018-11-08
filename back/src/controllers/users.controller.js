@@ -24,14 +24,14 @@ exports.signIn = async function (email, password) {
 
         /* Si il n'y a pas d'utilisateur ayant cet email */
         if (_.isUndefined(user[0])) {
-            throw new exception.httpException('Email Not Found', 400);
+            throw new exception.httpException('This email address was not found.', 400);
         }
 
         const bool = await bcrypt.compareSync(password, user[0].password);
         if (bool) {
             user[0].token = jwt.generateTokenForUser(user[0]);
         } else {
-            throw new exception.httpException('Bad Password', 400);
+            throw new exception.httpException('This param : password, is wrong.', 400);
         }
         return user;
     } catch (error) {
@@ -49,7 +49,9 @@ exports.signIn = async function (email, password) {
  */
 exports.signUp = async function (email, password, admin) {
     try {
-        return await users_service.add(email, password, admin);
+        let user = await users_service.add(email, password, admin);
+        delete user[0].password;
+        return user;
     } catch (error) {
         log.error('Controller', 'Users', 'signUp', error);
         throw error;
