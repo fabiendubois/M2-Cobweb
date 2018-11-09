@@ -6,7 +6,8 @@ const rateLimit = require("express-rate-limit"); // https://www.npmjs.com/packag
 
 var log4js = require('log4js');
 var log = log4js.getLogger("default");
-log4js.configure('../config/log4js.json');
+var config_log4js = require('../config/log4js');
+log4js.configure(config_log4js);
 
 var app = express();
 
