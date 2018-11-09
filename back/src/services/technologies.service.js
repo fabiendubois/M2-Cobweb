@@ -3,11 +3,9 @@
 const technologies_repository = require('../repositories/technologies.repository');
 const flows_technologies_service = require('./flows_technologies.service');
 const applications_technologies_service = require('./applications_technologies.service');
-
 const exception = require('../exceptions/http.exception');
 
 const _ = require('lodash');
-const bcrypt = require('bcrypt');
 
 var log4js = require('log4js');
 var log = log4js.getLogger("default");
@@ -35,7 +33,7 @@ exports.findAll = async function () {
 exports.findById = async function (id) {
     try {
         if (isNaN(id)) {
-            throw new exception.httpException('id is not number', 400);
+            throw new exception.httpException('This param : id, is not a number.', 400);
         }
         return await technologies_repository.findById(id);
     } catch (error) {
@@ -52,12 +50,13 @@ exports.findById = async function (id) {
 exports.findByName = async function (name) {
     try {
         if (_.isEmpty(name)) {
-            throw new exception.httpException('name empty or null', 400);
+            throw new exception.httpException('This param : name, is empty or null.', 400);
         }
 
         if (!_.isString(name)) {
-            throw new exception.httpException('name is not string', 400);
+            throw new exception.httpException('This param : name, is not a string.', 400);
         }
+
         return await technologies_repository.findByName(name);
     } catch (error) {
         log.error('Service', 'Technologies', 'findByName', error);
@@ -73,11 +72,11 @@ exports.findByName = async function (name) {
 exports.add = async function (name) {
     try {
         if (_.isEmpty(name)) {
-            throw new exception.httpException('name empty or null', 400);
+            throw new exception.httpException('This param : name, is empty or null.', 400);
         }
 
         if (!_.isString(name)) {
-            throw new exception.httpException('name is not string', 400);
+            throw new exception.httpException('This param : name, is not a string.', 400);
         }
 
         /* Est-ce qu'une technologie existe déjà avec ce nom ? */
@@ -100,12 +99,8 @@ exports.add = async function (name) {
  */
 exports.deleteById = async function (id) {
     try {
-        if (_.isEmpty(id)) {
-            throw new exception.httpException('id empty or null', 400);
-        }
-
-        if (_.isNaN(id)) {
-            throw new exception.httpException('id is not number', 400);
+        if (isNaN(id)) {
+            throw new exception.httpException('This param : id, is not a number.', 400);
         }
 
         /* Est-ce que cette technologie est utilisée ? */
@@ -130,20 +125,16 @@ exports.deleteById = async function (id) {
  */
 exports.updateById = async function (name, id) {
     try {
-        if (_.isEmpty(id)) {
-            throw new exception.httpException('id empty or null', 400);
-        }
-
-        if (_.isNaN(id)) {
-            throw new exception.httpException('id is not number', 400);
+        if (isNaN(id)) {
+            throw new exception.httpException('This param : id, is not a number.', 400);
         }
 
         if (_.isEmpty(name)) {
-            throw new exception.httpException('name empty or null', 400);
+            throw new exception.httpException('This param : name, is empty or null.', 400);
         }
 
         if (!_.isString(name)) {
-            throw new exception.httpException('name is not string', 400);
+            throw new exception.httpException('This param : name, is not a string.', 400);
         }
 
         /* Est-ce que cette technologie existe bien avec cet id ? */

@@ -46,6 +46,44 @@ exports.findById = async function (id) {
 
 /**
  * Repository
+ * Find a flow by id_applications_source.
+ * @param {Number} id_applications_source Flows id_applications_source
+ */
+exports.findByIdApplicationsSource = async function (id_applications_source) {
+    try {
+        let request = {
+            text: `SELECT * FROM flows WHERE id_applications_source = $1`,
+            values: [id_applications_source]
+        };
+        let response = await pg_tool.handle_databsase(request);
+        return response.rows;
+    } catch (error) {
+        log.error('Repository', 'Flows', 'findByIdApplicationsSource', error);
+        throw new exception.httpException('Internal DataBase Error', 500);
+    }
+}
+
+/**
+ * Repository
+ * Find a flow by id_applications_target.
+ * @param {Number} id_applications_target Flows id_applications_target
+ */
+exports.findByIdApplicationsTarget = async function (id_applications_target) {
+    try {
+        let request = {
+            text: `SELECT * FROM flows WHERE id_applications_target = $1`,
+            values: [id_applications_target]
+        };
+        let response = await pg_tool.handle_databsase(request);
+        return response.rows;
+    } catch (error) {
+        log.error('Repository', 'Flows', 'findByIdApplicationsTarget', error);
+        throw new exception.httpException('Internal DataBase Error', 500);
+    }
+}
+
+/**
+ * Repository
  * Find a flow by name.
  * @param {Number} name Flows name
  */

@@ -1,11 +1,11 @@
 'use strict'
 
+const users_controller = require('../controllers/users.controller');
+const exception = require('../exceptions/http.exception');
+
 const express = require('express');
 const router = express.Router();
 const _ = require('lodash');
-
-const users_controller = require('../controllers/users.controller');
-const exception = require('../exceptions/http.exception');
 
 var log4js = require('log4js');
 var log = log4js.getLogger("default");
@@ -106,5 +106,6 @@ router.post('/users/sign_up', async function (req, res) {
         return res.status(return_code).json(return_data)
     }
 });
+
 
 module.exports = router;

@@ -1,14 +1,11 @@
 'use strict'
 
 const technologies_service = require('../services/technologies.service');
-const user_controller = require('./users.controller');
 const users_service = require('../services/users.service');
-
 const exception = require('../exceptions/http.exception');
 const jwt = require('../tools/jwt.tool');
 
 const _ = require('lodash');
-const bcrypt = require('bcrypt');
 
 var log4js = require('log4js');
 var log = log4js.getLogger("default");

@@ -1,11 +1,9 @@
 'use strict'
 
 const applications_repository = require('../repositories/applications.repository');
-const applications_technologies_repository = require('../repositories/applications_technologies.repository');
 const exception = require('../exceptions/http.exception');
 
 const _ = require('lodash');
-const bcrypt = require('bcrypt');
 
 var log4js = require('log4js');
 var log = log4js.getLogger("default");
@@ -33,7 +31,7 @@ exports.findAll = async function () {
 exports.findById = async function (id) {
     try {
         if (isNaN(id)) {
-            throw new exception.httpException('id is not number', 400);
+            throw new exception.httpException('This param : id, is not a number.', 400);
         }
         return await applications_repository.findById(id);
     } catch (error) {
@@ -50,11 +48,11 @@ exports.findById = async function (id) {
 exports.findByName = async function (name) {
     try {
         if (_.isEmpty(name)) {
-            throw new exception.httpException('name empty or null', 400);
+            throw new exception.httpException('This param : name, is empty or null.', 400);
         }
 
         if (!_.isString(name)) {
-            throw new exception.httpException('name is not string', 400);
+            throw new exception.httpException('This param : name, is not a string.', 400);
         }
 
         return await applications_repository.findByName(name);
@@ -75,11 +73,11 @@ exports.findByName = async function (name) {
 exports.add = async function (name, description, team) {
     try {
         if (_.isEmpty(name)) {
-            throw new exception.httpException('name empty or null', 400);
+            throw new exception.httpException('This param : name, is empty or null.', 400);
         }
 
         if (!_.isString(name)) {
-            throw new exception.httpException('name is not string', 400);
+            throw new exception.httpException('This param : name, is not a string.', 400);
         }
 
         let application = await this.findByName(name);
@@ -89,10 +87,10 @@ exports.add = async function (name, description, team) {
 
         if (description !== null) {
             if (_.isEmpty(description)) {
-                throw new exception.httpException('description empty', 400);
+                throw new exception.httpException('This param : description, is empty.', 400);
             }
             if (!_.isString(description)) {
-                throw new exception.httpException('description is not string', 400);
+                throw new exception.httpException('This param : description, is not a string.', 400);
             }
         } else {
             description = null;
@@ -100,10 +98,10 @@ exports.add = async function (name, description, team) {
 
         if (team !== null) {
             if (_.isEmpty(team)) {
-                throw new exception.httpException('team empty', 400);
+                throw new exception.httpException('This param : name, is empty.', 400);
             }
             if (!_.isString(team)) {
-                throw new exception.httpException('team is not string', 400);
+                throw new exception.httpException('This param : team, is not a string.', 400);
             }
         } else {
             team = null;
@@ -123,21 +121,16 @@ exports.add = async function (name, description, team) {
  */
 exports.deleteById = async function (id) {
     try {
-        if (_.isEmpty(id)) {
-            throw new exception.httpException('id empty or null', 400);
+        if (isNaN(id)) {
+            throw new exception.httpException('This param : id, is not a number.', 400);
         }
 
-        if (_.isNaN(id)) {
-            throw new exception.httpException('id is not number', 400);
-        }
-
-        /* Est-ce que cette application est utilisée ? 
+        /* Est-ce que cette application est utilisée ? */
         let applications_source = await flows_service.findByIdApplicationsSource(id);
         let applications_target = await flows_service.findByIdApplicationsTarget(id);
         if(!_.isEmpty(applications_source[0]) || !_.isEmpty(applications_target[0])) {
             throw new exception.httpException('This resource cannot be deleted. It is already in use.', 400);
         }
-        */
 
         return await applications_repository.deleteById(id);
     } catch (error) {
@@ -158,20 +151,16 @@ exports.deleteById = async function (id) {
  */
 exports.updateById = async function (name, description, team, id) {
     try {
-        if (_.isEmpty(id)) {
-            throw new exception.httpException('id empty or null', 400);
-        }
-
-        if (_.isNaN(id)) {
-            throw new exception.httpException('id is not number', 400);
+        if (isNaN(id)) {
+            throw new exception.httpException('This param : id, is not a number.', 400);
         }
 
         if (_.isEmpty(name)) {
-            throw new exception.httpException('name empty or null', 400);
+            throw new exception.httpException('This param : name, is empty or null.', 400);
         }
 
         if (!_.isString(name)) {
-            throw new exception.httpException('name is not string', 400);
+            throw new exception.httpException('This param : name, is not a string.', 400);
         }
 
         let application_findById = await this.findById(id);
@@ -188,10 +177,10 @@ exports.updateById = async function (name, description, team, id) {
 
         if (description !== null) {
             if (_.isEmpty(description)) {
-                throw new exception.httpException('description empty', 400);
+                throw new exception.httpException('This param : description, is empty.', 400);
             }
             if (!_.isString(description)) {
-                throw new exception.httpException('description is not string', 400);
+                throw new exception.httpException('This param : description, is not a string.', 400);
             }
         } else {
             description = null;
@@ -199,10 +188,10 @@ exports.updateById = async function (name, description, team, id) {
 
         if (team !== null) {
             if (_.isEmpty(team)) {
-                throw new exception.httpException('team empty', 400);
+                throw new exception.httpException('This param : name, is empty.', 400);
             }
             if (!_.isString(team)) {
-                throw new exception.httpException('team is not string', 400);
+                throw new exception.httpException('This param : team, is not a string.', 400);
             }
         } else {
             team = null;

@@ -1,11 +1,11 @@
 'use strict'
 
+const technologies_controller = require('../controllers/technologies.controller');
+const exception = require('../exceptions/http.exception');
+
 const express = require('express');
 const router = express.Router();
 const _ = require('lodash');
-
-const technologies_controller = require('../controllers/technologies.controller');
-const exception = require('../exceptions/http.exception');
 
 var log4js = require('log4js');
 var log = log4js.getLogger("default");
@@ -79,7 +79,7 @@ router.get('/technologies', async function (req, res) {
  *  }]
  * 
  * @apiError (Error 400) {String} 0 Missing param(s).
- * @apiError (Error 400) {String} 1 Id is not a number.
+ * @apiError (Error 400) {String} 1 This param : id, is not a number.
  * @apiError (Error 403) {String} Auth Forbidden Access.
  * @apiError (Error 500) {String} Internal Database Error.
  */
@@ -120,8 +120,8 @@ router.get('/technologies/:id', async function (req, res) {
  * @apiSuccess (Succes 201) {JSON} Technology Technology.
  * 
  * @apiError (Error 400) {String} 0 Missing param(s).
- * @apiError (Error 400) {String} 1 Name empty or null.
- * @apiError (Error 400) {String} 2 Name is not string.
+ * @apiError (Error 400) {String} 1 This param : name, is empty or null.
+ * @apiError (Error 400) {String} 2 This param : name, is not a string.
  * @apiError (Error 400) {String} 3 This technology with this name already exists.
  * @apiError (Error 403) {String} Auth Forbidden Access.
  * @apiError (Error 500) {String} Internal Database Error.
@@ -166,7 +166,7 @@ router.post('/technologies', async function (req, res) {
  * @apiSuccess (Succes 204) {String} Accepted
  * 
  * @apiError (Error 400) {String} 0 Missing param(s).
- * @apiError (Error 400) {String} 1 Id is not a number.
+ * @apiError (Error 400) {String} 1 This param : id, is not a number.
  * @apiError (Error 400) {String} 2 This resource cannot be deleted. It is already in use.
  * @apiError (Error 403) {String} Auth Forbidden Access.
  * @apiError (Error 500) {String} Internal Database Error.
@@ -209,9 +209,9 @@ router.delete('/technologies/:id', async function (req, res) {
  * @apiSuccess (Succes 204) {String} Accepted
  * 
  * @apiError (Error 400) {String} 0 Missing param(s).
- * @apiError (Error 400) {String} 1 Id is not a number.
- * @apiError (Error 400) {String} 1 Name empty or null.
- * @apiError (Error 400) {String} 2 Name is not string.
+ * @apiError (Error 400) {String} 1 This param : id, is not a number.
+ * @apiError (Error 400) {String} 1 This param : name, is empty or null.
+ * @apiError (Error 400) {String} 2 This param : name, is not a string.
  * @apiError (Error 400) {String} 3 This technology with this name already exists.
  * @apiError (Error 403) {String} Auth Forbidden Access.
  * @apiError (Error 500) {String} Internal Database Error.

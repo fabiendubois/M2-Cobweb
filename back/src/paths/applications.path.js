@@ -1,11 +1,11 @@
 'use strict'
 
+const applications_controller = require('../controllers/applications.controller');
+const exception = require('../exceptions/http.exception');
+
 const express = require('express');
 const router = express.Router();
 const _ = require('lodash');
-
-const applications_controller = require('../controllers/applications.controller');
-const exception = require('../exceptions/http.exception');
 
 var log4js = require('log4js');
 var log = log4js.getLogger("default");
