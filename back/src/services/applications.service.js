@@ -2,6 +2,7 @@
 
 const applications_repository = require('../repositories/applications.repository');
 const applications_technologies_service = require('../services/applications_technologies.service');
+const flows_service = require('../services/flows.service');
 const exception = require('../exceptions/http.exception');
 
 const _ = require('lodash');
@@ -126,7 +127,7 @@ exports.deleteById = async function (id) {
             throw new exception.httpException('This param : id, is not a number.', 400);
         }
 
-        let application = this.findById(id);
+        let application = await this.findById(id);
         if (_.isEmpty(application[0])) {
             throw new exception.httpException('This application not exists', 400);
         }

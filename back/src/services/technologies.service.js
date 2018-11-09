@@ -106,7 +106,7 @@ exports.deleteById = async function (id) {
         /* Est-ce que cette technologie est utilisée ? */
         let flows_technologies = await flows_technologies_service.findByIdTechnologies(id);
         let applications_technologies = await applications_technologies_service.findByIdTechnologies(id);
-        if(flows_technologies[0] !== null || applications_technologies[0] !== null) {
+        if(!_.isEmpty(flows_technologies[0]) || !_.isEmpty(applications_technologies[0])) {
             throw new exception.httpException('This resource cannot be deleted. It is already in use.', 400);
         }
 
