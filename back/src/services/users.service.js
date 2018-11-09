@@ -6,9 +6,10 @@ const exception = require('../exceptions/http.exception');
 /* REGEX */
 const REGEX_EMAIL = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const REGEX_PASSWORD = /^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,}$/;
+const SALT = 'SALTCOBWEB';
 
 const _ = require('lodash');
-const bcrypt = require('bcrypt');
+const md5 = require('md5');
 
 var log4js = require('log4js');
 var log = log4js.getLogger("default");
@@ -88,8 +89,7 @@ exports.add = async function (email, password, admin) {
             throw new exception.httpException('This email address already exists.', 400);
         }
 
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, salt);
+        const hashedPassword = md5(password + SALT);
 
         return await users_repository.add(email, hashedPassword, admin);
     } catch (error) {

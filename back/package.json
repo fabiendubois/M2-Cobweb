@@ -9,5 +9,13 @@
   "author": "Fabien DUBOIS & Jérôme LAQUAY",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-rate-limit": "^3.3.1",
+    "helmet": "^3.15.0",
+    "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.11",
+    "log4js": "^3.0.6",
+    "pg": "^7.6.1"
   }
 }

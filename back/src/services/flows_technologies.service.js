@@ -7,7 +7,6 @@ const technologies_repository = require('../repositories/technologies.repository
 const exception = require('../exceptions/http.exception');
 
 const _ = require('lodash');
-const bcrypt = require('bcrypt');
 
 var log4js = require('log4js');
 var log = log4js.getLogger("default");

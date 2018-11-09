@@ -4,8 +4,10 @@ const users_service = require('../services/users.service');
 const exception = require('../exceptions/http.exception');
 const jwt = require('../tools/jwt.tool');
 
+const SALT = 'SALTCOBWEB';
+
 const _ = require('lodash');
-const bcrypt = require('bcrypt');
+const md5 = require('md5');
 
 var log4js = require('log4js');
 var log = log4js.getLogger("default");
@@ -27,7 +29,12 @@ exports.signIn = async function (email, password) {
             throw new exception.httpException('This email address was not found.', 400);
         }
 
-        const bool = await bcrypt.compareSync(password, user[0].password);
+        const bool = false;
+        
+        if(md5(password + SALT) === user[0].password) {
+            bool = true
+        }
+
         if (bool) {
             user[0].token = jwt.generateTokenForUser(user[0]);
         } else {
