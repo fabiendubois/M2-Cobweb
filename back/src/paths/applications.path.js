@@ -85,7 +85,7 @@ router.get('/applications', async function (req, res) {
  *  }]
  * 
  * @apiError (Error 400) {String} 0 Missing param(s).
- * @apiError (Error 400) {String} 1 Id is not a number.
+ * @apiError (Error 400) {String} 1 This param : id, is not a number.
  * @apiError (Error 403) {String} Auth Forbidden Access.
  * @apiError (Error 500) {String} Internal Database Error.
  */
@@ -128,7 +128,7 @@ router.get('/applications/:id', async function (req, res) {
  * @apiSuccess (Succes 200) {JSON} technologies Technologies.
  * 
  * @apiError (Error 400) {String} 0 Missing param(s).
- * @apiError (Error 400) {String} 1 Id is not a number.
+ * @apiError (Error 400) {String} 1 This param : id, is not a number.
  * @apiError (Error 403) {String} Auth Forbidden Access.
  * @apiError (Error 500) {String} Internal Database Error.
  */
@@ -166,17 +166,20 @@ router.get('/applications/:id/technologies', async function (req, res) {
  * @apiDescription Add an application.
  * 
  * @apiParam (Body) {String} name Application name.
- * @apiParam (Body) {String} description Application description.
- * @apiParam (Body) {String} team Application team.
+ * @apiParam (Body) {String} description Application description. Can be null.
+ * @apiParam (Body) {String} team Application team. Can be null.
  * 
- * @apiSuccess (Succes 201) {JSON}  Technology Id.
+ * @apiSuccess (Succes 201) {JSON}  Application Application .
  * 
  * @apiError (Error 400) {String} 0 Missing param(s).
- * @apiError (Error 400) {String} 1 Name empty or null.
- * @apiError (Error 400) {String} 2 Name is not string.
- * @apiError (Error 400) {String} 3 Description empty.
- * @apiError (Error 400) {String} 4 Team empty.
- * @apiError (Error 400) {String} 5 This application with this name already exists.
+ * @apiError (Error 400) {String} 1 This param : name, is empty or null.
+ * @apiError (Error 400) {String} 2 This param : name, is not a string.
+ * @apiError (Error 400) {String} 3 This param : descrition, is empty.
+ * @apiError (Error 400) {String} 4 This param : description, is not a string.
+ * @apiError (Error 400) {String} 5 This param : team, is empty.
+ * @apiError (Error 400) {String} 6 This param : team, is not a string.
+ * @apiError (Error 400) {String} 7 This application with this name already exists.
+ 
  * @apiError (Error 403) {String} Auth Forbidden Access.
  * @apiError (Error 500) {String} Internal Database Error.
  */
@@ -265,8 +268,9 @@ router.post('/applications/:id/technologies', async function (req, res) {
  * @apiSuccess (Succes 204) {String} Accepted
  * 
  * @apiError (Error 400) {String} 0 Missing param(s).
- * @apiError (Error 400) {String} 1 Id is not a number.
+ * @apiError (Error 400) {String} 1 This param : id, is not a number.
  * @apiError (Error 400) {String} 2 This resource cannot be deleted. It is already in use.
+ * 
  * @apiError (Error 403) {String} Auth Forbidden Access.
  * @apiError (Error 500) {String} Internal Database Error.
  */
@@ -349,16 +353,22 @@ router.delete('/applications/:id_applications/technologies/:id_technologies', as
  * 
  * @apiParam (Params) {String} id Application id.
  * @apiParam (Body) {String} name Application name.
- * @apiParam (Body) {String} deascription Application deascription.
- * @apiParam (Body) {String} team Application team.
+ * @apiParam (Body) {String} description Application description. Can be null.
+ * @apiParam (Body) {String} team Application team. Can be null.
  * 
  * @apiSuccess (Succes 204) {String} Accepted
  * 
  * @apiError (Error 400) {String} 0 Missing param(s).
- * @apiError (Error 400) {String} 1 Id is not a number.
- * @apiError (Error 400) {String} 1 Name empty or null.
- * @apiError (Error 400) {String} 2 Name is not string.
- * @apiError (Error 400) {String} 3 This technology with this name already exists.
+ * @apiError (Error 400) {String} 1 This param : id, is not a number.
+ * @apiError (Error 400) {String} 1 This param : name, is empty or null.
+ * @apiError (Error 400) {String} 2 This param : name, is not a string.
+ * @apiError (Error 400) {String} 3 This param : descrition, is empty.
+ * @apiError (Error 400) {String} 4 This param : description, is not a string.
+ * @apiError (Error 400) {String} 5 This param : team, is empty.
+ * @apiError (Error 400) {String} 6 This param : team, is not a string.
+ * @apiError (Error 400) {String} 7 This application with this id not exists.
+ * @apiError (Error 400) {String} 8 This application with this name already exists.
+ * 
  * @apiError (Error 403) {String} Auth Forbidden Access.
  * @apiError (Error 500) {String} Internal Database Error.
  */

@@ -62,6 +62,7 @@ router.get('/flows', async function (req, res) {
  * 
  * @apiError (Error 400) {String} 0 Missing param(s).
  * @apiError (Error 400) {String} 1 This param : id, is not a number.
+ * 
  * @apiError (Error 403) {String} Auth Forbidden Access.
  * @apiError (Error 500) {String} Internal Database Error.
  */
@@ -99,10 +100,10 @@ router.get('/flows/:id', async function (req, res) {
  * 
  * @apiParam (Body) {String} name Technology Name.
  * @apiParam (Body) {String} description Flows Description.
- * @apiParam (Body) {Number} id_applications_source Technology id_applications_source.
- * @apiParam (Body) {Number} id_applications_target Technology id_applications_target.
+ * @apiParam (Body) {Number} id_applications_source Flow id_applications_source.
+ * @apiParam (Body) {Number} id_applications_target Flow id_applications_target.
  * 
- * @apiSuccess (Succes 201) {JSON} Technology Technology.
+ * @apiSuccess (Succes 201) {JSON} Flow Flow.
  * 
  * @apiError (Error 400) {String} 0 Missing param(s).
  * @apiError (Error 400) {String} 1 This param : name, is empty or null.
@@ -114,6 +115,7 @@ router.get('/flows/:id', async function (req, res) {
  * @apiError (Error 400) {String} 7 id_applications_source not exists.
  * @apiError (Error 400) {String} 8 id_applications_target not exists.
  * @apiError (Error 400) {String} 9 A flow with this name already exists.
+ * 
  * @apiError (Error 403) {String} Auth Forbidden Access.
  * @apiError (Error 500) {String} Internal Database Error.
  */
@@ -162,6 +164,7 @@ router.post('/flows', async function (req, res) {
  * @apiError (Error 400) {String} 0 Missing param(s).
  * @apiError (Error 400) {String} 1 This param : id, is not a number.
  * @apiError (Error 400) {String} 2 Flow not exist.
+ * 
  * @apiError (Error 403) {String} Auth Forbidden Access.
  * @apiError (Error 500) {String} Internal Database Error.
  */
@@ -216,6 +219,7 @@ router.delete('/flows/:id', async function (req, res) {
  * @apiError (Error 400) {String} 9 id_applications_target not exists.
  * @apiError (Error 400) {String} 10 A flow whith this id not exists.
  * @apiError (Error 400) {String} 11 A flow with this name already exists.
+ * 
  * @apiError (Error 403) {String} Auth Forbidden Access.
  * @apiError (Error 500) {String} Internal Database Error.
  */
