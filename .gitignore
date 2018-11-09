@@ -1,5 +1,4 @@
 /back/node_modules
-/back/src/paths
+/back/doc/
 /back/bin/log
-/back/doc
 /back/package-lock.json
