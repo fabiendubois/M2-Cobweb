@@ -29,9 +29,9 @@ exports.signIn = async function (email, password) {
             throw new exception.httpException('This email address was not found.', 400);
         }
 
-        const bool = false;
+        let bool = false;
         
-        if(md5(password + SALT) === user[0].password) {
+        if( md5(password + SALT) === user[0].password) {
             bool = true
         }
 

@@ -1,0 +1,8 @@
+[2018-11-09T20:18:42.875] [ERROR] default - Controller Users signIn { message: 'This param : password, is wrong.', code: 400 }
+[2018-11-09T20:18:42.876] [ERROR] default - Path Users /users/sign_in { message: 'This param : password, is wrong.', code: 400 }
+[2018-11-09T20:19:19.875] [ERROR] default - Controller Users signIn TypeError: Assignment to constant variable.
+    at Object.exports.signIn (/Users/fabien/Documents/Cours/M2 - III/Web/Cobweb/back/src/controllers/users.controller.js:35:18)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+[2018-11-09T20:19:19.875] [ERROR] default - Path Users /users/sign_in TypeError: Assignment to constant variable.
+    at Object.exports.signIn (/Users/fabien/Documents/Cours/M2 - III/Web/Cobweb/back/src/controllers/users.controller.js:35:18)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
