@@ -38,30 +38,30 @@ var requestTime = function (req, res, next) {
     log.warn('Ma requete', req.urlencoded);
     next();
   };
-app.use('/api/v1/ping/', requestTime);
+app.use('/v1/ping/', requestTime);
 */
 
 /* Paths */
 
 /* Ping */
 var ping = require('../src/paths/ping.path.js')
-app.use('/api/v1/', ping);
+app.use('/v1/', ping);
 
 /* Users */
 var users = require('../src/paths/users.path.js');
-app.use('/api/v1/', users);
+app.use('/v1/', users);
 
 /* Technologies */
 var technologies = require('../src/paths/technologies.path.js');
-app.use('/api/v1/', technologies);
+app.use('/v1/', technologies);
 
 /* Applications */
 var applications = require('../src/paths/applications.path.js');
-app.use('/api/v1/', applications);
+app.use('/v1/', applications);
 
 /* Flows */
 var flows = require('../src/paths/flows.path');
-app.use('/api/v1/', flows);
+app.use('/v1/', flows);
 
 var port = process.env.PORT || 8080;
 
