@@ -3,5 +3,5 @@
     "version": "0.1.0",
     "description": "Cobweb, API Documentation",
     "title": "API Cobweb",
-    "url" : "http://api.cobweb.fdu.ovh/api/v1"
+    "url" : "http://api.cobweb.fdu.ovh/v1/"
   }
