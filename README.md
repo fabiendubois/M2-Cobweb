@@ -19,3 +19,7 @@ Application de gestion de flux entre applications.
 **Docker Compose**
 **Git**
 **PostgreSQL**
+
+
+Doc : 
+ docker run --name cobweb-doc -e VIRTUAL_HOST=www.doc.api.cobweb.fdu.ovh,doc.api.cobweb.fdu.ovh -v /root/Cobweb/back/doc/:/usr/share/nginx/html:ro -d nginx

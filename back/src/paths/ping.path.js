@@ -15,7 +15,7 @@ log4js.configure(config_log4js);
  * @apiGroup Tools
  *
  * @apiExample {curl} Example usage:
- *     curl --request GET --url http://api.cobweb.fdu.ovh/api/v1/ping
+ *     curl --request GET --url http://api.cobweb.fdu.ovh/v1/ping
  *
  * @apiSuccess (Succes 200) {String} pong Pong.
  *

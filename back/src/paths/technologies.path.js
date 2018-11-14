@@ -21,7 +21,7 @@ log4js.configure(config_log4js);
  * 
  * @apiDescription Find all technologies.
  * @apiExample {curl} Example usage:
- *     curl --request GET --url http://api.cobweb.fdu.ovh/api/v1/technologies --header 'Authorization: Bearer <YOUR TOKEN>'
+ *     curl --request GET --url http://api.cobweb.fdu.ovh/v1/technologies --header 'Authorization: Bearer <YOUR TOKEN>'
  *
  * @apiSuccess (Succes 200) {JSON} technologies Technologies.
  * 
@@ -65,7 +65,7 @@ router.get('/technologies', async function (req, res) {
  * 
  * @apiDescription Find a technology by id.
  * @apiExample {curl} Example usage:
- *     curl --request GET --url http://api.cobweb.fdu.ovh/api/v1/technologies/1 --header 'Authorization: Bearer <YOUR TOKEN>'
+ *     curl --request GET --url http://api.cobweb.fdu.ovh/v1/technologies/1 --header 'Authorization: Bearer <YOUR TOKEN>'
  *
  * @apiParam (Params) {Number} id Technology id.
  * 
@@ -157,7 +157,7 @@ router.post('/technologies', async function (req, res) {
  * @apiPermission Bearer Token. Need to be an admin.
  *
  * @apiExample {curl} Example usage:
- *     curl --request DELETE --url http://api.cobweb.fdu.ovh/api/v1/technologies/1 --header 'Authorization: Bearer <YOUR TOKEN>'
+ *     curl --request DELETE --url http://api.cobweb.fdu.ovh/v1/technologies/1 --header 'Authorization: Bearer <YOUR TOKEN>'
  * 
  * @apiDescription Delete a technology by id.
  * 

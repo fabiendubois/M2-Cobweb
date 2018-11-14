@@ -21,7 +21,7 @@ log4js.configure(config_log4js);
  * 
  * @apiDescription Find all flows.
  * @apiExample {curl} Example usage:
- *     curl --request GET --url http://api.cobweb.fdu.ovh/api/v1/flows --header 'Authorization: Bearer <YOUR TOKEN>'
+ *     curl --request GET --url http://api.cobweb.fdu.ovh/v1/flows --header 'Authorization: Bearer <YOUR TOKEN>'
  *
  * @apiSuccess (Succes 200) {JSON} applications Applications.
  * 
@@ -54,7 +54,7 @@ router.get('/flows', async function (req, res) {
  * 
  * @apiDescription Find a flow by id.
  * @apiExample {curl} Example usage:
- *     curl --request GET --url http://api.cobweb.fdu.ovh/api/v1/flows/1 --header 'Authorization: Bearer <YOUR TOKEN>'
+ *     curl --request GET --url http://api.cobweb.fdu.ovh/v1/flows/1 --header 'Authorization: Bearer <YOUR TOKEN>'
  *
  * @apiParam (Params) {Number} id Flow id.
  * 
@@ -153,7 +153,7 @@ router.post('/flows', async function (req, res) {
  * @apiPermission Bearer Token. Need to be an admin.
  *
  * @apiExample {curl} Example usage:
- *     curl --request DELETE --url http://api.cobweb.fdu.ovh/api/v1/flows/1 --header 'Authorization: Bearer <YOUR TOKEN>'
+ *     curl --request DELETE --url http://api.cobweb.fdu.ovh/v1/flows/1 --header 'Authorization: Bearer <YOUR TOKEN>'
  * 
  * @apiDescription Delete a flows by id.
  * 

@@ -21,7 +21,7 @@ log4js.configure(config_log4js);
  * 
  * @apiDescription Find all applications.
  * @apiExample {curl} Example usage:
- *     curl --request GET --url http://api.cobweb.fdu.ovh/api/v1/applications --header 'Authorization: Bearer <YOUR TOKEN>'
+ *     curl --request GET --url http://api.cobweb.fdu.ovh/v1/applications --header 'Authorization: Bearer <YOUR TOKEN>'
  *
  * @apiSuccess (Succes 200) {JSON} applications Applications.
  * 
@@ -69,7 +69,7 @@ router.get('/applications', async function (req, res) {
  * 
  * @apiDescription Find an applications by id.
  * @apiExample {curl} Example usage:
- *     curl --request GET --url http://api.cobweb.fdu.ovh/api/v1/applications/1 --header 'Authorization: Bearer <YOUR TOKEN>'
+ *     curl --request GET --url http://api.cobweb.fdu.ovh/v1/applications/1 --header 'Authorization: Bearer <YOUR TOKEN>'
  *
  * @apiParam (Params) {Number} id Application id.
  * 
@@ -121,7 +121,7 @@ router.get('/applications/:id', async function (req, res) {
  * 
  * @apiDescription Find all technologies for an application
  * @apiExample {curl} Example usage:
- *     curl --request GET --url http://api.cobweb.fdu.ovh/api/v1/applications/1/technologies/ --header 'Authorization: Bearer <YOUR TOKEN>'
+ *     curl --request GET --url http://api.cobweb.fdu.ovh/v1/applications/1/technologies/ --header 'Authorization: Bearer <YOUR TOKEN>'
  *
  * @apiParam (Params) {Number} id Application id.
  * 
@@ -259,7 +259,7 @@ router.post('/applications/:id/technologies', async function (req, res) {
  * @apiPermission Bearer Token. Need to be an admin.
  *
  * @apiExample {curl} Example usage:
- *     curl --request DELETE --url http://api.cobweb.fdu.ovh/api/v1/applications/1 --header 'Authorization: Bearer <YOUR TOKEN>'
+ *     curl --request DELETE --url http://api.cobweb.fdu.ovh/v1/applications/1 --header 'Authorization: Bearer <YOUR TOKEN>'
  * 
  * @apiDescription Delete an application by id.
  * 
