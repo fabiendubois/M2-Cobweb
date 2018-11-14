@@ -1,7 +1,7 @@
 'use strict'
 
 var config = {
-    host: '127.0.0.1',
+    host: '51.254.216.9',
     user: 'cobweb',
     database: 'cobweb',
     password: 'password',
