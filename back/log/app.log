@@ -8,3 +8,4 @@
     at Object.exports.signIn (/Users/fabien/Documents/Cours/M2 - III/Web/Cobweb/back/src/controllers/users.controller.js:35:18)
     at process._tickCallback (internal/process/next_tick.js:68:7)
 [2018-11-09T20:19:55.038] [TRACE] default - app listening at 8080
+[2018-11-12T20:00:22.466] [TRACE] default - app listening at 8080
