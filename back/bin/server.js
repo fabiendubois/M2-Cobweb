@@ -42,6 +42,9 @@ app.use('/v1/ping/', requestTime);
 */
 
 /* Paths */
+/* Redirect to doc */
+var doc = require('../src/paths/doc.path.js')
+app.use('/', doc); 
 
 /* Ping */
 var ping = require('../src/paths/ping.path.js')
