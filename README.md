@@ -2,7 +2,7 @@
 ## Description du projet :
 Master 2 Informatique Ingénierie Innovation 2018 - 2019.  
 Projet de web avancé.  
-*En tant que bon développeur, vous avez pour mission de développer une application web pour exposer les échanges de données entre applications.*
+> *En tant que bon développeur, vous avez pour mission de développer une application web pour exposer les échanges de données entre applications.*
 
 ## Lancement de l'application (version local)
 Docker et Docker Compose sont requis (https://www.docker.com). 
