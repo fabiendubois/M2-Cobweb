@@ -24,3 +24,7 @@ Application de gestion de flux entre applications.
 Doc : 
 - docker run --name cobweb-doc -e VIRTUAL_HOST=www.doc.api.cobweb.fdu.ovh,doc.api.cobweb.fdu.ovh -v /root/Cobweb/back/doc/:/usr/share/nginx/html:ro -d nginx
 - apidoc -i src/paths -o doc
+
+Node
+docker build .
+docker run --name cobweb-api -d -e VIRTUAL_HOST=api.cobweb.fdu.ovh,www.api.cobweb.fdu.ovh b4cd15f26c8c
