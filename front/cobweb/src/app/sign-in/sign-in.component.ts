@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { error } from 'util';
 
 @Component({
   selector: 'app-sign-in',
@@ -6,10 +10,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
+  
+  sign_in_form: FormGroup;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router:Router) { }
 
   ngOnInit() {
+    this.sign_in_form = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]]
+    });
   }
+
+  sign_in() {
+    const val = this.sign_in_form.value;
+    if (val.email && val.password) {
+      this.authService.sign_in(val.email, val.password)
+        .subscribe(
+          (data) => {
+              this.router.navigate(['/home']);
+          },
+          (error) => { }
+        );
+    }
+  }
+
+
 
 }
