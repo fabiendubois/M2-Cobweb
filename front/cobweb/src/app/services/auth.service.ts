@@ -16,7 +16,6 @@ export class AuthService {
         return this.httpClient
             .post<any>(environment.apiUrl + 'users/sign_in', { email, password })
             .pipe(tap(result => {
-                console.log(result.token);
                 this.setToken(result.token);
             }));
     }
@@ -25,7 +24,6 @@ export class AuthService {
         const jwtHelper = new JwtHelperService();
         const jwtToken = this.getToken();
         if (jwtToken) {
-            console.log('jwtToken', jwtToken);
             if (!jwtHelper.isTokenExpired(jwtToken)) {
                 return true;
             }
