@@ -6,7 +6,7 @@
     <mat-card-content>
       <form  [formGroup]="sign_in_form">
         <mat-form-field>
-          <input matInput type="email" name="email" placeholder="Email" formControlName="email">
+          <input matInput autofocus type="email" name="email" placeholder="Email" formControlName="email">
         </mat-form-field>
         <mat-form-field>
           <input matInput type="password" name="password" placeholder="Password" formControlName="password">
@@ -15,7 +15,7 @@
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit" [disabled]="sign_in_form.invalid" (click)="sign_in()">Sign In</button>
-      <button mat-raised-button color="accent">Sign Up</button>
+      <button mat-raised-button color="accent" (click)="redirect_to_sign_up()">Sign Up</button>
     </mat-card-actions>
   </mat-card>
 </div>

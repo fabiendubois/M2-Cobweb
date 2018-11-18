@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
     providedIn: 'root'
@@ -16,8 +17,20 @@ export class AuthService {
             .post<any>(environment.apiUrl + 'users/sign_in', { email, password })
             .pipe(tap(result => {
                 console.log(result.token);
-                this.setToken(result.token)
+                this.setToken(result.token);
             }));
+    }
+
+    is_sign_in() {
+        const jwtHelper = new JwtHelperService();
+        const jwtToken = this.getToken();
+        if (jwtToken) {
+            console.log('jwtToken', jwtToken);
+            if (!jwtHelper.isTokenExpired(jwtToken)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     getToken() {
@@ -28,8 +41,8 @@ export class AuthService {
         sessionStorage.removeItem('access_token');
     }
 
-    private setToken(result) {
-        sessionStorage.setItem('access_token', result.token);
+    private setToken(token) {
+        sessionStorage.setItem('access_token', token);
     }
 
 }
