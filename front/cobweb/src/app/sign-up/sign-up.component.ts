@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,7 +13,7 @@ export class SignUpComponent implements OnInit {
 
   sign_up_form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router:Router) { }
+  constructor(public snackBar: MatSnackBar, private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.sign_up_form = this.formBuilder.group({
@@ -25,6 +26,21 @@ export class SignUpComponent implements OnInit {
   sign_up() {
     const val = this.sign_up_form.value;
     console.log(val);
+    if (val.email && val.password) {
+      this.authService.sign_up(val.email, val.password, val.admin)
+        .subscribe(
+          (data) => {
+            this.snackBar.open('Validated registration', '', {
+              duration: 2000
+            });
+          },
+          (error) => {
+            this.snackBar.open(error.error.error, '', {
+              duration: 2000
+            });
+          }
+        );
+    }
   }
 
 

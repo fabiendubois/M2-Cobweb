@@ -20,6 +20,10 @@ export class AuthService {
             }));
     }
 
+    sign_up(email: string, password: string, admin: boolean): Observable<any> {
+        return this.httpClient.post<any>(environment.apiUrl + 'users/sign_up', { email, password, admin });
+    }
+
     is_sign_in() {
         const jwtHelper = new JwtHelperService();
         const jwtToken = this.getToken();

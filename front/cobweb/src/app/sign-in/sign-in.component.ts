@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-sign-in',
@@ -12,7 +13,7 @@ export class SignInComponent implements OnInit {
   
   sign_in_form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router:Router) { }
+  constructor(public snackBar: MatSnackBar, private formBuilder: FormBuilder, private authService: AuthService, private router:Router) { }
 
   ngOnInit() {
     this.sign_in_form = this.formBuilder.group({
@@ -29,7 +30,9 @@ export class SignInComponent implements OnInit {
           (data) => {
               this.router.navigate(['/home']);
           },
-          (error) => { }
+          (error) => {this.snackBar.open(error.error.error, '', {
+            duration: 2000
+          }); }
         );
     }
   }
