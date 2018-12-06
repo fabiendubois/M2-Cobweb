@@ -9,8 +9,11 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
 
+// Interceptor
+import { AuthInterceptor } from '../app/interceptors/auth.interceptor';
+
 // HTTP
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Form
 import { ReactiveFormsModule } from '@angular/forms';
@@ -59,7 +62,9 @@ import { TechnologiesComponent } from './admin/technologies/technologies.compone
     MatIconModule,
     MatSnackBarModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:  true  },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
