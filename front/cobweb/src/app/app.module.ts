@@ -1,66 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-
-// Component
-import { AppComponent } from './app.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { HomeComponent } from './home/home.component';
-
-// Interceptor
-import { AuthInterceptor } from '../app/interceptors/auth.interceptor';
 
 // HTTP
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-// Form
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
+// Component
+import { AppComponent } from './app.component';
 
-// Material import 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatIconModule} from '@angular/material/icon';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { TechnologiesComponent } from './admin/technologies/technologies.component';
+// Module
+import { SharedModule } from './shared/shared.module';
+import { AppRoutingModule } from './app-routing.module';
 
+// Interceptor
+import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
-    // Component
-    AppComponent,
-    SignInComponent,
-    SignUpComponent,
-    HomeComponent,
-    TechnologiesComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    // Form 
-    ReactiveFormsModule,
-    FormsModule,
-    // HTTP
-    HttpClientModule,
-    // Material Import
+    CommonModule,
     BrowserAnimationsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSlideToggleModule,
-    MatMenuModule,
-    MatIconModule,
-    MatSnackBarModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:  true  },

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 import { MatSnackBar } from '@angular/material';
 
 @Component({
@@ -38,7 +38,7 @@ export class SignInComponent implements OnInit {
   }
 
   redirect_to_sign_up(){
-    this.router.navigate(['/sign_up']);
+    this.router.navigate(['/auth/sign_up']);
   }
 
 }
