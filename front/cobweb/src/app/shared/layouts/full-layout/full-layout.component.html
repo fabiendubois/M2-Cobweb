@@ -9,9 +9,10 @@
 
     <button mat-button [matMenuTriggerFor]="menu">Administration</button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>Flows</button>
-      <button mat-menu-item>Applications</button>
+      <button mat-menu-item routerLink="/admin/applications">Applications</button>
+      <button mat-menu-item routerLink="/admin/flows">Flows</button>
       <button mat-menu-item routerLink="/admin/technologies">Technologies</button>
+      <button mat-menu-item routerLink="/admin/users">Users</button>
     </mat-menu>
 
     <span class="spacer"></span>

@@ -24,15 +24,15 @@ const routes: Routes = [
   {
     path: '',
     component: FullLayoutComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     children: [
       {
         path: 'charts',
         loadChildren: './charts/charts.module#ChartsModule'
       },
       {
-        path: 'admin/technologies',
-        loadChildren: './admin/technologies/technologies.module#TechnologiesModule'
+        path: 'admin',
+        loadChildren: './admin/admin.module#AdminModule'
       }
     ]
   }
