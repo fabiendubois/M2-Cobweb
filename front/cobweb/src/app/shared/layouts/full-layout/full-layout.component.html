@@ -1,12 +1,12 @@
 <mat-toolbar class="fixed-header" color="primary">
   <mat-toolbar-row>
-    <button mat-button routerLink="/home">
+    <button mat-button routerLink="/charts">
       <mat-icon aria-label="Flows Chart">
         bubble_chart
       </mat-icon>
       Cobweb
     </button>
-    
+
     <button mat-button [matMenuTriggerFor]="menu">Administration</button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>Flows</button>
