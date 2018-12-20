@@ -34,6 +34,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     // Form 
     ReactiveFormsModule,
     FormsModule,
+    // HTTP
+    HttpClientModule,
     // Material Import
     MatCardModule,
     MatButtonModule,
@@ -49,6 +51,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     // Form 
     ReactiveFormsModule,
     FormsModule,
+    // HTTP
+    HttpClientModule,
     // Material Export
     MatCardModule,
     MatButtonModule,
@@ -59,8 +63,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatMenuModule,
     MatIconModule,
     MatSnackBarModule,
-    // HTTP
-    HttpClientModule
+
   ]
 })
 export class SharedModule { }
