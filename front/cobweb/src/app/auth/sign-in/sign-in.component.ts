@@ -28,7 +28,7 @@ export class SignInComponent implements OnInit {
       this.authService.sign_in(val.email, val.password)
         .subscribe(
           (data) => {
-              this.router.navigate(['/admin/technologies']);
+              this.router.navigate(['/charts']);
           },
           (error) => {this.snackBar.open(error.error.error, '', {
             duration: 2000

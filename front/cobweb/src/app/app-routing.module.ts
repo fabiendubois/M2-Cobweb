@@ -8,7 +8,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'auth/sign_in',
+    redirectTo: 'auth',
     pathMatch: 'full'    
   },
   {
@@ -24,16 +24,14 @@ const routes: Routes = [
   {
     path: '',
     component: FullLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
-      /*
       {
         path: 'charts',
         loadChildren: './charts/charts.module#ChartsModule'
       },
-      */
       {
         path: 'admin/technologies',
-      //  canActivate: [AdminSitesGuard],
         loadChildren: './admin/technologies/technologies.module#TechnologiesModule'
       }
     ]

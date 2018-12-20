@@ -17,6 +17,6 @@ export class FullLayoutComponent implements OnInit {
 
   sign_out() {
     this.authService.sign_out();
-    this.router.navigate(['/sign_in']);
+    this.router.navigate(['/auth/sign_in']);
   }
 }
