@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApplicationsService } from '../../shared/services/applications.service';
 
 @Component({
   selector: 'app-applications',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApplicationsComponent implements OnInit {
 
-  constructor() { }
+  applications;
+
+  constructor(private applicationsService: ApplicationsService) { }
 
   ngOnInit() {
+    this.loadData();
   }
+
+  loadData() {
+    this.applicationsService.findAll().subscribe(data => {
+      this.applications = data;
+      console.log('data', data);
+    });
+  }
+
 
 }
