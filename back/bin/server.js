@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const rateLimit = require("express-rate-limit"); // https://www.npmjs.com/package/express-rate-limit
+var cors = require('cors');
 
 
 var log4js = require('log4js');
@@ -12,7 +13,7 @@ log4js.configure(config_log4js);
 var app = express();
 
 app.use(helmet());
-
+/*
 app.use(function (req, res, next) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Credentials", "true");
@@ -21,6 +22,9 @@ app.use(function (req, res, next) {
 
     next();
 });
+*/
+
+app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
