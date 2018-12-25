@@ -1,0 +1,15 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+.mat-table-container .mat-table {
+    width: 100%;
+}
+
+.no-results {
+    display: flex;
+    justify-content: center;
+    padding: 14px;
+    font-size: 14px;
+    font-style: italic;
+  }

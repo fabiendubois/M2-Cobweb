@@ -8,7 +8,8 @@ import { ApplicationsService } from '../../shared/services/applications.service'
 })
 export class ApplicationsComponent implements OnInit {
 
-  applications;
+  applications = [];
+  displayedColumns: string[] = ['id', 'name', 'description', 'team', 'actions'];
 
   constructor(private applicationsService: ApplicationsService) { }
 
@@ -19,9 +20,7 @@ export class ApplicationsComponent implements OnInit {
   loadData() {
     this.applicationsService.findAll().subscribe(data => {
       this.applications = data;
-      console.log('data', data);
     });
   }
-
 
 }

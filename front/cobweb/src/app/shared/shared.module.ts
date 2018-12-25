@@ -24,6 +24,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 @NgModule({
@@ -45,7 +48,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSlideToggleModule,
     MatMenuModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule,
+    MatDialogModule
   ],
   exports: [
     // Form 
@@ -63,7 +68,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatMenuModule,
     MatIconModule,
     MatSnackBarModule,
-
+    MatTableModule,
+    MatDialogModule
   ]
 })
 export class SharedModule { }
