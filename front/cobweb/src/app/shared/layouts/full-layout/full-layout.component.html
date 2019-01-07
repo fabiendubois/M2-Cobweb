@@ -1,22 +1,33 @@
 <mat-toolbar class="fixed-header" color="primary">
   <mat-toolbar-row>
-    <button mat-button routerLink="/charts">
+    <button mat-button routerLink="/charts" class="main" routerLinkActive="mat-accent">
       <mat-icon aria-label="Flows Chart">
         bubble_chart
       </mat-icon>
       Cobweb
     </button>
 
-    <button mat-button [matMenuTriggerFor]="menu">Administration</button>
+    <button mat-button [matMenuTriggerFor]="menu" routerLinkActive="mat-accent"
+    [routerLinkActiveOptions]="{exact: false}">
+      <mat-icon aria-label="Flows Chart Administration">
+        settings
+      </mat-icon>
+      Administration
+    </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="/admin/applications">Applications</button>
-      <button mat-menu-item routerLink="/admin/flows">Flows</button>
-      <button mat-menu-item routerLink="/admin/technologies">Technologies</button>
-      <button mat-menu-item routerLink="/admin/users">Users</button>
+      <button mat-menu-item routerLink="/admin/applications" routerLinkActive="mat-accent">Applications</button>
+      <button mat-menu-item routerLink="/admin/flows" routerLinkActive="mat-accent">Flows</button>
+      <button mat-menu-item routerLink="/admin/technologies" routerLinkActive="mat-accent">Technologies</button>
     </mat-menu>
+    
+    <button mat-button onclick="location.href='https://doc.api.cobweb.fdu.ovh/'">
+      <mat-icon aria-label="Api Documentation">
+        language
+      </mat-icon>
+      Api Documentation
+    </button>
 
     <span class="spacer"></span>
-
     <button mat-button (click)="sign_out()">
       <mat-icon aria-label="Flows Chart">
         exit_to_app

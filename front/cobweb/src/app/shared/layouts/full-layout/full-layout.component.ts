@@ -13,6 +13,7 @@ export class FullLayoutComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
+    
   }
 
   sign_out() {

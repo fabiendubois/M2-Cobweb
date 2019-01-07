@@ -1,3 +1,13 @@
-<p>
-  add-update-dialog works!
-</p>
+<h1 mat-dialog-title>Add Technology</h1>
+<form [formGroup]="technologyForm" (ngSubmit)="onUpdateOrCreate()">
+
+  <div mat-dialog-content class="container">
+    <mat-form-field>
+      <input matInput cdkFocusInitial class="input" type="text" placeholder="Name" formControlName="name" required>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button color="accent" [mat-dialog-close]>Cancel</button>
+    <button mat-button color="primary" [disabled]="!technologyForm.valid" >Add</button>
+  </div>
+</form>

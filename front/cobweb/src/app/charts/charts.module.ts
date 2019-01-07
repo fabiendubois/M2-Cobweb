@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 
 import { ChartsRoutingModule } from './charts-routing.module';
 
@@ -13,6 +14,7 @@ import { NgxchartComponent } from './ngxchart/ngxchart.component';
   imports: [
     CommonModule,
     ChartsRoutingModule,
+    SharedModule,
     // Charts
     NgxChartsModule,
     NgxGraphModule

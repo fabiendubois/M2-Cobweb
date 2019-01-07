@@ -36,6 +36,19 @@ export class AuthService {
         return false;
     }
 
+    is_admin() {
+        const jwtHelper = new JwtHelperService();
+        const jwtToken = this.getToken();
+        if (jwtToken) {
+            const user_token = jwtHelper.decodeToken(jwtToken);
+            console.log('User Token', user_token);
+            if (user_token.admin === true) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     getToken() {
         return sessionStorage.getItem('access_token');
     }

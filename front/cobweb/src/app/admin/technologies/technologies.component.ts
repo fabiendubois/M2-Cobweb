@@ -31,7 +31,13 @@ export class TechnologiesComponent implements OnInit {
   }
 
   addDialog() {
-
+    const dialogRef = this.dialog.open(AddUpdateDialogComponent, {
+      data: {}
+    });
+ 
+    dialogRef.afterClosed().subscribe(result => {
+        this.loadData();
+    });
   }
 
   deleteDialog(element) {
@@ -42,7 +48,6 @@ export class TechnologiesComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.loadData();
     });
-
   }
 
 

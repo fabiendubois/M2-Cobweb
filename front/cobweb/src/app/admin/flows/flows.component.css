@@ -1,0 +1,27 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+table {
+    width: 100%;
+}
+
+.no-results {
+    display: flex;
+    justify-content: center;
+    padding: 14px;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.mat-table-container .mat-table {
+    width: 100%;
+}
+  
+.th-action-column, .mat-cell-buttons {
+    text-align: right;
+}
+
+.row:hover {
+    background: #f5f5f5;
+}

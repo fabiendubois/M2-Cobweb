@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Add Application</h1>
+<form [formGroup]="applicationForm" (ngSubmit)="onUpdateOrCreate()">
+
+  <div mat-dialog-content class="container">
+    <mat-form-field>
+      <input matInput cdkFocusInitial class="input" type="text" placeholder="Name" formControlName="name" required>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput class="input" type="text" placeholder="Description" formControlName="description" required></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput class="input" type="text" placeholder="Team" formControlName="team" required>
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button color="accent" [mat-dialog-close]>Cancel</button>
+    <button mat-button color="primary" [disabled]="!applicationForm.valid">Add</button>
+  </div>
+</form>

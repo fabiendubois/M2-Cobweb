@@ -12,5 +12,12 @@ export class ApplicationsService {
     findAll(): Observable<any> {
         return this.httpClient.get<any>(environment.apiUrl + 'applications');
     }
-    
+
+    add(application: any): Observable<any> {
+        return this.httpClient.post<any>(environment.apiUrl + 'applications', application);
+    }
+     
+    deleteById(id) : Observable<any> {
+        return this.httpClient.delete<any>(environment.apiUrl + 'applications/' + id);
+    }
 }

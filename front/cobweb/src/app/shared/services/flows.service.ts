@@ -6,21 +6,22 @@ import { environment } from '../../../environments/environment';
 @Injectable({
     providedIn: 'root'
 })
-export class TechnologiesService {
-    constructor(private httpClient: HttpClient) {}
+export class FlowsService {
+    constructor(private httpClient: HttpClient) { }
 
     findAll(): Observable<any> {
-        return this.httpClient.get<any>(environment.apiUrl + 'technologies');
+        return this.httpClient.get<any>(environment.apiUrl + 'flows');
     }
 
-    add(technology: any): Observable<any> {
-        return this.httpClient.post<any>(environment.apiUrl + 'technologies', technology);
+    add(flow: any): Observable<any> {
+        return this.httpClient.post<any>(environment.apiUrl + 'flows', flow);
     }
 
+    /*
     updateById(technology: any): Observable<any> {
         return this.httpClient.put<any>(environment.apiUrl + 'technologies', technology);
     }
-
+*/
     deleteById(id: number): Observable<any> {
         return this.httpClient.delete<any>(environment.apiUrl + 'technologies/' + id);
     }
