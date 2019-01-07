@@ -1,9 +1,10 @@
 .container {
     border-style: solid;
     border-width: 1px;
-    margin: 8px;
-    height: 50%;
-    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    height: 70%;
+    width: 98%;
 }
 
 .spacer {

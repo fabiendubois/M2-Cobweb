@@ -10,9 +10,11 @@ import { AuthService } from '../../services/auth.service';
 })
 export class FullLayoutComponent implements OnInit {
 
+  admin = false;
   constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
+    this.admin = this.authService.is_admin();
     
   }
 

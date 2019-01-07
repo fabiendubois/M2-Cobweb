@@ -1,23 +1,22 @@
 <mat-toolbar class="fixed-header" color="primary">
   <mat-toolbar-row>
-    <button mat-button routerLink="/charts" class="main" routerLinkActive="mat-accent">
+    <button mat-button routerLink="/charts" class="main">
       <mat-icon aria-label="Flows Chart">
         bubble_chart
       </mat-icon>
       Cobweb
     </button>
 
-    <button mat-button [matMenuTriggerFor]="menu" routerLinkActive="mat-accent"
-    [routerLinkActiveOptions]="{exact: false}">
+    <button mat-button [matMenuTriggerFor]="menu" *ngIf="admin === true">
       <mat-icon aria-label="Flows Chart Administration">
         settings
       </mat-icon>
       Administration
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="/admin/applications" routerLinkActive="mat-accent">Applications</button>
-      <button mat-menu-item routerLink="/admin/flows" routerLinkActive="mat-accent">Flows</button>
-      <button mat-menu-item routerLink="/admin/technologies" routerLinkActive="mat-accent">Technologies</button>
+      <button mat-menu-item routerLink="/admin/applications">Applications</button>
+      <button mat-menu-item routerLink="/admin/flows">Flows</button>
+      <button mat-menu-item routerLink="/admin/technologies">Technologies</button>
     </mat-menu>
     
     <button mat-button onclick="location.href='https://doc.api.cobweb.fdu.ovh/'">
