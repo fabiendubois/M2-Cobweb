@@ -63,7 +63,6 @@ export class NgxchartComponent implements OnInit {
 
 
   select(event) {
-    console.log('bite');
   }
 
 }
