@@ -19,7 +19,7 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-select placeholder="Application Source" formControlName="id_applications_target" required>
+      <mat-select placeholder="Application Target" formControlName="id_applications_target" required>
         <mat-option *ngFor="let app_target of applications_target" [value]="app_target.id">
           {{app_target.name}}
         </mat-option>
