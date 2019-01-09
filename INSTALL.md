@@ -22,9 +22,8 @@ Technologies requises :
 
 ### Serveur Node.JS (back)
 - Se placer dans le dossier Cobweb/back/ : `cd Cobweb/back/`
-- Exécuter la commande : `docker build .`
-- Exéctuer ensuite la commande suivante : `docker run --name cobweb-api -d [NUMERO IMAGE]` l'option -e n'est pas obligatoire pour un lancement en local.
-
+- Exéctuer la commande suivante : `docker-compose up -d --build`
+- Tester le fonctionnement en allant sur http://127.0.0.1:8080/v1/ping
 
 ### Application Angular (front)
 - Se placer dans le dossier Cobweb/front/ : `cd Cobweb/front/`
@@ -38,4 +37,3 @@ Technologies requises :
 - Se placer dans le dossier Cobweb/back/ : `cd Cobweb/back/`
 - Exécuter la commande : `apidoc -i src/paths -o doc`
 - La documentation est un site web static. Ouvrir le fichier /doc/index.html afin d'ouvrir la documentation.
-- Exposer la documentation avec un serveur Nginx : `docker run --name cobweb-doc -e VIRTUAL_HOST=www.doc.api.cobweb.fdu.ovh,doc.api.cobweb.fdu.ovh -v /root/Cobweb/back/doc/:/usr/share/nginx/html:ro -d nginx`
