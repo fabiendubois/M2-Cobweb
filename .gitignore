@@ -3,3 +3,5 @@
 /back/bin/log
 /back/log
 /back/package-lock.json
+
+/front/cobweb/node_modules
