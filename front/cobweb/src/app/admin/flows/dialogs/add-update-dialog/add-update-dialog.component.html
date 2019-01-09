@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Add Flow</h1>
+<form [formGroup]="flowForm" (ngSubmit)="onUpdateOrCreate()">
+
+  <div mat-dialog-content class="container">
+    <mat-form-field>
+      <input matInput cdkFocusInitial class="input" type="text" placeholder="Name" formControlName="name" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput class="input" type="text" placeholder="Description" formControlName="description" required></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Application Source" formControlName="id_applications_source" required>
+        <mat-option *ngFor="let app_source of applications_source" [value]="app_source.id">
+          {{app_source.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Application Target" formControlName="id_applications_target" required>
+        <mat-option *ngFor="let app_target of applications_target" [value]="app_target.id">
+          {{app_target.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button color="accent" [mat-dialog-close]>Cancel</button>
+    <button mat-button color="primary" [disabled]="!flowForm.valid">Add</button>
+  </div>
+</form>

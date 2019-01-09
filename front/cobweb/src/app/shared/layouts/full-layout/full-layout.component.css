@@ -1,0 +1,13 @@
+.fixed-header {
+    top: 0;
+    z-index: 2;
+}
+
+.main {
+    font-size: 120%;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+

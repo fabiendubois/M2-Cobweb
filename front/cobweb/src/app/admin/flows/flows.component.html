@@ -1,0 +1,70 @@
+<mat-toolbar>
+    Flows
+    <span class="spacer"></span>
+    <button mat-button (click)="loadData()">
+      <mat-icon aria-label="Flows Chart">
+        refresh
+      </mat-icon>
+      Refresh Data
+    </button>
+  </mat-toolbar>
+  
+  
+  <div class="mat-table-container">
+  
+    <table mat-table [dataSource]="flows">
+  
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+  
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description</th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+
+      <!-- Id Application Source Column-->
+      <ng-container matColumnDef="id_application_source">
+        <th mat-header-cell *matHeaderCellDef> Id Application Source </th>
+        <td mat-cell *matCellDef="let element"> {{element.id_applications_source}} </td>
+      </ng-container>
+  
+      <!-- Id Application Target Column-->
+      <ng-container matColumnDef="id_application_target">
+        <th mat-header-cell *matHeaderCellDef> Id Application Target </th>
+        <td mat-cell *matCellDef="let element"> {{element.id_applications_target}} </td>
+      </ng-container>
+  
+
+      <!-- actions -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="th-action-column">
+          <button mat-icon-button color="primary" (click)="addDialog()">
+            <mat-icon aria-label="Add">add</mat-icon>
+          </button>
+        </th>
+        <td mat-cell *matCellDef="let element" class="mat-cell-buttons">
+          <button mat-icon-button color="warn" (click)="deleteDialog(element)">
+            <mat-icon aria-label="Delete">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr class="row" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <div class="no-results" *ngIf="flows.length === 0">
+      No results
+    </div>
+
+  </div>

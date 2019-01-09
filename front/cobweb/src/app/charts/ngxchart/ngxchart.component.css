@@ -1,0 +1,12 @@
+.container {
+    border-style: solid;
+    border-width: 1px;
+    margin: auto;
+    margin-top: 20px;
+    height: 70%;
+    width: 98%;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
